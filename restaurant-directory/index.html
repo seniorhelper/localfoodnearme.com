@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restaurant Directory | Search Local Food Near You</title>
+<meta name="description" content="Search a growing national restaurant directory. Award-verified entries, restaurant-claimed listings, and open map data. Free for any restaurant to claim a listing.">
+<link rel="canonical" href="https://localfoodnearme.com/restaurant-directory/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#0E1B2A">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Local Food Near Me">
+<meta property="og:title" content="Restaurant Directory | Search Local Food Near You">
+<meta property="og:description" content="Search a growing national restaurant directory. Award-verified entries, restaurant-claimed listings, and open map data. Free for any restaurant to claim a listing.">
+<meta property="og:url" content="https://localfoodnearme.com/restaurant-directory/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230E1B2A'/><circle cx='16' cy='13' r='7' fill='none' stroke='%23C8F04A' stroke-width='2.5'/><path d='M16 9 v4 l3 2' stroke='%23C8F04A' stroke-width='2' fill='none' stroke-linecap='round'/><rect x='9' y='24' width='14' height='2.5' fill='%23E8913A'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;600;700&family=Literata:opsz,wght@7..72,400;7..72,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0E1B2A; --deep:#152538; --chalk:#F6F7F5; --white:#fff;
+  --lime:#C8F04A; --lime-ink:#5B7A00; --amber:#E8913A; --amber-ink:#9A5410;
+  --slate:#5A6B7C; --line:rgba(14,27,42,.14); --line-soft:rgba(14,27,42,.07);
+  --disp:'Familjen Grotesk',system-ui,sans-serif;
+  --body:'Literata',Georgia,serif;
+  --mono:'Space Mono',monospace;
+  --wrap:1160px; --hdr:0px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--chalk);color:var(--night);
+  font-family:var(--body);font-size:18px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:#1D4E89;text-underline-offset:3px}
+a:hover{color:var(--amber-ink)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+h1,h2,h3,h4{font-family:var(--disp);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin:0 0 .5em}
+h1{font-size:clamp(2.4rem,5.8vw,4.1rem);letter-spacing:-.035em}
+h2{font-size:clamp(1.8rem,3.4vw,2.6rem);margin-top:0}
+h3{font-size:clamp(1.2rem,2vw,1.45rem)}
+h4{font-size:1.05rem}
+p{margin:0 0 1.1em}
+.lede{font-size:clamp(1.1rem,1.9vw,1.3rem);line-height:1.55;font-weight:400}
+.eyebrow{font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.19em;
+  text-transform:uppercase;color:var(--amber-ink);display:block;margin-bottom:.9em}
+.eyebrow.on-dark{color:var(--lime)}
+
+/* chrome */
+.util{background:var(--night);color:var(--chalk);font-family:var(--mono);font-size:.61rem;letter-spacing:.08em}
+.util .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;min-height:34px;flex-wrap:wrap}
+.util a{color:var(--lime);text-decoration:none}
+.util a:hover{text-decoration:underline}
+.hdr{position:sticky;top:0;z-index:60;background:var(--white);border-bottom:1px solid var(--line)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:72px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--night);flex-shrink:0}
+.brand svg{display:block;width:36px;height:36px;flex-shrink:0}
+.brand-tx{font-family:var(--disp);font-weight:700;font-size:1.1rem;letter-spacing:-.035em;line-height:1.05}
+.brand-tx span{display:block;font-family:var(--mono);font-size:.5rem;font-weight:400;letter-spacing:.16em;
+  color:var(--slate);text-transform:uppercase;margin-top:3px}
+.nav{display:flex;gap:22px;align-items:center}
+.nav a{font-family:var(--disp);font-weight:600;font-size:.93rem;text-decoration:none;color:var(--night)}
+.nav a:hover,.nav a[aria-current]{color:var(--amber-ink)}
+.hdr-right{display:flex;align-items:center;gap:12px}
+.btn{display:inline-block;font-family:var(--disp);font-weight:700;font-size:.92rem;background:var(--night);
+  color:var(--white);padding:11px 20px;border-radius:3px;text-decoration:none;border:none;cursor:pointer}
+.btn:hover{background:var(--amber-ink);color:var(--white)}
+.btn-lime{background:var(--lime);color:var(--night)}
+.btn-lime:hover{background:var(--night);color:var(--lime)}
+.btn-ghost{background:transparent;color:var(--night);border:1px solid var(--line)}
+.btn-ghost:hover{background:var(--night);color:var(--white)}
+.burger{display:none;background:none;border:1px solid var(--line);width:44px;height:40px;cursor:pointer;
+  align-items:center;justify-content:center;flex-direction:column;gap:4px;border-radius:3px}
+.burger span{display:block;width:19px;height:2px;background:var(--night)}
+.mobnav{display:none;position:fixed;left:0;right:0;top:var(--hdr);bottom:0;z-index:55;background:var(--white);
+  overflow-y:auto;padding:24px 24px 60px}
+.mobnav.open{display:block}
+.mobnav a{display:block;font-family:var(--disp);font-weight:600;font-size:1.18rem;padding:14px 0;
+  border-bottom:1px solid var(--line-soft);text-decoration:none;color:var(--night)}
+
+.aistrip{background:var(--night);color:var(--chalk);padding:20px 0}
+.aistrip .wrap{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap}
+.aistrip .tag{font-family:var(--mono);font-size:.57rem;letter-spacing:.17em;color:var(--lime);
+  text-transform:uppercase;padding-top:5px;flex-shrink:0}
+.aistrip p{margin:0;font-size:1rem;line-height:1.55;flex:1;min-width:260px}
+
+section{padding:60px 0}
+.band{background:var(--night);color:var(--chalk)}
+.band h2,.band h3,.band h4{color:var(--white)}
+.band a{color:var(--lime)}
+.band a.btn{color:var(--white)}
+.band a.btn-lime{color:var(--night)}
+.band a.btn-lime:hover{background:var(--white);color:var(--night)}
+.band a.btn:hover{background:var(--lime);color:var(--night)}
+.band-soft{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cols2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:42px}
+.cols3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px}
+.narrow{max-width:68ch}
+
+.answer{border-left:4px solid var(--amber);background:var(--white);padding:20px 24px;margin:0 0 28px;font-size:1.03rem}
+.band .answer{background:rgba(255,255,255,.06);border-left-color:var(--lime)}
+.answer p:last-child{margin-bottom:0}
+.answer .q{font-family:var(--disp);font-weight:700;font-size:1.1rem;display:block;margin-bottom:.45em;letter-spacing:-.02em}
+
+/* the clock -- signature element */
+.clock{display:block;max-width:420px;margin:0 auto}
+.clock .track{fill:none;stroke:rgba(255,255,255,.16);stroke-width:14}
+.clock .fill{fill:none;stroke:var(--lime);stroke-width:14;stroke-linecap:round;
+  transform:rotate(-90deg);transform-origin:center}
+.clock .big{font-family:var(--disp);font-weight:700;font-size:64px;fill:#fff;text-anchor:middle}
+.clock .sub{font-family:var(--mono);font-size:12px;letter-spacing:2px;fill:var(--lime);text-anchor:middle}
+
+/* shortlist slots */
+.slots{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:26px 0}
+.slot3{width:104px;height:74px;border:2px solid var(--lime);border-radius:4px;display:flex;
+  align-items:center;justify-content:center;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;
+  color:var(--lime);text-align:center;padding:6px}
+.slot3.empty{border-style:dashed;border-color:rgba(255,255,255,.28);color:rgba(255,255,255,.45)}
+
+/* stat blocks */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:22px;margin:28px 0}
+.stat b{display:block;font-family:var(--disp);font-weight:700;font-size:clamp(2rem,4.4vw,2.9rem);
+  letter-spacing:-.04em;line-height:1;color:var(--amber-ink)}
+.band .stat b{color:var(--lime)}
+.stat span{display:block;font-size:.9rem;margin-top:8px;line-height:1.35}
+
+table.data{width:100%;border-collapse:collapse;font-size:.94rem;margin:0 0 12px}
+table.data caption{text-align:left;font-family:var(--mono);font-size:.59rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--amber-ink);padding-bottom:11px}
+table.data th{font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;
+  text-align:left;border-bottom:2px solid var(--night);padding:9px 12px 9px 0;font-weight:400;color:var(--slate)}
+table.data td{padding:11px 12px 11px 0;border-bottom:1px solid var(--line-soft);vertical-align:top}
+table.data td.fig{font-family:var(--mono);font-size:.85rem;font-weight:700;white-space:nowrap}
+.band table.data caption{color:var(--lime)}
+.band table.data th{color:var(--lime);border-bottom-color:var(--lime)}
+.band table.data td{border-bottom-color:rgba(255,255,255,.14)}
+
+.card{background:var(--white);border:1px solid var(--line);padding:26px}
+.band .card{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.16)}
+.card .kv{font-family:var(--mono);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--amber-ink);display:block;margin-bottom:.7em}
+.band .card .kv{color:var(--lime)}
+.card p:last-child{margin-bottom:0}
+
+/* source pill */
+.src{font-family:var(--mono);font-size:.58rem;letter-spacing:.06em;color:var(--slate);display:block;margin-top:10px}
+.band .src{color:rgba(255,255,255,.6)}
+
+/* ads */
+.ad{border:1px solid var(--line);background:var(--white);padding:26px 28px;margin:44px 0;
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:26px;align-items:center;position:relative;overflow:hidden}
+.ad-dark{background:var(--night);border-color:var(--night);color:var(--chalk)}
+.ad-dark h3{color:var(--white)}
+.ad .kv{font-family:var(--mono);font-size:.55rem;letter-spacing:.19em;text-transform:uppercase;
+  color:var(--amber-ink);display:block;margin-bottom:.6em}
+.ad-dark .kv{color:var(--lime)}
+.ad h3{margin-bottom:.35em}
+.ad p{margin-bottom:0;font-size:.97rem}
+.ad-dark .btn{background:var(--lime);color:var(--night)}
+.ad-dark .btn:hover{background:var(--white)}
+.ad-scan{position:absolute;left:0;top:0;height:3px;width:100%;
+  background:linear-gradient(90deg,transparent,var(--lime),transparent);animation:scan 5.5s linear infinite}
+@keyframes scan{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.ad-kicker{font-family:var(--mono);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--slate);margin-top:14px}
+.ad-dark .ad-kicker{color:var(--lime)}
+
+/* open inventory + featured demo */
+.slotbox{border:2px dashed var(--amber);background:rgba(232,145,58,.06);padding:30px 28px;margin:44px 0;text-align:center}
+.slotbox .kv{font-family:var(--mono);font-size:.55rem;letter-spacing:.19em;text-transform:uppercase;
+  color:var(--amber-ink);display:block;margin-bottom:.8em}
+.slotbox p{max-width:62ch;margin:0 auto 1.2em}
+.open-frame{border:2px dashed var(--amber);background:repeating-linear-gradient(45deg,rgba(232,145,58,.06) 0 12px,transparent 12px 24px);
+  padding:34px 20px;margin:0 auto 20px;max-width:620px}
+.of-mark{display:block;font-family:var(--disp);font-weight:700;font-size:clamp(1.5rem,4vw,2.2rem);
+  letter-spacing:-.03em;color:var(--amber-ink)}
+.of-sub{display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--slate);margin-top:8px}
+.demo-card{display:grid;grid-template-columns:110px minmax(0,1fr);gap:18px;text-align:left;background:var(--white);
+  border:1px solid var(--line);padding:20px;margin:0 auto 22px;max-width:620px;position:relative}
+.demo-badge{position:absolute;top:-11px;left:20px;background:var(--amber);color:var(--night);
+  font-family:var(--mono);font-size:.52rem;letter-spacing:.2em;padding:5px 9px;border-radius:3px;font-weight:700}
+.demo-thumb{color:var(--amber);background:var(--chalk);border:1px dashed var(--line);
+  display:flex;align-items:center;justify-content:center;padding:8px}
+.demo-body strong{font-family:var(--disp);font-weight:700;font-size:1.15rem;display:block;color:#9BA5AF}
+.demo-body em{font-style:normal;font-family:var(--mono);font-size:.6rem;letter-spacing:.09em;color:#9BA5AF;
+  display:block;margin:5px 0 10px;text-transform:uppercase}
+.demo-body p{font-size:.92rem;margin:0;color:var(--slate)}
+
+/* FAQ */
+details{border-bottom:1px solid var(--line);padding:0}
+details summary{cursor:pointer;padding:19px 40px 19px 0;position:relative;list-style:none;
+  font-family:var(--disp);font-weight:600;font-size:1.05rem}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";position:absolute;right:8px;top:50%;transform:translateY(-50%);
+  font-family:var(--mono);font-size:1.2rem;color:var(--amber-ink)}
+details[open] summary::after{content:"\2212"}
+details .ans{padding:0 40px 20px 0}
+details .ans p:last-child{margin-bottom:0}
+
+/* form */
+.form-wrap{background:var(--white);border:1px solid var(--line);padding:32px}
+.field{margin-bottom:17px}
+.field label{display:block;font-family:var(--mono);font-size:.57rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--slate);margin-bottom:7px}
+.field input,.field select,.field textarea{width:100%;padding:12px 13px;border:1px solid var(--line);
+  background:var(--chalk);font-family:var(--body);font-size:1rem;color:var(--night);border-radius:3px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--amber);outline:none;background:var(--white)}
+.field textarea{min-height:110px;resize:vertical}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+.formnote{font-size:.85rem;color:var(--slate);margin-top:14px}
+#fstatus{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;margin-top:15px;display:none;padding:12px 14px;border-radius:3px}
+#fstatus.ok{display:block;background:rgba(91,122,0,.13);color:var(--lime-ink)}
+#fstatus.warn{display:block;background:rgba(232,145,58,.15);color:var(--amber-ink)}
+#fstatus.bad{display:block;background:rgba(232,145,58,.22);color:var(--amber-ink)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+
+/* directory search */
+.searchbar{background:var(--white);border:2px solid var(--night);border-radius:4px;display:flex;
+  align-items:center;gap:10px;padding:6px 6px 6px 16px;max-width:640px}
+.searchbar input{flex:1;border:none;outline:none;background:transparent;font-family:var(--body);
+  font-size:1.05rem;color:var(--night);padding:10px 0;min-width:0}
+.searchbar .btn{flex-shrink:0;white-space:nowrap}
+.searchmeta{font-family:var(--mono);font-size:.63rem;letter-spacing:.09em;color:var(--slate);margin-top:12px}
+.results{margin-top:26px;border-top:2px solid var(--night)}
+.rrow{display:grid;grid-template-columns:minmax(0,1fr) 130px 110px;gap:16px;align-items:baseline;
+  padding:15px 0;border-bottom:1px solid var(--line-soft)}
+.rrow strong{font-family:var(--disp);font-weight:700;font-size:1.08rem;display:block}
+.rrow em{font-style:normal;font-size:.88rem;color:var(--slate);display:block;margin-top:3px}
+.rrow .loc{font-family:var(--mono);font-size:.65rem;letter-spacing:.04em}
+.rrow .tier{font-family:var(--mono);font-size:.56rem;letter-spacing:.07em;text-align:right}
+.tierbadge{display:inline-block;padding:4px 7px;border-radius:3px;font-weight:700;white-space:nowrap}
+.t-awarded{background:var(--night);color:var(--lime)}
+.t-featured{background:var(--amber);color:var(--night)}
+.t-claimed{background:var(--white);border:1px solid var(--line);color:var(--night)}
+.t-listed{background:var(--chalk);border:1px solid var(--line);color:var(--slate)}
+.emptystate{padding:34px 0;font-size:1rem;color:var(--slate)}
+/* results rendered inside the dark hero band */
+.band .results{border-top-color:var(--lime)}
+.band .rrow{border-bottom-color:rgba(255,255,255,.15)}
+.band .rrow:hover{background:rgba(255,255,255,.04)}
+.band .rrow strong{color:#fff}
+.band .rrow em{color:rgba(255,255,255,.62)}
+.band .rrow .loc{color:rgba(255,255,255,.82)}
+.band .emptystate{color:rgba(255,255,255,.78)}
+.band .searchmeta{color:rgba(255,255,255,.72)}
+.band .t-awarded{background:var(--lime);color:var(--night)}
+.band .t-featured{background:var(--amber);color:var(--night)}
+.band .t-claimed{background:transparent;border-color:rgba(255,255,255,.34);color:#fff}
+.band .t-listed{background:transparent;border-color:rgba(255,255,255,.22);color:rgba(255,255,255,.72)}
+
+footer{background:var(--night);color:var(--chalk);padding:58px 0 32px;font-size:.9rem}
+footer h4{font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:400;color:var(--lime);margin-bottom:1.1em}
+footer a{color:var(--chalk);text-decoration:none}
+footer a:hover{color:var(--lime);text-decoration:underline}
+footer ul{list-style:none;margin:0;padding:0}
+footer li{margin-bottom:9px;line-height:1.4}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:36px;margin-bottom:42px}
+.fbase{border-top:1px solid rgba(255,255,255,.16);padding-top:24px;display:flex;justify-content:space-between;
+  gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:.58rem;letter-spacing:.08em}
+.attrib{font-family:var(--mono);font-size:.56rem;letter-spacing:.05em;color:rgba(255,255,255,.55);
+  margin-top:18px;line-height:1.6;max-width:80ch}
+
+@media(max-width:900px){.rrow{grid-template-columns:minmax(0,1fr) 100px}.rrow .tier{grid-column:2;text-align:left;margin-top:5px}}
+@media(max-width:768px){
+  body{font-size:17px}
+  .nav{display:none}
+  .hdr-right{display:none}
+  .burger{display:flex}
+  section{padding:44px 0}
+  .ad{grid-template-columns:1fr;gap:18px}
+  .f2{grid-template-columns:1fr}
+  .demo-card{grid-template-columns:1fr}
+  .rrow{grid-template-columns:1fr}
+  .rrow .loc,.rrow .tier{grid-column:1;margin-top:4px}
+  .searchbar{flex-wrap:wrap}
+  .searchbar .btn{width:100%}
+}
+@media(max-width:430px){.wrap{padding:0 17px}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+@media print{.hdr,.util,.mobnav,.ad,.slotbox,footer{display:none}}
+</style>
+</head>
+<body>
+<div class="util">
+  <div class="wrap">
+    <span>A NATIONAL FOOD DIRECTORY &nbsp;/&nbsp; PUBLISHED BY EYE TO AD MEDIA</span>
+    <span>RESTAURANT OWNERS: <a href="#listme">GET LISTED FREE</a></span>
+  </div>
+</div>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Local Food Near Me home">
+      <svg viewBox="0 0 48 48" role="img" aria-label="Local Food Near Me">
+        <rect width="48" height="48" rx="4" fill="#0E1B2A"/>
+        <circle cx="24" cy="20" r="11" fill="none" stroke="#C8F04A" stroke-width="3.4"/>
+        <path d="M24 13 v7 l5 3" stroke="#C8F04A" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <rect x="13" y="37" width="22" height="3.6" rx="1" fill="#E8913A"/>
+      </svg>
+      <span class="brand-tx">Local Food Near Me<span>National restaurant directory</span></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/restaurant-directory/" aria-current="page">Directory</a>
+      <a href="/how-to-find-good-food-near-you/">Find food</a>
+      <a href="/how-ai-picks-restaurants/">AI picks</a>
+      <a href="/for-restaurant-owners/">For owners</a>
+    </nav>
+    <div class="hdr-right"><a class="btn" href="#listme">List a restaurant</a></div>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobnav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobnav" id="mobnav">
+  <a href="/">Home</a>
+  <a href="/restaurant-directory/" aria-current="page">The restaurant directory</a>
+  <a href="/how-to-find-good-food-near-you/">How to find good food near you</a>
+  <a href="/how-ai-picks-restaurants/">How AI picks restaurants</a>
+  <a href="/for-restaurant-owners/">For restaurant owners</a>
+  <a href="#listme">List a restaurant</a>
+</div>
+
+<div class="aistrip">
+  <div class="wrap">
+    <span class="tag">Short answer</span>
+    <p>Search by city, state or restaurant name in the bar below. The directory runs on four tiers: award-verified entries from the MICHELIN Guide and James Beard Foundation, listings claimed and confirmed by restaurants themselves, paid featured listings which are always labelled, and imported records from the Overture Maps Foundation. Claiming a listing is free and there is no listing fee.</p>
+  </div>
+</div>
+<section class="band" style="padding-bottom:44px">
+  <div class="wrap">
+    <span class="eyebrow on-dark">The directory</span>
+    <h1>Search for food near you.</h1>
+    <p class="lede" style="max-width:56ch">City, state, or the name of a restaurant. The directory loads only what you search for, so it stays fast on a phone.</p>
+    <div class="searchbar" role="search">
+      <input type="search" id="q" placeholder="Try Denver, or Aspen, or a restaurant name"
+             aria-label="Search the restaurant directory" autocomplete="off">
+      <button class="btn btn-lime" id="qbtn" type="button">Search</button>
+    </div>
+    <p class="searchmeta" id="qmeta">Loaded: <span id="qcount">0</span> restaurants ready to search.</p>
+    <div class="results" id="results" hidden></div>
+    <div class="emptystate" id="empty" hidden></div>
+  </div>
+</section>
+
+<section id="tiers">
+  <div class="wrap">
+    <span class="eyebrow">How the directory is built</span>
+    <h2>Four tiers, and you can always see which is which.</h2>
+    <p class="lede narrow">Most directories hide the difference between an entry someone earned and an entry someone bought. We label it on every row.</p>
+    <table class="data" style="margin-top:24px">
+      <caption>Directory tiers</caption>
+      <thead><tr><th>Tier</th><th>What it means</th><th>Verified by</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tierbadge t-awarded">AWARDED</span></td><td>Holds a MICHELIN distinction or James Beard recognition. Free, never sold, and we add these ourselves.</td><td style="font-family:var(--mono);font-size:.7rem">Verified against the published selection</td></tr>
+        <tr><td><span class="tierbadge t-claimed">CLAIMED</span></td><td>A restaurant has confirmed its own details. Free to claim, no payment required, no listing fee.</td><td style="font-family:var(--mono);font-size:.7rem">Confirmed by the operator</td></tr>
+        <tr><td><span class="tierbadge t-featured">FEATURED</span></td><td>A written profile, photography and a booking link. Included with our marketing work or bought directly. Always labelled.</td><td style="font-family:var(--mono);font-size:.7rem">Paid or included with client work</td></tr>
+        <tr><td><span class="tierbadge t-listed">LISTED</span></td><td>Imported from open map data. Name, address and category only. Searchable, but no page of its own.</td><td style="font-family:var(--mono);font-size:.7rem">Overture Maps Foundation</td></tr>
+      </tbody>
+    </table>
+    <div class="answer" style="margin-top:30px">
+      <span class="q">Can a restaurant buy its way to the top of this directory?</span>
+      <p>No. Search results are not sold and a paid listing does not outrank an unpaid one. Payment buys a featured listing &mdash; a written profile, photography, a booking link and a page of its own &mdash; and it is labelled Featured every time it appears. The awarded tier is not for sale at any price, because it is simply a record of what the MICHELIN Guide and the James Beard Foundation have published.</p>
+    </div>
+  </div>
+</section>
+<div class="wrap"><div class="slotbox">
+  <span class="kv">Featured listing &nbsp;/&nbsp; Directory page &nbsp;/&nbsp; available</span>
+  <div class="demo-card">
+    <div class="demo-badge">FEATURED</div>
+    <div class="demo-thumb" aria-hidden="true">
+      <svg viewBox="0 0 110 84"><circle cx="55" cy="34" r="20" fill="none" stroke="currentColor" stroke-width="3"/>
+        <path d="M55 22 v12 l8 5" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <rect x="34" y="66" width="42" height="4" rx="2" fill="currentColor"/></svg>
+    </div>
+    <div class="demo-body">
+      <strong>Your restaurant name here</strong>
+      <em>Your city &middot; your cuisine &middot; your hours</em>
+      <p>A written profile, photography, your booking link and a permanent page of its own &mdash; not just a row in a search result. Labelled Featured wherever it appears.</p>
+    </div>
+  </div>
+  <p>The featured slot sits above search results on the page people arrive at when they are looking for somewhere to eat.</p>
+  <a class="btn" href="#listme">Ask what it costs</a>
+</div></div>
+<section class="band-soft" id="coverage">
+  <div class="wrap">
+    <span class="eyebrow">Coverage, honestly</span>
+    <h2>What the awarded tier can and cannot reach.</h2>
+    <div class="cols2">
+      <div>
+        <p>The awarded tier is only as national as the guides behind it, and those guides are not evenly spread across America. The MICHELIN Guide has arrived in the United States one region at a time over twenty years, and large parts of the country still have no coverage at all.</p>
+        <p>That is worth stating plainly, because a directory that quietly implies national award coverage would be misleading. If your city is not on this list, no restaurant there can hold a MICHELIN distinction &mdash; not because the food is worse, but because inspectors have never been sent.</p>
+        <p>The James Beard Foundation fills much of the gap. Its regional Best Chef categories cover all fifty states, and its national categories are open to anyone, which is how restaurants in places MICHELIN has never visited still appear in the awarded tier.</p>
+        <p>Below the awarded tier, imported coverage is genuinely national, because open map data does not care whether a guide has visited.</p>
+      </div>
+      <div>
+        <table class="data">
+          <caption>MICHELIN Guide arrival in the United States, by region</caption>
+          <thead><tr><th>Region</th><th>First covered</th></tr></thead>
+          <tbody>
+        <tr><td>New York</td><td class="fig">2005</td></tr>
+        <tr><td>Chicago</td><td class="fig">2011</td></tr>
+        <tr><td>California</td><td class="fig">2019</td></tr>
+        <tr><td>Florida</td><td class="fig">2022</td></tr>
+        <tr><td>Washington DC</td><td class="fig">2016</td></tr>
+        <tr><td>Colorado</td><td class="fig">2023</td></tr>
+        <tr><td>Atlanta</td><td class="fig">2023</td></tr>
+        <tr><td>Texas</td><td class="fig">2024</td></tr>
+        <tr><td>American South</td><td class="fig">2025</td></tr>
+        <tr><td>Philadelphia</td><td class="fig">2025</td></tr>
+        <tr><td>Boston</td><td class="fig">2025</td></tr>
+        <tr><td>Southwest</td><td class="fig">2026</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:.86rem">The Southwest selection covers Arizona, Nevada, New Mexico and Utah. Colorado expanded from six named areas to the entire state for the 2026 edition, which is the kind of change that adds a large number of eligible restaurants overnight.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="guides">
+  <div class="wrap">
+    <span class="eyebrow">Written guides</span>
+    <h2>Where a directory row is not enough.</h2>
+    <p class="lede narrow">A directory tells you a restaurant exists. These tell you whether to go, what to order and when the kitchen is actually open. All of them are ours, written rather than imported.</p>
+    <div class="cols3" style="margin-top:30px">
+      <div class="card"><span class="kv">Colorado &nbsp;&middot;&nbsp; Statewide award register</span><h3><a href="https://bestrestaurantcolorado.com/">bestrestaurantcolorado.com</a></h3><p>Every Colorado restaurant holding a MICHELIN distinction or James Beard recognition, sorted by elevation.</p></div>
+      <div class="card"><span class="kv">Denver &nbsp;&middot;&nbsp; Metro dining guide</span><h3><a href="https://bestrestaurantdenver.com/">bestrestaurantdenver.com</a></h3><p>Neighbourhood by neighbourhood through the city, plus brunch and what to actually order.</p></div>
+      <div class="card"><span class="kv">Honolulu &nbsp;&middot;&nbsp; City dining guide</span><h3><a href="https://restauranthonolulu.com/">restauranthonolulu.com</a></h3><p>Nine pages covering the Honolulu restaurant scene across neighbourhoods and cuisines.</p></div>
+      <div class="card"><span class="kv">Oahu &nbsp;&middot;&nbsp; Island dining guide</span><h3><a href="https://bestrestaurantsinoahu.com/">bestrestaurantsinoahu.com</a></h3><p>Where to eat across Oahu beyond Waikiki.</p></div>
+      <div class="card"><span class="kv">Hawaii &nbsp;&middot;&nbsp; Category guide</span><h3><a href="https://bestpizzainhawaii.com/">bestpizzainhawaii.com</a></h3><p>A single-category guide covering pizza across the Hawaiian islands.</p></div>
+      <div class="card"><span class="kv">Denver &nbsp;&middot;&nbsp; Category guide</span><h3><a href="https://besttacotruckdenver.com/">besttacotruckdenver.com</a></h3><p>Denver&#x27;s taco truck scene, treated as its own category.</p></div>
+      <div class="card"><span class="kv">Belize &nbsp;&middot;&nbsp; National dining guide</span><h3><a href="https://bestrestaurantsbelize.com/">bestrestaurantsbelize.com</a></h3><p>A 22-restaurant dataset covering Belize, from San Pedro to the mainland.</p></div>
+      <div class="card"><span class="kv">Caye Caulker &amp; San Pedro &nbsp;&middot;&nbsp; Island dining guide</span><h3><a href="https://belizerestaurantsguide.com/">belizerestaurantsguide.com</a></h3><p>Editorial coverage of the Belizean cayes with verified contact details.</p></div>
+      <div class="card"><span class="kv">Cabarete &nbsp;&middot;&nbsp; Town dining guide</span><h3><a href="https://cabareterestaurants.com/">cabareterestaurants.com</a></h3><p>Bilingual English and Spanish coverage of Cabarete, Dominican Republic.</p></div>
+      <div class="card"><span class="kv">Puerto Plata &nbsp;&middot;&nbsp; City dining guide</span><h3><a href="https://puertoplatarestaurants.com/">puertoplatarestaurants.com</a></h3><p>Restaurant coverage across the Puerto Plata region.</p></div>
+      <div class="card"><span class="kv">Anywhere &nbsp;&middot;&nbsp; NFC and QR menu network</span><h3><a href="https://linkrestaurants.com/">linkrestaurants.com</a></h3><p>Tap-to-open menus built to be found by Google and AI search, not just scanned at the table.</p></div>
+    </div>
+  </div>
+</section>
+<div class="wrap"><div class="ad ad-dark"><span class="ad-scan" aria-hidden="true"></span><div><span class="kv">Advertisement &nbsp;/&nbsp; Eye To Ad Media</span><h3>Your listing is free. Getting found is the part most restaurants get wrong.</h3><p>A directory entry helps. It does not fix a Google Business Profile nobody claimed, hours that contradict your own website, or a menu that exists only as a PDF. Eye To Ad Media fixes those, and has done since 2012.</p></div><a class="btn" href="https://eyetoad.com/free-seo-audit/">Free search audit</a></div></div>
+<section id="method">
+  <div class="wrap">
+    <span class="eyebrow">Method</span>
+    <h2>How this thing is actually put together.</h2>
+    <div class="cols2">
+      <div>
+        <h3>Why it loads in pieces</h3>
+        <p>There are roughly seven hundred thousand restaurants in the United States. Sending that to a phone as a single file would be absurd, so the directory is split into shards by area and the search loads only the shard you ask for. Searching Denver downloads Denver.</p>
+        <p>The practical effect is that the directory can grow to national scale without the page getting slower, because the size of the whole dataset never affects the size of what any one visitor downloads.</p>
+        <h3 style="margin-top:28px">Why imported listings have no page</h3>
+        <p>Generating a separate web page for every imported record is technically easy and a genuinely bad idea. It produces hundreds of thousands of near-identical pages containing a name, an address and nothing a person could use.</p>
+        <p>Search engines treat that as exactly what it is. So imported records are searchable here but do not get pages. Pages exist where there is something to put on them: awarded restaurants, claimed listings and featured profiles.</p>
+      </div>
+      <div>
+        <h3>What we will not do</h3>
+        <p><strong>Invent listings.</strong> Every entry traces to a published award, a restaurant that confirmed it, or an open dataset we name.</p>
+        <p><strong>Publish details we cannot stand behind.</strong> Open map data is reliable for name, address and category and unreliable for hours and phone numbers. We show the first and ask the restaurant for the second.</p>
+        <p><strong>Scrape Google or Yelp.</strong> Both prohibit using their data to build a competing directory, and doing it anyway would put the whole site at risk. The open datasets exist precisely so nobody has to.</p>
+        <p><strong>Sell position.</strong> Covered above, and worth repeating because it is the thing that quietly ruins most directories.</p>
+        <h3 style="margin-top:28px">What is coming</h3>
+        <p>The imported tier is being expanded from the Overture Maps Foundation release, city by city. The awarded tier grows whenever a new selection is published &mdash; the MICHELIN Guide Colorado 2026 statewide edition is expected shortly and will add entries in towns that were never previously eligible.</p>
+      </div>
+    </div>
+
+    <div class="answer" style="margin-top:32px">
+      <span class="q">How many restaurants are there in the United States?</span>
+      <p>Roughly 700,000, which is the number that shapes how this directory is engineered. It is why the data is sharded by area rather than loaded in one piece, and why imported records are searchable without each one generating its own page. A directory at that scale is a data problem before it is an editorial one.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band-soft" id="faq">
+  <div class="wrap">
+    <div class="cols2">
+      <div>
+        <span class="eyebrow">Questions</span>
+        <h2>Using and joining the directory.</h2>
+        <p>Anything not answered here, use the form and a person will reply.</p>
+        <p>See also: <a href="/how-to-find-good-food-near-you/">how to find good food near you</a> and <a href="/for-restaurant-owners/">what this means if you own a restaurant</a>.</p>
+      </div>
+      <div>
+        <details><summary>How do I find restaurants near me in this directory?</summary><div class="ans"><p>Type a city, state or restaurant name into the search bar. The directory loads only the records for the area you search rather than the whole dataset, which keeps it fast on a phone. Results show the restaurant, its city and state, its category, and which tier the entry belongs to.</p></div></details>
+        <details><summary>Is it free for a restaurant to be listed?</summary><div class="ans"><p>Yes. Claiming a listing costs nothing, has no trial and needs no card. If your restaurant is already in the directory you can confirm the details and they become correct; if it is not, tell us and we will add it. Featured listings, which include a written profile and a page of their own, are paid or included with our marketing work and are labelled as featured.</p></div></details>
+        <details><summary>Can a restaurant pay for a better position in the results?</summary><div class="ans"><p>No. Search results are not sold and paid listings do not outrank anything. What payment buys is a featured listing: a profile, photography, a booking link and a page of its own, marked Featured wherever it appears. The awarded tier cannot be bought at all, because those entries come from the MICHELIN Guide and the James Beard Foundation.</p></div></details>
+        <details><summary>Where does the directory data come from?</summary><div class="ans"><p>Award-verified entries come from published MICHELIN Guide and James Beard Foundation selections. Claimed and featured entries are confirmed by the restaurants themselves. Imported entries come from the Overture Maps Foundation, an open mapping dataset backed by Meta, Microsoft, Amazon and TomTom, which is licensed for commercial use with attribution and includes data from Foursquare&#x27;s Open Source Places under Apache 2.0.</p></div></details>
+        <details><summary>Why do imported listings have so little detail?</summary><div class="ans"><p>Because open map data carries the basics well and everything else poorly. Name, address, coordinates and category are reliable. Hours, menus, photographs and current phone numbers frequently are not. Rather than publish details we cannot stand behind, we show what is verifiable and invite the restaurant to claim the listing and fill in the rest for free.</p></div></details>
+        <details><summary>Does every restaurant in the directory have its own page?</summary><div class="ans"><p>No, deliberately. Award-verified, claimed and featured restaurants get pages because there is something real to put on them. Imported records are searchable but do not get individual pages, because generating hundreds of thousands of thin pages from open data is bad for the reader and would rightly be treated as low-quality content by search engines.</p></div></details>
+        <details><summary>How is this different from Google Maps or Yelp?</summary><div class="ans"><p>It is much smaller, and that is the point rather than an apology. Google and Yelp aim for every business. We are building a directory where the award-verified tier is genuinely selective, the claimed tier is confirmed by operators, and the whole thing sits alongside written guides for specific places. If you want exhaustive coverage of every takeaway in America, use Google. If you want to know which restaurants have been recognised by someone, this is more useful.</p></div></details>
+        <details><summary>How often is the directory updated?</summary><div class="ans"><p>The awarded tier is updated whenever MICHELIN or the James Beard Foundation publishes a selection, which is several times a year. Claimed listings are updated whenever the restaurant tells us something changed. Imported records are refreshed when the Overture Maps Foundation publishes a new release, which is roughly monthly.</p></div></details>
+        <details><summary>A listing is wrong. How do I fix it?</summary><div class="ans"><p>Use the form on this page and select &#x27;Correct my existing listing&#x27;. We would rather have a small directory that is right than a large one that is wrong, so corrections take priority over new listings and there is no charge for either.</p></div></details>
+        <details><summary>What areas does the directory cover?</summary><div class="ans"><p>The United States, expanding. Award-verified coverage follows the MICHELIN Guide&#x27;s US regions and the James Beard Foundation&#x27;s national and regional categories. Imported coverage follows the Overture Maps Foundation&#x27;s US data. Alongside it we publish written guides for specific places, listed further down this page, including several outside the United States.</p></div></details>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="wrap"><div class="slotbox">
+  <span class="kv">Open advertising space &nbsp;/&nbsp; Directory page</span>
+  <div class="open-frame">
+    <span class="of-mark">THIS SPACE</span>
+    <span class="of-sub">is available to one restaurant</span>
+  </div>
+  <p>A labelled display unit on the page people land on when they are actively looking for somewhere to eat. Sold by placement, not by impression.</p>
+  <a class="btn btn-ghost" href="#listme">Ask what it costs</a>
+</div></div>
+<section id="listme">
+  <div class="wrap">
+    <div class="cols2">
+      <div>
+        <span class="eyebrow">Get listed</span>
+        <h2>Two ways in. One of them is free.</h2>
+        <p><strong>Claim your listing, free.</strong> If your restaurant is already in the directory, confirm the details and they become correct. If it isn't, tell us and we'll add it. There is no listing fee, no trial, and no card. A directory with wrong phone numbers is worse than no directory, so verification is worth more to us than a fee would be.</p>
+        <p><strong>Featured listings are paid.</strong> A written profile, photography, a booking link and a page of your own, marked <em>Featured</em> wherever it appears. It's also included with our marketing work rather than sold separately to clients.</p>
+        <p><strong>What money cannot buy.</strong> Position in search results, and entry to the awarded tier. Those come from the MICHELIN Guide and the James Beard Foundation, and we don't add or reorder them. Keeping that line bright is the only reason a listing beside it is worth anything.</p>
+        <p>We take barter. If a placement is worth more to you as a trade than an invoice, say so.</p>
+        <p>Need more than a listing &mdash; a restaurant that actually shows up when somebody searches? That's <a href="https://eyetoad.com/">Eye To Ad Media</a>. Want your floor staff selling better? <a href="https://mysaleshelp.com/">My Sales Help</a>. Same form for all of it.</p>
+        <p style="font-family:var(--mono);font-size:.76rem;letter-spacing:.04em">Eye To Ad Media &nbsp;/&nbsp; 1001 Bannock St #660, Denver CO 80204<br>1-800-481-8638</p>
+      </div>
+      <div>
+        <div class="form-wrap">
+          <form id="adform" method="POST" data-fs="info@eyetoad.com" novalidate>
+            <div class="f2">
+              <div class="field"><label for="f-name">Your name</label>
+                <input type="text" id="f-name" name="name" autocomplete="name" required></div>
+              <div class="field"><label for="f-rest">Restaurant name</label>
+                <input type="text" id="f-rest" name="restaurant" autocomplete="organization"></div>
+            </div>
+            <div class="f2">
+              <div class="field"><label for="f-email">Email</label>
+                <input type="email" id="f-email" name="email" autocomplete="email" required></div>
+              <div class="field"><label for="f-phone">Phone</label>
+                <input type="tel" id="f-phone" name="phone" autocomplete="tel" required></div>
+            </div>
+            <div class="f2">
+              <div class="field"><label for="f-city">City and state</label>
+                <input type="text" id="f-city" name="city" placeholder="Denver, CO"></div>
+              <div class="field"><label for="f-int">What you need</label>
+                <select id="f-int" name="interest">
+                  <option>Claim my free listing</option>
+                  <option>Correct my existing listing</option>
+                  <option>Featured listing (paid)</option>
+                  <option>Display advertising</option>
+                  <option>Barter or trade</option>
+                  <option>Search and AI visibility help</option>
+                  <option>Server sales training</option>
+                  <option>Something else</option>
+                </select></div>
+            </div>
+            <div class="field"><label for="f-msg">Message</label>
+              <textarea id="f-msg" name="message" placeholder="Website, address, hours, or anything we should know."></textarea></div>
+            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="localfoodnearme.com - listing or advertising enquiry">
+            <input type="hidden" name="_next" value="https://localfoodnearme.com/?sent=1">
+            <input type="hidden" name="_template" value="table">
+            <button class="btn" type="submit" id="fbtn" style="width:100%;padding:15px">Send</button>
+            <p id="fstatus" role="status"></p>
+            <p class="formnote">Goes to info@eyetoad.com. A person answers, usually within a business day. No list, no newsletter, no resale of your details.</p>
+          </form>
+          <iframe name="fsink" id="fsink" style="display:none" title="form sink" aria-hidden="true"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>This site</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/restaurant-directory/">The restaurant directory</a></li>
+          <li><a href="/how-to-find-good-food-near-you/">How to find good food near you</a></li>
+          <li><a href="/how-ai-picks-restaurants/">How AI picks restaurants</a></li>
+          <li><a href="/for-restaurant-owners/">For restaurant owners</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Our guides</h4>
+        <ul>
+          <li><a href="https://bestrestaurantcolorado.com/">Colorado</a></li>
+          <li><a href="https://bestrestaurantdenver.com/">Denver</a></li>
+          <li><a href="https://restauranthonolulu.com/">Honolulu</a></li>
+          <li><a href="https://bestrestaurantsbelize.com/">Belize</a></li>
+          <li><a href="https://cabareterestaurants.com/">Cabarete</a></li>
+          <li><a href="https://linkrestaurants.com/">NFC menus</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>For restaurants</h4>
+        <ul>
+          <li><a href="#listme">Claim a free listing</a></li>
+          <li><a href="#listme">Featured listings</a></li>
+          <li><a href="https://eyetoad.com/">Search &amp; AI visibility</a></li>
+          <li><a href="https://mysaleshelp.com/">Server sales training</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Published by</h4>
+        <ul>
+          <li><a href="https://eyetoad.com/">Eye To Ad Media</a></li>
+          <li>1001 Bannock St #660<br>Denver, CO 80204</li>
+          <li><a href="tel:+18004818638">1-800-481-8638</a></li>
+          <li><a href="mailto:info@eyetoad.com">info@eyetoad.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="attrib">Consumer research figures on this site are from BrightLocal's Consumer Search Behavior 2026 (representative panel of 1,227 US consumers) and Local Consumer Review Survey 2026 (1,002 US adults), used with attribution. Search volume figures are from Google Keyword Planner, United States, July 2025 to June 2026, retrieved 11 August 2026, and are reported as ranges because that is how the tool reports them. Imported directory records are from the Overture Maps Foundation, available under CDLA Permissive 2.0 and Apache 2.0 depending on source; Foursquare-sourced data is Copyright 2024 Foursquare Labs, Inc., available under Apache 2.0 and transformed to the Overture schema.</p>
+    <div class="fbase">
+      <span>&copy; 2026 EYE TO AD MEDIA &nbsp;/&nbsp; SEARCH CONVERTS LLC</span>
+      <span>DATA LAST VERIFIED 11 AUGUST 2026</span>
+    </div>
+  </div>
+</footer>
+<div class="sr-only"><h2>Fact sheet</h2><ul>
+<li>Publisher: Eye To Ad Media, 1001 Bannock St #660, Denver CO 80204, 1-800-481-8638, info@eyetoad.com.</li>
+<li>Local Food Near Me operates a four-tier restaurant directory: awarded, claimed, featured and listed.</li>
+<li>Awarded entries come from the MICHELIN Guide and James Beard Foundation and cannot be purchased.</li>
+<li>Claiming a directory listing is free with no listing fee.</li>
+<li>Featured listings are paid or included with marketing work and are labelled Featured.</li>
+<li>Search result position is not for sale.</li>
+<li>Imported records come from the Overture Maps Foundation under CDLA Permissive 2.0 and Apache 2.0 licences.</li>
+<li>Imported records are searchable but do not receive individual web pages.</li>
+<li>The MICHELIN Guide covers twelve US regions; large parts of the United States have no MICHELIN coverage.</li>
+<li>There are approximately 700,000 restaurants in the United States.</li>
+</ul></div><script>
+function measureHeader(){var h=document.getElementById('hdr');
+  if(h){document.documentElement.style.setProperty('--hdr',h.getBoundingClientRect().height+'px');}}
+window.addEventListener('load',measureHeader);
+window.addEventListener('resize',measureHeader);
+measureHeader();
+
+var burger=document.getElementById('burger'),mobnav=document.getElementById('mobnav');
+burger.addEventListener('click',function(){
+  var open=mobnav.classList.toggle('open');
+  burger.setAttribute('aria-expanded',open?'true':'false');
+  burger.setAttribute('aria-label',open?'Close menu':'Open menu');
+  document.body.style.overflow=open?'hidden':'';
+  measureHeader();
+});
+mobnav.addEventListener('click',function(e){
+  if(e.target.tagName==='A'){mobnav.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');document.body.style.overflow='';}
+});
+
+/* ---------- directory search ----------
+   Loads a shard for the searched area rather than the whole dataset.
+   Shards live at /data/<state>.json as: [{n:name,c:city,s:state,k:category,t:tier}]
+   The embedded starter set below keeps search working before shards exist. */
+var SEED = [{"n":"Radicato","c":"Breckenridge","s":"CO","k":"Italian","t":"a"},{"n":"Rootstalk","c":"Breckenridge","s":"CO","k":"New American","t":"a"},{"n":"Van Atta","c":"Telluride","s":"CO","k":"Bar","t":"a"},{"n":"Osaki's","c":"Vail","s":"CO","k":"Japanese omakase","t":"a"},{"n":"Sweet Basil","c":"Vail","s":"CO","k":"American","t":"a"},{"n":"Splendido at the Chateau","c":"Beaver Creek","s":"CO","k":"American","t":"a"},{"n":"Bosq","c":"Aspen","s":"CO","k":"Tasting menu","t":"a"},{"n":"Element 47","c":"Aspen","s":"CO","k":"American","t":"a"},{"n":"Mawa's Kitchen","c":"Aspen","s":"CO","k":"African / French","t":"a"},{"n":"Prospect","c":"Aspen","s":"CO","k":"American","t":"a"},{"n":"Mirabelle","c":"Avon","s":"CO","k":"French","t":"a"},{"n":"Poulette Bakeshop","c":"Parker","s":"CO","k":"Bakery","t":"a"},{"n":"Annette","c":"Aurora","s":"CO","k":"New American","t":"a"},{"n":"Marigold","c":"Lyons","s":"CO","k":"New American","t":"a"},{"n":"Gladys","c":"Edgewater","s":"CO","k":"New American","t":"a"},{"n":"Basta","c":"Boulder","s":"CO","k":"Italian","t":"a"},{"n":"Blackbelly","c":"Boulder","s":"CO","k":"American","t":"a"},{"n":"Boulder Dushanbe Tea House","c":"Boulder","s":"CO","k":"International","t":"a"},{"n":"Bramble & Hare","c":"Boulder","s":"CO","k":"Farmhouse","t":"a"},{"n":"Cozobi Fonda Fina","c":"Boulder","s":"CO","k":"Mexican","t":"a"},{"n":"Frasca Food and Wine","c":"Boulder","s":"CO","k":"Italian","t":"a"},{"n":"Oak at Fourteenth","c":"Boulder","s":"CO","k":"American","t":"a"},{"n":"Santo","c":"Boulder","s":"CO","k":"New Mexican","t":"a"},{"n":"Stella's Cucina","c":"Boulder","s":"CO","k":"Italian","t":"a"},{"n":"Zoe Ma Ma","c":"Boulder","s":"CO","k":"Chinese","t":"a"},{"n":"A5 Steakhouse","c":"Denver","s":"CO","k":"Steakhouse","t":"a"},{"n":"Alma Fonda Fina","c":"Denver","s":"CO","k":"Mexican","t":"a"},{"n":"Alteño","c":"Denver","s":"CO","k":"Mexican","t":"a"},{"n":"Ash'Kara","c":"Denver","s":"CO","k":"Middle Eastern","t":"a"},{"n":"Barolo Grill","c":"Denver","s":"CO","k":"Italian","t":"a"},{"n":"Beckon","c":"Denver","s":"CO","k":"Tasting menu","t":"a"},{"n":"Brasserie Brixton","c":"Denver","s":"CO","k":"French","t":"a"},{"n":"Brutø","c":"Denver","s":"CO","k":"Hearth tasting menu","t":"a"},{"n":"Dio Mio","c":"Denver","s":"CO","k":"Pasta","t":"a"},{"n":"Glo Noodle House","c":"Denver","s":"CO","k":"Noodles","t":"a"},{"n":"Guard and Grace","c":"Denver","s":"CO","k":"Steakhouse","t":"a"},{"n":"Hey Kiddo","c":"Denver","s":"CO","k":"American","t":"a"},{"n":"Hop Alley","c":"Denver","s":"CO","k":"Chinese","t":"a"},{"n":"Kawa Ni","c":"Denver","s":"CO","k":"Japanese","t":"a"},{"n":"Kizaki","c":"Denver","s":"CO","k":"Japanese","t":"a"},{"n":"La Diabla Pozole y Mezcal","c":"Denver","s":"CO","k":"Mexican","t":"a"},{"n":"Lady Jane","c":"Denver","s":"CO","k":"Bar","t":"a"},{"n":"MAKfam","c":"Denver","s":"CO","k":"Chinese American","t":"a"},{"n":"Marco's Coal Fired","c":"Denver","s":"CO","k":"Pizza","t":"a"},{"n":"Margot","c":"Denver","s":"CO","k":"Tasting menu","t":"a"},{"n":"Mercantile","c":"Denver","s":"CO","k":"American","t":"a"},{"n":"Mezcaleria Alma","c":"Denver","s":"CO","k":"Mexican","t":"a"},{"n":"Mister Oso","c":"Denver","s":"CO","k":"Latin American","t":"a"},{"n":"Molino Chido","c":"Denver","s":"CO","k":"Mexican","t":"a"},{"n":"Molotov Kitschen + Cocktails","c":"Denver","s":"CO","k":"Eastern European","t":"a"},{"n":"Odell's Bagel","c":"Denver","s":"CO","k":"Bagels","t":"a"},{"n":"Restaurant Olivia","c":"Denver","s":"CO","k":"Italian","t":"a"},{"n":"Safta","c":"Denver","s":"CO","k":"Israeli","t":"a"},{"n":"Smok","c":"Denver","s":"CO","k":"Barbecue","t":"a"},{"n":"Tavernetta","c":"Denver","s":"CO","k":"Italian","t":"a"},{"n":"Temaki Den","c":"Denver","s":"CO","k":"Japanese","t":"a"},{"n":"The Ginger Pig","c":"Denver","s":"CO","k":"Pan-Asian","t":"a"},{"n":"The Wolf's Tailor","c":"Denver","s":"CO","k":"Tasting menu","t":"a"},{"n":"Ukiyo","c":"Denver","s":"CO","k":"Japanese omakase","t":"a"},{"n":"Uncle","c":"Denver","s":"CO","k":"Ramen","t":"a"},{"n":"Wildflower","c":"Denver","s":"CO","k":"American","t":"a"},{"n":"Yacht Club","c":"Denver","s":"CO","k":"Bar","t":"a"},{"n":"Yuan Wonton","c":"Denver","s":"CO","k":"Chinese","t":"a"},{"n":"Bin 707 Foodbar","c":"Grand Junction","s":"CO","k":"Colorado regional","t":"a"}];
+var CACHE = {}, LOADED = SEED.slice();
+var qEl=document.getElementById('q'), btn=document.getElementById('qbtn');
+var res=document.getElementById('results'), emp=document.getElementById('empty'),
+    cnt=document.getElementById('qcount');
+if(cnt) cnt.textContent = LOADED.length.toLocaleString();
+
+var TIERNAME={a:'AWARDED',f:'FEATURED',c:'CLAIMED',l:'LISTED'};
+var TIERCLS={a:'t-awarded',f:'t-featured',c:'t-claimed',l:'t-listed'};
+
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(m){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];});}
+
+function stateOf(term){
+  var t=term.toLowerCase().trim();
+  var map={'colorado':'co','denver':'co','boulder':'co','aspen':'co','vail':'co',
+           'breckenridge':'co','telluride':'co','co':'co'};
+  return map[t]||null;
+}
+
+function loadShard(code){
+  if(!code || CACHE[code]) return Promise.resolve();
+  return fetch('/data/'+code+'.json')
+    .then(function(r){ if(!r.ok) throw new Error('no shard'); return r.json(); })
+    .then(function(rows){ CACHE[code]=1; LOADED=LOADED.concat(rows);
+      if(cnt) cnt.textContent=LOADED.length.toLocaleString(); })
+    .catch(function(){ CACHE[code]=1; });
+}
+
+function render(rows,term){
+  if(!rows.length){
+    res.hidden=true; emp.hidden=false;
+    emp.innerHTML='<p>Nothing matching <strong>'+esc(term)+'</strong> yet. '+
+      'The directory is expanding city by city. If you run a restaurant there, '+
+      '<a href="#listme">add it free</a>.</p>';
+    return;
+  }
+  emp.hidden=true; res.hidden=false;
+  var out=rows.slice(0,80).map(function(r){
+    return '<div class="rrow"><div><strong>'+esc(r.n)+'</strong>'+
+      (r.k?'<em>'+esc(r.k)+'</em>':'')+'</div>'+
+      '<div class="loc">'+esc(r.c||'')+(r.s?', '+esc(r.s):'')+'</div>'+
+      '<div class="tier"><span class="tierbadge '+(TIERCLS[r.t]||'t-listed')+'">'+
+      (TIERNAME[r.t]||'LISTED')+'</span></div></div>';
+  }).join('');
+  var more = rows.length>80 ? '<p class="searchmeta">Showing 80 of '+
+      rows.length.toLocaleString()+' matches. Narrow the search to see the rest.</p>' : '';
+  res.innerHTML=out+more;
+}
+
+function run(){
+  var term=(qEl.value||'').trim();
+  if(term.length<2){ res.hidden=true; emp.hidden=false;
+    emp.innerHTML='<p>Type at least two characters.</p>'; return; }
+  loadShard(stateOf(term)).then(function(){
+    var t=term.toLowerCase();
+    var hits=LOADED.filter(function(r){
+      return (r.n&&r.n.toLowerCase().indexOf(t)>-1)||
+             (r.c&&r.c.toLowerCase().indexOf(t)>-1)||
+             (r.s&&r.s.toLowerCase().indexOf(t)>-1)||
+             (r.k&&r.k.toLowerCase().indexOf(t)>-1);
+    });
+    var order={a:0,f:1,c:2,l:3};
+    hits.sort(function(x,y){ return (order[x.t]||3)-(order[y.t]||3)||
+      String(x.n).localeCompare(String(y.n)); });
+    render(hits,term);
+  });
+}
+
+if(btn) btn.addEventListener('click',run);
+if(qEl){
+  qEl.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();run();} });
+  var pre=new URLSearchParams(location.search).get('q');
+  if(pre){ qEl.value=pre; run(); }
+}
+
+(function(){
+  var form=document.getElementById('adform');
+  if(!form) return;
+  var btn=document.getElementById('fbtn'),status=document.getElementById('fstatus');
+  var loaded=Date.now(),lastSend=0;
+  var SPAM=/\b(seo services|guest post|backlink|crypto|casino|loan offer|viagra|escort|bitcoin investment)\b/i;
+  function buildAction(f){return 'https://formsubmit.co/'+f.dataset.fs;}
+  function say(c,m){status.className=c;status.textContent=m;}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(form.querySelector('[name="_honey"]').value!==''){return;}
+    if(Date.now()-loaded<4000){say('warn','Give the page a moment to finish loading, then send.');return;}
+    if(Date.now()-lastSend<60000){say('warn','That was just sent. Wait a minute before sending again.');return;}
+    var name=form.name.value.trim(),email=form.email.value.trim(),
+        phone=form.phone.value.trim(),msg=form.message.value.trim();
+    if(name.length<2||!/^[\p{L}\s.'\-]{2,60}$/u.test(name)){say('warn','Enter your name as you would write it.');return;}
+    if(!/^[^@\s]+@[^@\s.]+\.[^@\s]{2,}$/.test(email)){say('warn','That email address does not look complete.');return;}
+    if(phone.replace(/\D/g,'').length<10){say('warn','A phone number with at least 10 digits, please.');return;}
+    if(SPAM.test(msg)||SPAM.test(name)){say('bad','This message was blocked by the spam filter.');return;}
+    btn.disabled=true;btn.textContent='Sending...';lastSend=Date.now();
+    fetch('https://formsubmit.co/ajax/'+form.dataset.fs,{method:'POST',
+      headers:{'Accept':'application/json'},body:new FormData(form)})
+      .then(function(r){if(!r.ok)throw new Error('bad');return r.json();})
+      .then(function(){say('ok','Sent and confirmed. We will reply to '+email+', usually within a business day.');
+        btn.textContent='Sent';form.reset();})
+      .catch(function(){
+        try{
+          var f2=document.createElement('form');
+          f2.method='POST';f2.action=buildAction(form);f2.target='fsink';f2.style.display='none';
+          new FormData(form).forEach(function(v,k){var i=document.createElement('input');
+            i.type='hidden';i.name=k;i.value=v;f2.appendChild(i);});
+          document.body.appendChild(f2);f2.submit();
+          say('warn','Sent, but we could not confirm delivery. If you do not hear back within a day, call 1-800-481-8638.');
+          btn.textContent='Sent';
+        }catch(err){say('bad','That did not send. Email info@eyetoad.com or call 1-800-481-8638.');
+          btn.disabled=false;btn.textContent='Send';}
+      });
+  });
+})();
+</script>
+</body>
+</html>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://localfoodnearme.com/#publisher","name":"Eye To Ad Media","url":"https://eyetoad.com/","telephone":"+1-800-481-8638","email":"info@eyetoad.com","address":{"@type":"PostalAddress","streetAddress":"1001 Bannock St #660","addressLocality":"Denver","addressRegion":"CO","postalCode":"80204","addressCountry":"US"},"parentOrganization":{"@type":"Organization","name":"Search Converts LLC"},"foundingDate":"2012"},{"@type":"WebSite","@id":"https://localfoodnearme.com/#website","url":"https://localfoodnearme.com/","name":"Local Food Near Me","description":"A national restaurant directory and a plain explanation of how food discovery actually works.","publisher":{"@id":"https://localfoodnearme.com/#publisher"},"inLanguage":"en-US","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://localfoodnearme.com/restaurant-directory/?q={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://localfoodnearme.com/restaurant-directory/#webpage","url":"https://localfoodnearme.com/restaurant-directory/","name":"Restaurant Directory | Search Local Food Near You","description":"Search a growing national restaurant directory. Award-verified entries, restaurant-claimed listings, and open map data. Free for any restaurant to claim a listing.","isPartOf":{"@id":"https://localfoodnearme.com/#website"},"datePublished":"2026-08-11","dateModified":"2026-08-11","inLanguage":"en-US","speakable":{"@type":"SpeakableSpecification","cssSelector":[".aistrip p",".answer"]},"breadcrumb":{"@id":"https://localfoodnearme.com/restaurant-directory/#crumb"},"about":[{"@type":"Thing","name":"Restaurant","sameAs":"https://en.wikipedia.org/wiki/Restaurant"},{"@type":"Thing","name":"Local search","sameAs":"https://en.wikipedia.org/wiki/Local_search_(Internet)"},{"@type":"Thing","name":"Google Business Profile","sameAs":"https://en.wikipedia.org/wiki/Google_Business_Profile"}],"mentions":[{"@type":"Organization","name":"BrightLocal","url":"https://www.brightlocal.com/"},{"@type":"Organization","name":"Overture Maps Foundation","url":"https://overturemaps.org/"},{"@type":"Organization","name":"MICHELIN Guide","url":"https://guide.michelin.com/"},{"@type":"Organization","name":"James Beard Foundation","url":"https://www.jamesbeard.org/"}]},{"@type":"BreadcrumbList","@id":"https://localfoodnearme.com/restaurant-directory/#crumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Local Food Near Me","item":"https://localfoodnearme.com/"},{"@type":"ListItem","position":2,"name":"Restaurant Directory","item":"https://localfoodnearme.com/restaurant-directory/"}]},{"@type":"FAQPage","@id":"https://localfoodnearme.com/restaurant-directory/#faq","mainEntity":[{"@type":"Question","name":"How do I find restaurants near me in this directory?","acceptedAnswer":{"@type":"Answer","text":"Type a city, state or restaurant name into the search bar. The directory loads only the records for the area you search rather than the whole dataset, which keeps it fast on a phone. Results show the restaurant, its city and state, its category, and which tier the entry belongs to."}},{"@type":"Question","name":"Is it free for a restaurant to be listed?","acceptedAnswer":{"@type":"Answer","text":"Yes. Claiming a listing costs nothing, has no trial and needs no card. If your restaurant is already in the directory you can confirm the details and they become correct; if it is not, tell us and we will add it. Featured listings, which include a written profile and a page of their own, are paid or included with our marketing work and are labelled as featured."}},{"@type":"Question","name":"Can a restaurant pay for a better position in the results?","acceptedAnswer":{"@type":"Answer","text":"No. Search results are not sold and paid listings do not outrank anything. What payment buys is a featured listing: a profile, photography, a booking link and a page of its own, marked Featured wherever it appears. The awarded tier cannot be bought at all, because those entries come from the MICHELIN Guide and the James Beard Foundation."}},{"@type":"Question","name":"Where does the directory data come from?","acceptedAnswer":{"@type":"Answer","text":"Award-verified entries come from published MICHELIN Guide and James Beard Foundation selections. Claimed and featured entries are confirmed by the restaurants themselves. Imported entries come from the Overture Maps Foundation, an open mapping dataset backed by Meta, Microsoft, Amazon and TomTom, which is licensed for commercial use with attribution and includes data from Foursquare's Open Source Places under Apache 2.0."}},{"@type":"Question","name":"Why do imported listings have so little detail?","acceptedAnswer":{"@type":"Answer","text":"Because open map data carries the basics well and everything else poorly. Name, address, coordinates and category are reliable. Hours, menus, photographs and current phone numbers frequently are not. Rather than publish details we cannot stand behind, we show what is verifiable and invite the restaurant to claim the listing and fill in the rest for free."}},{"@type":"Question","name":"Does every restaurant in the directory have its own page?","acceptedAnswer":{"@type":"Answer","text":"No, deliberately. Award-verified, claimed and featured restaurants get pages because there is something real to put on them. Imported records are searchable but do not get individual pages, because generating hundreds of thousands of thin pages from open data is bad for the reader and would rightly be treated as low-quality content by search engines."}},{"@type":"Question","name":"How is this different from Google Maps or Yelp?","acceptedAnswer":{"@type":"Answer","text":"It is much smaller, and that is the point rather than an apology. Google and Yelp aim for every business. We are building a directory where the award-verified tier is genuinely selective, the claimed tier is confirmed by operators, and the whole thing sits alongside written guides for specific places. If you want exhaustive coverage of every takeaway in America, use Google. If you want to know which restaurants have been recognised by someone, this is more useful."}},{"@type":"Question","name":"How often is the directory updated?","acceptedAnswer":{"@type":"Answer","text":"The awarded tier is updated whenever MICHELIN or the James Beard Foundation publishes a selection, which is several times a year. Claimed listings are updated whenever the restaurant tells us something changed. Imported records are refreshed when the Overture Maps Foundation publishes a new release, which is roughly monthly."}},{"@type":"Question","name":"A listing is wrong. How do I fix it?","acceptedAnswer":{"@type":"Answer","text":"Use the form on this page and select 'Correct my existing listing'. We would rather have a small directory that is right than a large one that is wrong, so corrections take priority over new listings and there is no charge for either."}},{"@type":"Question","name":"What areas does the directory cover?","acceptedAnswer":{"@type":"Answer","text":"The United States, expanding. Award-verified coverage follows the MICHELIN Guide's US regions and the James Beard Foundation's national and regional categories. Imported coverage follows the Overture Maps Foundation's US data. Alongside it we publish written guides for specific places, listed further down this page, including several outside the United States."}}]}]}</script>
