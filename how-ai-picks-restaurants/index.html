@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How AI Picks Restaurants | What Assistants Actually Do</title>
+<meta name="description" content="45% of consumers used AI for local recommendations last year, up from 6%. But only 2% of AI users stop there. How assistants actually choose restaurants, and what a restaurant can influence.">
+<link rel="canonical" href="https://localfoodnearme.com/how-ai-picks-restaurants/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#0E1B2A">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Local Food Near Me">
+<meta property="og:title" content="How AI Picks Restaurants | What Assistants Actually Do">
+<meta property="og:description" content="45% of consumers used AI for local recommendations last year, up from 6%. But only 2% of AI users stop there. How assistants actually choose restaurants, and what a restaurant can influence.">
+<meta property="og:url" content="https://localfoodnearme.com/how-ai-picks-restaurants/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230E1B2A'/><circle cx='16' cy='13' r='7' fill='none' stroke='%23C8F04A' stroke-width='2.5'/><path d='M16 9 v4 l3 2' stroke='%23C8F04A' stroke-width='2' fill='none' stroke-linecap='round'/><rect x='9' y='24' width='14' height='2.5' fill='%23E8913A'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;600;700&family=Literata:opsz,wght@7..72,400;7..72,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0E1B2A; --deep:#152538; --chalk:#F6F7F5; --white:#fff;
+  --lime:#C8F04A; --lime-ink:#5B7A00; --amber:#E8913A; --amber-ink:#9A5410;
+  --slate:#5A6B7C; --line:rgba(14,27,42,.14); --line-soft:rgba(14,27,42,.07);
+  --disp:'Familjen Grotesk',system-ui,sans-serif;
+  --body:'Literata',Georgia,serif;
+  --mono:'Space Mono',monospace;
+  --wrap:1160px; --hdr:0px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--chalk);color:var(--night);
+  font-family:var(--body);font-size:18px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:#1D4E89;text-underline-offset:3px}
+a:hover{color:var(--amber-ink)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+h1,h2,h3,h4{font-family:var(--disp);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin:0 0 .5em}
+h1{font-size:clamp(2.4rem,5.8vw,4.1rem);letter-spacing:-.035em}
+h2{font-size:clamp(1.8rem,3.4vw,2.6rem);margin-top:0}
+h3{font-size:clamp(1.2rem,2vw,1.45rem)}
+h4{font-size:1.05rem}
+p{margin:0 0 1.1em}
+.lede{font-size:clamp(1.1rem,1.9vw,1.3rem);line-height:1.55;font-weight:400}
+.eyebrow{font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.19em;
+  text-transform:uppercase;color:var(--amber-ink);display:block;margin-bottom:.9em}
+.eyebrow.on-dark{color:var(--lime)}
+
+/* chrome */
+.util{background:var(--night);color:var(--chalk);font-family:var(--mono);font-size:.61rem;letter-spacing:.08em}
+.util .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;min-height:34px;flex-wrap:wrap}
+.util a{color:var(--lime);text-decoration:none}
+.util a:hover{text-decoration:underline}
+.hdr{position:sticky;top:0;z-index:60;background:var(--white);border-bottom:1px solid var(--line)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:72px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--night);flex-shrink:0}
+.brand svg{display:block;width:36px;height:36px;flex-shrink:0}
+.brand-tx{font-family:var(--disp);font-weight:700;font-size:1.1rem;letter-spacing:-.035em;line-height:1.05}
+.brand-tx span{display:block;font-family:var(--mono);font-size:.5rem;font-weight:400;letter-spacing:.16em;
+  color:var(--slate);text-transform:uppercase;margin-top:3px}
+.nav{display:flex;gap:22px;align-items:center}
+.nav a{font-family:var(--disp);font-weight:600;font-size:.93rem;text-decoration:none;color:var(--night)}
+.nav a:hover,.nav a[aria-current]{color:var(--amber-ink)}
+.hdr-right{display:flex;align-items:center;gap:12px}
+.btn{display:inline-block;font-family:var(--disp);font-weight:700;font-size:.92rem;background:var(--night);
+  color:var(--white);padding:11px 20px;border-radius:3px;text-decoration:none;border:none;cursor:pointer}
+.btn:hover{background:var(--amber-ink);color:var(--white)}
+.btn-lime{background:var(--lime);color:var(--night)}
+.btn-lime:hover{background:var(--night);color:var(--lime)}
+.btn-ghost{background:transparent;color:var(--night);border:1px solid var(--line)}
+.btn-ghost:hover{background:var(--night);color:var(--white)}
+.burger{display:none;background:none;border:1px solid var(--line);width:44px;height:40px;cursor:pointer;
+  align-items:center;justify-content:center;flex-direction:column;gap:4px;border-radius:3px}
+.burger span{display:block;width:19px;height:2px;background:var(--night)}
+.mobnav{display:none;position:fixed;left:0;right:0;top:var(--hdr);bottom:0;z-index:55;background:var(--white);
+  overflow-y:auto;padding:24px 24px 60px}
+.mobnav.open{display:block}
+.mobnav a{display:block;font-family:var(--disp);font-weight:600;font-size:1.18rem;padding:14px 0;
+  border-bottom:1px solid var(--line-soft);text-decoration:none;color:var(--night)}
+
+.aistrip{background:var(--night);color:var(--chalk);padding:20px 0}
+.aistrip .wrap{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap}
+.aistrip .tag{font-family:var(--mono);font-size:.57rem;letter-spacing:.17em;color:var(--lime);
+  text-transform:uppercase;padding-top:5px;flex-shrink:0}
+.aistrip p{margin:0;font-size:1rem;line-height:1.55;flex:1;min-width:260px}
+
+section{padding:60px 0}
+.band{background:var(--night);color:var(--chalk)}
+.band h2,.band h3,.band h4{color:var(--white)}
+.band a{color:var(--lime)}
+.band a.btn{color:var(--white)}
+.band a.btn-lime{color:var(--night)}
+.band a.btn-lime:hover{background:var(--white);color:var(--night)}
+.band a.btn:hover{background:var(--lime);color:var(--night)}
+.band-soft{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cols2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:42px}
+.cols3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px}
+.narrow{max-width:68ch}
+
+.answer{border-left:4px solid var(--amber);background:var(--white);padding:20px 24px;margin:0 0 28px;font-size:1.03rem}
+.band .answer{background:rgba(255,255,255,.06);border-left-color:var(--lime)}
+.answer p:last-child{margin-bottom:0}
+.answer .q{font-family:var(--disp);font-weight:700;font-size:1.1rem;display:block;margin-bottom:.45em;letter-spacing:-.02em}
+
+/* the clock -- signature element */
+.clock{display:block;max-width:420px;margin:0 auto}
+.clock .track{fill:none;stroke:rgba(255,255,255,.16);stroke-width:14}
+.clock .fill{fill:none;stroke:var(--lime);stroke-width:14;stroke-linecap:round;
+  transform:rotate(-90deg);transform-origin:center}
+.clock .big{font-family:var(--disp);font-weight:700;font-size:64px;fill:#fff;text-anchor:middle}
+.clock .sub{font-family:var(--mono);font-size:12px;letter-spacing:2px;fill:var(--lime);text-anchor:middle}
+
+/* shortlist slots */
+.slots{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:26px 0}
+.slot3{width:104px;height:74px;border:2px solid var(--lime);border-radius:4px;display:flex;
+  align-items:center;justify-content:center;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;
+  color:var(--lime);text-align:center;padding:6px}
+.slot3.empty{border-style:dashed;border-color:rgba(255,255,255,.28);color:rgba(255,255,255,.45)}
+
+/* stat blocks */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:22px;margin:28px 0}
+.stat b{display:block;font-family:var(--disp);font-weight:700;font-size:clamp(2rem,4.4vw,2.9rem);
+  letter-spacing:-.04em;line-height:1;color:var(--amber-ink)}
+.band .stat b{color:var(--lime)}
+.stat span{display:block;font-size:.9rem;margin-top:8px;line-height:1.35}
+
+table.data{width:100%;border-collapse:collapse;font-size:.94rem;margin:0 0 12px}
+table.data caption{text-align:left;font-family:var(--mono);font-size:.59rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--amber-ink);padding-bottom:11px}
+table.data th{font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;
+  text-align:left;border-bottom:2px solid var(--night);padding:9px 12px 9px 0;font-weight:400;color:var(--slate)}
+table.data td{padding:11px 12px 11px 0;border-bottom:1px solid var(--line-soft);vertical-align:top}
+table.data td.fig{font-family:var(--mono);font-size:.85rem;font-weight:700;white-space:nowrap}
+.band table.data caption{color:var(--lime)}
+.band table.data th{color:var(--lime);border-bottom-color:var(--lime)}
+.band table.data td{border-bottom-color:rgba(255,255,255,.14)}
+
+.card{background:var(--white);border:1px solid var(--line);padding:26px}
+.band .card{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.16)}
+.card .kv{font-family:var(--mono);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--amber-ink);display:block;margin-bottom:.7em}
+.band .card .kv{color:var(--lime)}
+.card p:last-child{margin-bottom:0}
+
+/* source pill */
+.src{font-family:var(--mono);font-size:.58rem;letter-spacing:.06em;color:var(--slate);display:block;margin-top:10px}
+.band .src{color:rgba(255,255,255,.6)}
+
+/* ads */
+.ad{border:1px solid var(--line);background:var(--white);padding:26px 28px;margin:44px 0;
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:26px;align-items:center;position:relative;overflow:hidden}
+.ad-dark{background:var(--night);border-color:var(--night);color:var(--chalk)}
+.ad-dark h3{color:var(--white)}
+.ad .kv{font-family:var(--mono);font-size:.55rem;letter-spacing:.19em;text-transform:uppercase;
+  color:var(--amber-ink);display:block;margin-bottom:.6em}
+.ad-dark .kv{color:var(--lime)}
+.ad h3{margin-bottom:.35em}
+.ad p{margin-bottom:0;font-size:.97rem}
+.ad-dark .btn{background:var(--lime);color:var(--night)}
+.ad-dark .btn:hover{background:var(--white)}
+.ad-scan{position:absolute;left:0;top:0;height:3px;width:100%;
+  background:linear-gradient(90deg,transparent,var(--lime),transparent);animation:scan 5.5s linear infinite}
+@keyframes scan{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.ad-kicker{font-family:var(--mono);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--slate);margin-top:14px}
+.ad-dark .ad-kicker{color:var(--lime)}
+
+/* open inventory + featured demo */
+.slotbox{border:2px dashed var(--amber);background:rgba(232,145,58,.06);padding:30px 28px;margin:44px 0;text-align:center}
+.slotbox .kv{font-family:var(--mono);font-size:.55rem;letter-spacing:.19em;text-transform:uppercase;
+  color:var(--amber-ink);display:block;margin-bottom:.8em}
+.slotbox p{max-width:62ch;margin:0 auto 1.2em}
+.open-frame{border:2px dashed var(--amber);background:repeating-linear-gradient(45deg,rgba(232,145,58,.06) 0 12px,transparent 12px 24px);
+  padding:34px 20px;margin:0 auto 20px;max-width:620px}
+.of-mark{display:block;font-family:var(--disp);font-weight:700;font-size:clamp(1.5rem,4vw,2.2rem);
+  letter-spacing:-.03em;color:var(--amber-ink)}
+.of-sub{display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--slate);margin-top:8px}
+.demo-card{display:grid;grid-template-columns:110px minmax(0,1fr);gap:18px;text-align:left;background:var(--white);
+  border:1px solid var(--line);padding:20px;margin:0 auto 22px;max-width:620px;position:relative}
+.demo-badge{position:absolute;top:-11px;left:20px;background:var(--amber);color:var(--night);
+  font-family:var(--mono);font-size:.52rem;letter-spacing:.2em;padding:5px 9px;border-radius:3px;font-weight:700}
+.demo-thumb{color:var(--amber);background:var(--chalk);border:1px dashed var(--line);
+  display:flex;align-items:center;justify-content:center;padding:8px}
+.demo-body strong{font-family:var(--disp);font-weight:700;font-size:1.15rem;display:block;color:#9BA5AF}
+.demo-body em{font-style:normal;font-family:var(--mono);font-size:.6rem;letter-spacing:.09em;color:#9BA5AF;
+  display:block;margin:5px 0 10px;text-transform:uppercase}
+.demo-body p{font-size:.92rem;margin:0;color:var(--slate)}
+
+/* FAQ */
+details{border-bottom:1px solid var(--line);padding:0}
+details summary{cursor:pointer;padding:19px 40px 19px 0;position:relative;list-style:none;
+  font-family:var(--disp);font-weight:600;font-size:1.05rem}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";position:absolute;right:8px;top:50%;transform:translateY(-50%);
+  font-family:var(--mono);font-size:1.2rem;color:var(--amber-ink)}
+details[open] summary::after{content:"\2212"}
+details .ans{padding:0 40px 20px 0}
+details .ans p:last-child{margin-bottom:0}
+
+/* form */
+.form-wrap{background:var(--white);border:1px solid var(--line);padding:32px}
+.field{margin-bottom:17px}
+.field label{display:block;font-family:var(--mono);font-size:.57rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--slate);margin-bottom:7px}
+.field input,.field select,.field textarea{width:100%;padding:12px 13px;border:1px solid var(--line);
+  background:var(--chalk);font-family:var(--body);font-size:1rem;color:var(--night);border-radius:3px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--amber);outline:none;background:var(--white)}
+.field textarea{min-height:110px;resize:vertical}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+.formnote{font-size:.85rem;color:var(--slate);margin-top:14px}
+#fstatus{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;margin-top:15px;display:none;padding:12px 14px;border-radius:3px}
+#fstatus.ok{display:block;background:rgba(91,122,0,.13);color:var(--lime-ink)}
+#fstatus.warn{display:block;background:rgba(232,145,58,.15);color:var(--amber-ink)}
+#fstatus.bad{display:block;background:rgba(232,145,58,.22);color:var(--amber-ink)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+
+/* directory search */
+.searchbar{background:var(--white);border:2px solid var(--night);border-radius:4px;display:flex;
+  align-items:center;gap:10px;padding:6px 6px 6px 16px;max-width:640px}
+.searchbar input{flex:1;border:none;outline:none;background:transparent;font-family:var(--body);
+  font-size:1.05rem;color:var(--night);padding:10px 0;min-width:0}
+.searchbar .btn{flex-shrink:0;white-space:nowrap}
+.searchmeta{font-family:var(--mono);font-size:.63rem;letter-spacing:.09em;color:var(--slate);margin-top:12px}
+.results{margin-top:26px;border-top:2px solid var(--night)}
+.rrow{display:grid;grid-template-columns:minmax(0,1fr) 130px 110px;gap:16px;align-items:baseline;
+  padding:15px 0;border-bottom:1px solid var(--line-soft)}
+.rrow strong{font-family:var(--disp);font-weight:700;font-size:1.08rem;display:block}
+.rrow em{font-style:normal;font-size:.88rem;color:var(--slate);display:block;margin-top:3px}
+.rrow .loc{font-family:var(--mono);font-size:.65rem;letter-spacing:.04em}
+.rrow .tier{font-family:var(--mono);font-size:.56rem;letter-spacing:.07em;text-align:right}
+.tierbadge{display:inline-block;padding:4px 7px;border-radius:3px;font-weight:700;white-space:nowrap}
+.t-awarded{background:var(--night);color:var(--lime)}
+.t-featured{background:var(--amber);color:var(--night)}
+.t-claimed{background:var(--white);border:1px solid var(--line);color:var(--night)}
+.t-listed{background:var(--chalk);border:1px solid var(--line);color:var(--slate)}
+.emptystate{padding:34px 0;font-size:1rem;color:var(--slate)}
+/* results rendered inside the dark hero band */
+.band .results{border-top-color:var(--lime)}
+.band .rrow{border-bottom-color:rgba(255,255,255,.15)}
+.band .rrow:hover{background:rgba(255,255,255,.04)}
+.band .rrow strong{color:#fff}
+.band .rrow em{color:rgba(255,255,255,.62)}
+.band .rrow .loc{color:rgba(255,255,255,.82)}
+.band .emptystate{color:rgba(255,255,255,.78)}
+.band .searchmeta{color:rgba(255,255,255,.72)}
+.band .t-awarded{background:var(--lime);color:var(--night)}
+.band .t-featured{background:var(--amber);color:var(--night)}
+.band .t-claimed{background:transparent;border-color:rgba(255,255,255,.34);color:#fff}
+.band .t-listed{background:transparent;border-color:rgba(255,255,255,.22);color:rgba(255,255,255,.72)}
+
+footer{background:var(--night);color:var(--chalk);padding:58px 0 32px;font-size:.9rem}
+footer h4{font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:400;color:var(--lime);margin-bottom:1.1em}
+footer a{color:var(--chalk);text-decoration:none}
+footer a:hover{color:var(--lime);text-decoration:underline}
+footer ul{list-style:none;margin:0;padding:0}
+footer li{margin-bottom:9px;line-height:1.4}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:36px;margin-bottom:42px}
+.fbase{border-top:1px solid rgba(255,255,255,.16);padding-top:24px;display:flex;justify-content:space-between;
+  gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:.58rem;letter-spacing:.08em}
+.attrib{font-family:var(--mono);font-size:.56rem;letter-spacing:.05em;color:rgba(255,255,255,.55);
+  margin-top:18px;line-height:1.6;max-width:80ch}
+
+@media(max-width:900px){.rrow{grid-template-columns:minmax(0,1fr) 100px}.rrow .tier{grid-column:2;text-align:left;margin-top:5px}}
+@media(max-width:768px){
+  body{font-size:17px}
+  .nav{display:none}
+  .hdr-right{display:none}
+  .burger{display:flex}
+  section{padding:44px 0}
+  .ad{grid-template-columns:1fr;gap:18px}
+  .f2{grid-template-columns:1fr}
+  .demo-card{grid-template-columns:1fr}
+  .rrow{grid-template-columns:1fr}
+  .rrow .loc,.rrow .tier{grid-column:1;margin-top:4px}
+  .searchbar{flex-wrap:wrap}
+  .searchbar .btn{width:100%}
+}
+@media(max-width:430px){.wrap{padding:0 17px}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+@media print{.hdr,.util,.mobnav,.ad,.slotbox,footer{display:none}}
+</style>
+</head>
+<body>
+<div class="util">
+  <div class="wrap">
+    <span>A NATIONAL FOOD DIRECTORY &nbsp;/&nbsp; PUBLISHED BY EYE TO AD MEDIA</span>
+    <span>RESTAURANT OWNERS: <a href="#listme">GET LISTED FREE</a></span>
+  </div>
+</div>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Local Food Near Me home">
+      <svg viewBox="0 0 48 48" role="img" aria-label="Local Food Near Me">
+        <rect width="48" height="48" rx="4" fill="#0E1B2A"/>
+        <circle cx="24" cy="20" r="11" fill="none" stroke="#C8F04A" stroke-width="3.4"/>
+        <path d="M24 13 v7 l5 3" stroke="#C8F04A" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <rect x="13" y="37" width="22" height="3.6" rx="1" fill="#E8913A"/>
+      </svg>
+      <span class="brand-tx">Local Food Near Me<span>National restaurant directory</span></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/restaurant-directory/">Directory</a>
+      <a href="/how-to-find-good-food-near-you/">Find food</a>
+      <a href="/how-ai-picks-restaurants/" aria-current="page">AI picks</a>
+      <a href="/for-restaurant-owners/">For owners</a>
+    </nav>
+    <div class="hdr-right"><a class="btn" href="#listme">List a restaurant</a></div>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobnav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobnav" id="mobnav">
+  <a href="/">Home</a>
+  <a href="/restaurant-directory/">The restaurant directory</a>
+  <a href="/how-to-find-good-food-near-you/">How to find good food near you</a>
+  <a href="/how-ai-picks-restaurants/" aria-current="page">How AI picks restaurants</a>
+  <a href="/for-restaurant-owners/">For restaurant owners</a>
+  <a href="#listme">List a restaurant</a>
+</div>
+
+<div class="aistrip">
+  <div class="wrap">
+    <span class="tag">Short answer</span>
+    <p>An AI assistant does not rank restaurants the way a search engine does. It retrieves text about restaurants and repeats what it finds, which means it favours places that are described specifically, consistently and by more than one source. It cannot taste food, see a room or read a PDF menu. BrightLocal's 2026 research found 45% of consumers used AI for local recommendations last year, up from 6% the year before, but only 2% of people who started on AI used it as their only channel and just 18% felt ready to contact the business it named.</p>
+  </div>
+</div>
+<section class="band" style="padding-top:52px">
+  <div class="wrap">
+    <div class="cols2" style="align-items:center">
+      <div>
+        <span class="eyebrow on-dark">The newest layer</span>
+        <h1>6% to 45% in twelve months.</h1>
+        <p class="lede">That is how fast consumers started asking AI where to eat. What has not changed nearly as fast is whether they believe the answer.</p>
+        <p class="src">BrightLocal, Local Consumer Review Survey 2026 and Consumer Search Behavior 2026.</p>
+      </div>
+      <div>
+        <div class="stats">
+          <div class="stat"><b>45%</b><span>Used AI for local recommendations in the past year</span></div>
+          <div class="stat"><b>2%</b><span>Of AI starters used it as their only channel</span></div>
+          <div class="stat"><b>18%</b><span>Felt ready to contact the business AI named</span></div>
+          <div class="stat"><b>43%</b><span>Of AI starters went to Google next</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mechanism">
+  <div class="wrap">
+    <span class="eyebrow">The mechanism</span>
+    <h2>It is retrieval, not ranking. That changes everything.</h2>
+
+    <div class="answer">
+      <span class="q">Does AI rank restaurants like Google does?</span>
+      <p>No. A search engine orders a list of links and shows you the order. An assistant retrieves text about restaurants and writes an answer from it, naming two or three and stopping. There is no tenth position to occupy. You are either in the answer or you are not in it, which makes the payoff far more concentrated than a ranking.</p>
+    </div>
+
+    <div class="cols2">
+      <div>
+        <h3>What an assistant can and cannot perceive</h3>
+        <p><strong>It cannot taste anything.</strong> Obvious, and worth saying because it explains the rest. Every judgement it makes about quality is inherited from something a human wrote.</p>
+        <p><strong>It cannot see your photographs.</strong> The room, the plating, the light through the window at six &mdash; none of it exists to a system reading text. If the atmosphere is the reason people love your restaurant, someone has to have written that down.</p>
+        <p><strong>It usually cannot read your menu.</strong> Menus published as images or PDFs are invisible as text. An assistant asked for the best carbonara in town cannot know you make one.</p>
+        <p><strong>It can read specific claims.</strong> A named dish, a neighbourhood, a chef, an award, a year you opened. Concrete detail is retrievable. "Passionate about quality ingredients" is not, because it describes every restaurant and therefore none.</p>
+      </div>
+      <div>
+        <h3>What it actually weighs</h3>
+        <p><strong>Specificity.</strong> Text that says something checkable gives the model something to repeat. Marketing language gives it nothing.</p>
+        <p><strong>Corroboration.</strong> One source saying you are excellent is a claim. Several independent sources describing you consistently is closer to a fact, and models behave accordingly.</p>
+        <p><strong>Consistency.</strong> When your hours differ between your website and your listing, that conflict is a reason to reach for a restaurant whose details agree with themselves. This is the failure mode that quietly removes good restaurants from answers.</p>
+        <p><strong>Structure.</strong> Marked-up facts &mdash; address, cuisine, hours, price range &mdash; are unambiguous in a way prose is not. This is the least glamorous item on the page and one of the most effective.</p>
+      </div>
+    </div>
+
+    <table class="data" style="margin-top:34px">
+      <caption>AI in local business discovery, measured</caption>
+      <thead><tr><th>Behaviour</th><th>Share</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>Used an AI tool for local recommendations in the past year</td><td class='fig'>45%</td><td>up from 6% the year before</td></tr>
+        <tr><td>Use AI for local recommendations at least monthly</td><td class='fig'>31%</td><td>BrightLocal, 2026</td></tr>
+        <tr><td>Would not consider using AI to find a local business</td><td class='fig'>19%</td><td>BrightLocal, 2026</td></tr>
+        <tr><td>Felt ready to contact the business an AI recommended</td><td class='fig'>18%</td><td>the rest kept researching</td></tr>
+        <tr><td>Started on AI and used it as their only channel</td><td class='fig'>2%</td><td>of AI starters</td></tr>
+        <tr><td>Started on AI, then checked Google</td><td class='fig'>43%</td><td>of AI starters</td></tr>
+        <tr><td>Started on AI, then checked social media</td><td class='fig'>39%</td><td>of AI starters</td></tr>
+        <tr><td>Started on Google and stopped there, satisfied</td><td class='fig'>33%</td><td>of Google starters</td></tr>
+      </tbody>
+    </table>
+    <p class="src">BrightLocal, Consumer Search Behavior 2026 (n=1,227) and Local Consumer Review Survey 2026 (n=1,002). Used with attribution.</p>
+  </div>
+</section>
+<div class="wrap"><div class="ad ad-dark"><span class="ad-scan" aria-hidden="true"></span><div><span class="kv">Advertisement &nbsp;/&nbsp; Eye To Ad Media</span><h3>Being named by an assistant is a different job from ranking. We do that job.</h3><p>Structured data, sourced claims, consistent facts across every surface, and content specific enough to be worth repeating. Eye To Ad Media has built search systems since 2012 and AI visibility since it started to matter.</p></div><a class="btn" href="https://eyetoad.com/geo-system/">How AI picks restaurants</a></div></div>
+<section class="band-soft" id="trust">
+  <div class="wrap">
+    <span class="eyebrow">The gap between use and trust</span>
+    <h2>People ask AI. Then they go and check.</h2>
+
+    <div class="cols2">
+      <div>
+        <p>The adoption number gets the headlines. The verification number is the one that should change what a restaurant does.</p>
+        <p>Of consumers who began a local search on an AI tool, a vanishing 2% used it as their only channel. 43% went straight to Google afterwards. 39% went to social media. Only 18% of AI users felt ready to contact the business the assistant recommended without checking further.</p>
+        <p>Compare that with people who started on Google, where 33% simply stopped, satisfied with what they found. Starting on Google resolves the search for a third of people. Starting on AI resolves it for almost nobody.</p>
+        <p>So the assistant is functioning as a shortlisting layer bolted onto the front of the old process, not as a replacement for it. And that produces a demanding two-stage test for a restaurant: get named, then survive being looked up.</p>
+      </div>
+      <div>
+        <h3>What the two-stage test means in practice</h3>
+        <p><strong>Stage one rewards being described.</strong> Written coverage, specific detail, structured facts, independent mentions. This is where most restaurants have done nothing at all, which is also why the opportunity is real.</p>
+        <p><strong>Stage two rewards being verifiable.</strong> The moment someone types your name into Google after an assistant mentions you, everything has to agree. Hours, address, phone, whether you are actually open on a Monday.</p>
+        <p>The uncomfortable implication is that a restaurant can win stage one and lose stage two without ever knowing it happened. There is no analytics report for "was recommended, then dropped after verification".</p>
+        <div class="answer" style="margin-top:22px">
+          <span class="q">If an AI recommends my restaurant, will I know?</span>
+          <p>Not from your own analytics. An assistant naming you in a conversation leaves no referral trail, and if the person then searches your name directly, that arrives as ordinary branded search. The practical workaround is to ask the assistants yourself: query a few of them for the kind of restaurant you run in your city and see whether you appear and whether what they say is accurate.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fixes">
+  <div class="wrap">
+    <span class="eyebrow">What actually helps</span>
+    <h2>Six things, in the order they are worth doing.</h2>
+    <p class="lede narrow">None of these require a rebuild and none of them are exotic. They are unglamorous in roughly inverse proportion to how much they matter.</p>
+
+    <div class="cols2" style="margin-top:30px">
+      <div class="card">
+        <span class="kv">One</span>
+        <h3>Make your facts agree with themselves</h3>
+        <p>Name, address, phone, hours and category, identical on your website, Google Business Profile, Apple Maps and every directory you appear in. Conflicting details are the most common reason a restaurant fails the verification step, and this fix is free.</p>
+      </div>
+      <div class="card">
+        <span class="kv">Two</span>
+        <h3>Publish your menu as text</h3>
+        <p>Not a photograph, not a PDF, not a link to a social post. Ordinary readable text on your own site. If a system cannot read what you cook, it cannot recommend you for cooking it.</p>
+      </div>
+      <div class="card">
+        <span class="kv">Three</span>
+        <h3>Write down what makes you specific</h3>
+        <p>The dish people come back for. The neighbourhood. Who cooks and where they trained. What the room is like on a Friday. These are retrievable facts. "Passionate about quality" is not, because every restaurant says it.</p>
+      </div>
+      <div class="card">
+        <span class="kv">Four</span>
+        <h3>Mark up the structured facts</h3>
+        <p>Restaurant schema on your own site stating cuisine, address, hours and price range removes ambiguity for every system reading you. It is a job measured in hours and it lasts for years.</p>
+      </div>
+      <div class="card">
+        <span class="kv">Five</span>
+        <h3>Get described somewhere that is not yours</h3>
+        <p>Corroboration is weighted heavily. A local guide, a regional publication, an award, a genuine directory listing &mdash; anywhere independent that describes you in text. One outside source that says something specific is worth more than another page on your own site.</p>
+      </div>
+      <div class="card">
+        <span class="kv">Six</span>
+        <h3>Keep reviews recent and answer them</h3>
+        <p>Reviews feed both the ranking signals and the text an assistant reads. Recency matters more than volume, and a reasonable reply to a fair complaint reads well to humans and machines alike.</p>
+      </div>
+    </div>
+
+    <div class="answer" style="margin-top:32px">
+      <span class="q">What is the cheapest thing a restaurant can do to be found by AI?</span>
+      <p>Publish the menu as readable text on your own website, and make your hours identical everywhere they appear. Both are free, both take an afternoon, and between them they fix the two most common reasons a restaurant is either invisible to an assistant or dropped at the moment someone verifies it.</p>
+    </div>
+  </div>
+</section>
+<div class="wrap"><div class="slotbox">
+  <span class="kv">Featured listing &nbsp;/&nbsp; AI page &nbsp;/&nbsp; available</span>
+  <div class="demo-card">
+    <div class="demo-badge">FEATURED</div>
+    <div class="demo-thumb" aria-hidden="true">
+      <svg viewBox="0 0 110 84"><circle cx="55" cy="34" r="20" fill="none" stroke="currentColor" stroke-width="3"/>
+        <path d="M55 22 v12 l8 5" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <rect x="34" y="66" width="42" height="4" rx="2" fill="currentColor"/></svg>
+    </div>
+    <div class="demo-body">
+      <strong>Your restaurant name here</strong>
+      <em>Your city &middot; your cuisine &middot; your hours</em>
+      <p>A written profile, photography, your booking link and a permanent page of its own &mdash; not just a row in a search result. Labelled Featured wherever it appears.</p>
+    </div>
+  </div>
+  <p>A featured listing is written text describing a specific restaurant on an independent site &mdash; which is, not coincidentally, exactly the kind of thing an assistant can retrieve and repeat.</p>
+  <a class="btn" href="#listme">Ask what it costs</a>
+</div></div>
+<section class="band-soft" id="faq">
+  <div class="wrap">
+    <div class="cols2">
+      <div>
+        <span class="eyebrow">Questions</span>
+        <h2>AI and restaurant discovery.</h2>
+        <p>Answered from named research rather than speculation. Where something is genuinely unknown, we say so instead of guessing.</p>
+        <p>See also: <a href="/for-restaurant-owners/">what all of this means if you own a restaurant</a>.</p>
+      </div>
+      <div>
+        <details><summary>How does AI decide which restaurants to recommend?</summary><div class="ans"><p>By retrieving and summarising text, not by ranking places. An assistant assembles an answer from documents it can access — web pages, structured data, and in some products live search results — and names the restaurants those documents describe clearly. It has no way to assess food. What it can assess is whether a restaurant is described specifically, whether the details are consistent across sources, and whether anyone independent has written about it.</p></div></details>
+        <details><summary>Can a restaurant pay to be recommended by ChatGPT or Gemini?</summary><div class="ans"><p>Not in the way you can pay for a Google ad. There is no auction, no bid and no placement to purchase for the recommendation itself. That is a genuine difference from paid search, and it means the way in is to be described well enough and often enough that assistants have something accurate to retrieve. Some AI products carry advertising in other parts of the interface, but the substance of a recommendation is not sold.</p></div></details>
+        <details><summary>Do people actually trust AI restaurant recommendations?</summary><div class="ans"><p>They use it to shortlist, then verify. BrightLocal found that of consumers who started a local search on an AI tool, only 2% used it as their only channel: 43% went to Google afterwards and 39% checked social media. Only 18% of AI users felt ready to contact the business the AI recommended without further research. Adoption is fast, trust is lagging behind it.</p></div></details>
+        <details><summary>How many people use AI to find local businesses?</summary><div class="ans"><p>45% of US consumers used an AI tool for local business recommendations in the past year, up from 6% the year before, according to BrightLocal&#x27;s Local Consumer Review Survey 2026. 31% use AI for local recommendations at least monthly, and only 19% say they would not consider it. In a single recent search, 23% used an AI tool at some point.</p></div></details>
+        <details><summary>What makes an assistant name one restaurant over another?</summary><div class="ans"><p>Being findable in text, being described specifically, and being corroborated. An assistant reaches for concrete detail — a named dish, a neighbourhood, an award, an opening year — because vague marketing language gives it nothing to repeat. It also weighs consistency: when a restaurant&#x27;s hours or address differ between its own site and other sources, that is a reason to reach for a different restaurant instead.</p></div></details>
+        <details><summary>Does my restaurant&#x27;s website matter for AI, or just my Google listing?</summary><div class="ans"><p>Both, and for different reasons. The Google Business Profile carries the structured facts — address, category, hours — that assistants and search features lean on. The website is where the specific, describable detail lives: what you actually cook, who cooks it, what the room is like. A restaurant with a strong listing and a thin website tends to appear as an address rather than a recommendation.</p></div></details>
+        <details><summary>Why can&#x27;t AI read my menu?</summary><div class="ans"><p>Usually because it is a photograph or a PDF rather than text on a page. A menu published as an image is invisible as text, so an assistant asked for the best carbonara in your town cannot know you serve one. Publishing the menu as ordinary readable text on your own site is one of the cheapest and most consequential fixes available to a restaurant.</p></div></details>
+        <details><summary>Is being recommended by AI the same as ranking on Google?</summary><div class="ans"><p>No, and conflating them causes bad decisions. Ranking is a position in a list of links, where being tenth still means being present. An assistant names two or three places and stops, so there is no tenth position — you are in the answer or absent from it. The inputs overlap heavily, but the payoff is far more concentrated.</p></div></details>
+        <details><summary>Should a restaurant worry about this yet?</summary><div class="ans"><p>It is worth attention rather than panic. Roughly a quarter of consumers touched an AI tool during their most recent local search and almost half used one at some point in the year, so the behaviour is real and growing quickly. But the same research shows people verify what AI tells them elsewhere, which means the fundamentals — an accurate listing, a readable website, current hours, real reviews — still decide the outcome. Those fundamentals also happen to be what makes an assistant able to describe you.</p></div></details>
+        <details><summary>What is the single most useful thing to fix?</summary><div class="ans"><p>Consistency of your basic facts across every place they appear. Name, address, phone, hours and category should match on your website, your Google Business Profile, Apple Maps and any directory you appear in. It is unglamorous, it is free, and it is the thing that most often disqualifies a restaurant at the verification step — which, given that most people verify, is the step that actually decides.</p></div></details>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="listme">
+  <div class="wrap">
+    <div class="cols2">
+      <div>
+        <span class="eyebrow">Get listed</span>
+        <h2>Two ways in. One of them is free.</h2>
+        <p><strong>Claim your listing, free.</strong> If your restaurant is already in the directory, confirm the details and they become correct. If it isn't, tell us and we'll add it. There is no listing fee, no trial, and no card. A directory with wrong phone numbers is worse than no directory, so verification is worth more to us than a fee would be.</p>
+        <p><strong>Featured listings are paid.</strong> A written profile, photography, a booking link and a page of your own, marked <em>Featured</em> wherever it appears. It's also included with our marketing work rather than sold separately to clients.</p>
+        <p><strong>What money cannot buy.</strong> Position in search results, and entry to the awarded tier. Those come from the MICHELIN Guide and the James Beard Foundation, and we don't add or reorder them. Keeping that line bright is the only reason a listing beside it is worth anything.</p>
+        <p>We take barter. If a placement is worth more to you as a trade than an invoice, say so.</p>
+        <p>Need more than a listing &mdash; a restaurant that actually shows up when somebody searches? That's <a href="https://eyetoad.com/">Eye To Ad Media</a>. Want your floor staff selling better? <a href="https://mysaleshelp.com/">My Sales Help</a>. Same form for all of it.</p>
+        <p style="font-family:var(--mono);font-size:.76rem;letter-spacing:.04em">Eye To Ad Media &nbsp;/&nbsp; 1001 Bannock St #660, Denver CO 80204<br>1-800-481-8638</p>
+      </div>
+      <div>
+        <div class="form-wrap">
+          <form id="adform" method="POST" data-fs="info@eyetoad.com" novalidate>
+            <div class="f2">
+              <div class="field"><label for="f-name">Your name</label>
+                <input type="text" id="f-name" name="name" autocomplete="name" required></div>
+              <div class="field"><label for="f-rest">Restaurant name</label>
+                <input type="text" id="f-rest" name="restaurant" autocomplete="organization"></div>
+            </div>
+            <div class="f2">
+              <div class="field"><label for="f-email">Email</label>
+                <input type="email" id="f-email" name="email" autocomplete="email" required></div>
+              <div class="field"><label for="f-phone">Phone</label>
+                <input type="tel" id="f-phone" name="phone" autocomplete="tel" required></div>
+            </div>
+            <div class="f2">
+              <div class="field"><label for="f-city">City and state</label>
+                <input type="text" id="f-city" name="city" placeholder="Denver, CO"></div>
+              <div class="field"><label for="f-int">What you need</label>
+                <select id="f-int" name="interest">
+                  <option>Claim my free listing</option>
+                  <option>Correct my existing listing</option>
+                  <option>Featured listing (paid)</option>
+                  <option>Display advertising</option>
+                  <option>Barter or trade</option>
+                  <option>Search and AI visibility help</option>
+                  <option>Server sales training</option>
+                  <option>Something else</option>
+                </select></div>
+            </div>
+            <div class="field"><label for="f-msg">Message</label>
+              <textarea id="f-msg" name="message" placeholder="Website, address, hours, or anything we should know."></textarea></div>
+            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="localfoodnearme.com - listing or advertising enquiry">
+            <input type="hidden" name="_next" value="https://localfoodnearme.com/?sent=1">
+            <input type="hidden" name="_template" value="table">
+            <button class="btn" type="submit" id="fbtn" style="width:100%;padding:15px">Send</button>
+            <p id="fstatus" role="status"></p>
+            <p class="formnote">Goes to info@eyetoad.com. A person answers, usually within a business day. No list, no newsletter, no resale of your details.</p>
+          </form>
+          <iframe name="fsink" id="fsink" style="display:none" title="form sink" aria-hidden="true"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>This site</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/restaurant-directory/">The restaurant directory</a></li>
+          <li><a href="/how-to-find-good-food-near-you/">How to find good food near you</a></li>
+          <li><a href="/how-ai-picks-restaurants/">How AI picks restaurants</a></li>
+          <li><a href="/for-restaurant-owners/">For restaurant owners</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Our guides</h4>
+        <ul>
+          <li><a href="https://bestrestaurantcolorado.com/">Colorado</a></li>
+          <li><a href="https://bestrestaurantdenver.com/">Denver</a></li>
+          <li><a href="https://restauranthonolulu.com/">Honolulu</a></li>
+          <li><a href="https://bestrestaurantsbelize.com/">Belize</a></li>
+          <li><a href="https://cabareterestaurants.com/">Cabarete</a></li>
+          <li><a href="https://linkrestaurants.com/">NFC menus</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>For restaurants</h4>
+        <ul>
+          <li><a href="#listme">Claim a free listing</a></li>
+          <li><a href="#listme">Featured listings</a></li>
+          <li><a href="https://eyetoad.com/">Search &amp; AI visibility</a></li>
+          <li><a href="https://mysaleshelp.com/">Server sales training</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Published by</h4>
+        <ul>
+          <li><a href="https://eyetoad.com/">Eye To Ad Media</a></li>
+          <li>1001 Bannock St #660<br>Denver, CO 80204</li>
+          <li><a href="tel:+18004818638">1-800-481-8638</a></li>
+          <li><a href="mailto:info@eyetoad.com">info@eyetoad.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="attrib">Consumer research figures on this site are from BrightLocal's Consumer Search Behavior 2026 (representative panel of 1,227 US consumers) and Local Consumer Review Survey 2026 (1,002 US adults), used with attribution. Search volume figures are from Google Keyword Planner, United States, July 2025 to June 2026, retrieved 11 August 2026, and are reported as ranges because that is how the tool reports them. Imported directory records are from the Overture Maps Foundation, available under CDLA Permissive 2.0 and Apache 2.0 depending on source; Foursquare-sourced data is Copyright 2024 Foursquare Labs, Inc., available under Apache 2.0 and transformed to the Overture schema.</p>
+    <div class="fbase">
+      <span>&copy; 2026 EYE TO AD MEDIA &nbsp;/&nbsp; SEARCH CONVERTS LLC</span>
+      <span>DATA LAST VERIFIED 11 AUGUST 2026</span>
+    </div>
+  </div>
+</footer>
+<div class="sr-only"><h2>Fact sheet</h2><ul>
+<li>Publisher: Eye To Ad Media, 1001 Bannock St #660, Denver CO 80204, 1-800-481-8638, info@eyetoad.com.</li>
+<li>45% of US consumers used an AI tool for local business recommendations in the past year, up from 6% the previous year (BrightLocal, 2026).</li>
+<li>31% use AI for local recommendations at least monthly; 19% would not consider it.</li>
+<li>Of consumers who started a local search on an AI tool, 2% used it as their only channel, 43% went to Google next and 39% checked social media.</li>
+<li>Only 18% of AI users felt ready to contact the business an AI recommended without verifying elsewhere.</li>
+<li>33% of consumers who started on Google stopped there, satisfied.</li>
+<li>AI assistants retrieve and summarise text rather than ranking listings; they cannot assess food quality directly.</li>
+<li>Menus published as images or PDFs are not readable as text and cannot be retrieved by AI assistants.</li>
+<li>Inconsistent business facts across sources are a common reason a restaurant fails the verification stage.</li>
+</ul></div><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://localfoodnearme.com/#publisher","name":"Eye To Ad Media","url":"https://eyetoad.com/","telephone":"+1-800-481-8638","email":"info@eyetoad.com","address":{"@type":"PostalAddress","streetAddress":"1001 Bannock St #660","addressLocality":"Denver","addressRegion":"CO","postalCode":"80204","addressCountry":"US"},"parentOrganization":{"@type":"Organization","name":"Search Converts LLC"},"foundingDate":"2012"},{"@type":"WebSite","@id":"https://localfoodnearme.com/#website","url":"https://localfoodnearme.com/","name":"Local Food Near Me","description":"A national restaurant directory and a plain explanation of how food discovery actually works.","publisher":{"@id":"https://localfoodnearme.com/#publisher"},"inLanguage":"en-US","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://localfoodnearme.com/restaurant-directory/?q={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://localfoodnearme.com/how-ai-picks-restaurants/#webpage","url":"https://localfoodnearme.com/how-ai-picks-restaurants/","name":"How AI Picks Restaurants | What Assistants Actually Do","description":"45% of consumers used AI for local recommendations last year, up from 6%. But only 2% of AI users stop there. How assistants actually choose restaurants, and what a restaurant can influence.","isPartOf":{"@id":"https://localfoodnearme.com/#website"},"datePublished":"2026-08-11","dateModified":"2026-08-11","inLanguage":"en-US","speakable":{"@type":"SpeakableSpecification","cssSelector":[".aistrip p",".answer"]},"breadcrumb":{"@id":"https://localfoodnearme.com/how-ai-picks-restaurants/#crumb"},"about":[{"@type":"Thing","name":"Restaurant","sameAs":"https://en.wikipedia.org/wiki/Restaurant"},{"@type":"Thing","name":"Local search","sameAs":"https://en.wikipedia.org/wiki/Local_search_(Internet)"},{"@type":"Thing","name":"Google Business Profile","sameAs":"https://en.wikipedia.org/wiki/Google_Business_Profile"}],"mentions":[{"@type":"Organization","name":"BrightLocal","url":"https://www.brightlocal.com/"},{"@type":"Organization","name":"Overture Maps Foundation","url":"https://overturemaps.org/"},{"@type":"Organization","name":"MICHELIN Guide","url":"https://guide.michelin.com/"},{"@type":"Organization","name":"James Beard Foundation","url":"https://www.jamesbeard.org/"}]},{"@type":"BreadcrumbList","@id":"https://localfoodnearme.com/how-ai-picks-restaurants/#crumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Local Food Near Me","item":"https://localfoodnearme.com/"},{"@type":"ListItem","position":2,"name":"How AI Picks Restaurants","item":"https://localfoodnearme.com/how-ai-picks-restaurants/"}]},{"@type":"FAQPage","@id":"https://localfoodnearme.com/how-ai-picks-restaurants/#faq","mainEntity":[{"@type":"Question","name":"How does AI decide which restaurants to recommend?","acceptedAnswer":{"@type":"Answer","text":"By retrieving and summarising text, not by ranking places. An assistant assembles an answer from documents it can access — web pages, structured data, and in some products live search results — and names the restaurants those documents describe clearly. It has no way to assess food. What it can assess is whether a restaurant is described specifically, whether the details are consistent across sources, and whether anyone independent has written about it."}},{"@type":"Question","name":"Can a restaurant pay to be recommended by ChatGPT or Gemini?","acceptedAnswer":{"@type":"Answer","text":"Not in the way you can pay for a Google ad. There is no auction, no bid and no placement to purchase for the recommendation itself. That is a genuine difference from paid search, and it means the way in is to be described well enough and often enough that assistants have something accurate to retrieve. Some AI products carry advertising in other parts of the interface, but the substance of a recommendation is not sold."}},{"@type":"Question","name":"Do people actually trust AI restaurant recommendations?","acceptedAnswer":{"@type":"Answer","text":"They use it to shortlist, then verify. BrightLocal found that of consumers who started a local search on an AI tool, only 2% used it as their only channel: 43% went to Google afterwards and 39% checked social media. Only 18% of AI users felt ready to contact the business the AI recommended without further research. Adoption is fast, trust is lagging behind it."}},{"@type":"Question","name":"How many people use AI to find local businesses?","acceptedAnswer":{"@type":"Answer","text":"45% of US consumers used an AI tool for local business recommendations in the past year, up from 6% the year before, according to BrightLocal's Local Consumer Review Survey 2026. 31% use AI for local recommendations at least monthly, and only 19% say they would not consider it. In a single recent search, 23% used an AI tool at some point."}},{"@type":"Question","name":"What makes an assistant name one restaurant over another?","acceptedAnswer":{"@type":"Answer","text":"Being findable in text, being described specifically, and being corroborated. An assistant reaches for concrete detail — a named dish, a neighbourhood, an award, an opening year — because vague marketing language gives it nothing to repeat. It also weighs consistency: when a restaurant's hours or address differ between its own site and other sources, that is a reason to reach for a different restaurant instead."}},{"@type":"Question","name":"Does my restaurant's website matter for AI, or just my Google listing?","acceptedAnswer":{"@type":"Answer","text":"Both, and for different reasons. The Google Business Profile carries the structured facts — address, category, hours — that assistants and search features lean on. The website is where the specific, describable detail lives: what you actually cook, who cooks it, what the room is like. A restaurant with a strong listing and a thin website tends to appear as an address rather than a recommendation."}},{"@type":"Question","name":"Why can't AI read my menu?","acceptedAnswer":{"@type":"Answer","text":"Usually because it is a photograph or a PDF rather than text on a page. A menu published as an image is invisible as text, so an assistant asked for the best carbonara in your town cannot know you serve one. Publishing the menu as ordinary readable text on your own site is one of the cheapest and most consequential fixes available to a restaurant."}},{"@type":"Question","name":"Is being recommended by AI the same as ranking on Google?","acceptedAnswer":{"@type":"Answer","text":"No, and conflating them causes bad decisions. Ranking is a position in a list of links, where being tenth still means being present. An assistant names two or three places and stops, so there is no tenth position — you are in the answer or absent from it. The inputs overlap heavily, but the payoff is far more concentrated."}},{"@type":"Question","name":"Should a restaurant worry about this yet?","acceptedAnswer":{"@type":"Answer","text":"It is worth attention rather than panic. Roughly a quarter of consumers touched an AI tool during their most recent local search and almost half used one at some point in the year, so the behaviour is real and growing quickly. But the same research shows people verify what AI tells them elsewhere, which means the fundamentals — an accurate listing, a readable website, current hours, real reviews — still decide the outcome. Those fundamentals also happen to be what makes an assistant able to describe you."}},{"@type":"Question","name":"What is the single most useful thing to fix?","acceptedAnswer":{"@type":"Answer","text":"Consistency of your basic facts across every place they appear. Name, address, phone, hours and category should match on your website, your Google Business Profile, Apple Maps and any directory you appear in. It is unglamorous, it is free, and it is the thing that most often disqualifies a restaurant at the verification step — which, given that most people verify, is the step that actually decides."}}]}]}</script><script>
+function measureHeader(){var h=document.getElementById('hdr');
+  if(h){document.documentElement.style.setProperty('--hdr',h.getBoundingClientRect().height+'px');}}
+window.addEventListener('load',measureHeader);
+window.addEventListener('resize',measureHeader);
+measureHeader();
+
+var burger=document.getElementById('burger'),mobnav=document.getElementById('mobnav');
+burger.addEventListener('click',function(){
+  var open=mobnav.classList.toggle('open');
+  burger.setAttribute('aria-expanded',open?'true':'false');
+  burger.setAttribute('aria-label',open?'Close menu':'Open menu');
+  document.body.style.overflow=open?'hidden':'';
+  measureHeader();
+});
+mobnav.addEventListener('click',function(e){
+  if(e.target.tagName==='A'){mobnav.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');document.body.style.overflow='';}
+});
+
+(function(){
+  var form=document.getElementById('adform');
+  if(!form) return;
+  var btn=document.getElementById('fbtn'),status=document.getElementById('fstatus');
+  var loaded=Date.now(),lastSend=0;
+  var SPAM=/\b(seo services|guest post|backlink|crypto|casino|loan offer|viagra|escort|bitcoin investment)\b/i;
+  function buildAction(f){return 'https://formsubmit.co/'+f.dataset.fs;}
+  function say(c,m){status.className=c;status.textContent=m;}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(form.querySelector('[name="_honey"]').value!==''){return;}
+    if(Date.now()-loaded<4000){say('warn','Give the page a moment to finish loading, then send.');return;}
+    if(Date.now()-lastSend<60000){say('warn','That was just sent. Wait a minute before sending again.');return;}
+    var name=form.name.value.trim(),email=form.email.value.trim(),
+        phone=form.phone.value.trim(),msg=form.message.value.trim();
+    if(name.length<2||!/^[\p{L}\s.'\-]{2,60}$/u.test(name)){say('warn','Enter your name as you would write it.');return;}
+    if(!/^[^@\s]+@[^@\s.]+\.[^@\s]{2,}$/.test(email)){say('warn','That email address does not look complete.');return;}
+    if(phone.replace(/\D/g,'').length<10){say('warn','A phone number with at least 10 digits, please.');return;}
+    if(SPAM.test(msg)||SPAM.test(name)){say('bad','This message was blocked by the spam filter.');return;}
+    btn.disabled=true;btn.textContent='Sending...';lastSend=Date.now();
+    fetch('https://formsubmit.co/ajax/'+form.dataset.fs,{method:'POST',
+      headers:{'Accept':'application/json'},body:new FormData(form)})
+      .then(function(r){if(!r.ok)throw new Error('bad');return r.json();})
+      .then(function(){say('ok','Sent and confirmed. We will reply to '+email+', usually within a business day.');
+        btn.textContent='Sent';form.reset();})
+      .catch(function(){
+        try{
+          var f2=document.createElement('form');
+          f2.method='POST';f2.action=buildAction(form);f2.target='fsink';f2.style.display='none';
+          new FormData(form).forEach(function(v,k){var i=document.createElement('input');
+            i.type='hidden';i.name=k;i.value=v;f2.appendChild(i);});
+          document.body.appendChild(f2);f2.submit();
+          say('warn','Sent, but we could not confirm delivery. If you do not hear back within a day, call 1-800-481-8638.');
+          btn.textContent='Sent';
+        }catch(err){say('bad','That did not send. Email info@eyetoad.com or call 1-800-481-8638.');
+          btn.disabled=false;btn.textContent='Send';}
+      });
+  });
+})();
+</script>
+</body>
+</html>
