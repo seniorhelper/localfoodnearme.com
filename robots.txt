@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://localfoodnearme.com/sitemap.xml

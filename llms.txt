@@ -1,0 +1,16 @@
+# Local Food Near Me
+
+> A national restaurant directory and practical guides on how people find somewhere to eat: search, reviews, AI assistants and award recognition. Restaurants can claim a listing free. Published by Eye To Ad Media, 1001 Bannock St #660, Denver, CO 80204, 1-800-481-8638.
+
+## Pages
+
+- [Local Food Near Me](https://localfoodnearme.com/): How people actually choose a restaurant in local search, with the research behind it.
+- [Restaurant Directory](https://localfoodnearme.com/restaurant-directory/): A searchable national restaurant directory with award-verified entries and restaurant-claimed listings.
+- [How to Find Good Food Near You](https://localfoodnearme.com/how-to-find-good-food-near-you/): A practical guide to searching for quality rather than proximity, reading reviews and checking hours.
+- [How AI Picks Restaurants](https://localfoodnearme.com/how-ai-picks-restaurants/): How AI assistants surface restaurant recommendations and how people use them.
+- [For Restaurant Owners](https://localfoodnearme.com/for-restaurant-owners/): What independent restaurants can fix first to be found, plus free and featured listings.
+- [Restaurant Health Inspections](https://localfoodnearme.com/restaurant-health-inspections/): Who inspects US restaurants, priority versus core violations, grades and scores, and how to look up a report.
+
+## Contact and listings
+
+- Claim or feature a listing: https://localfoodnearme.com/#listme
