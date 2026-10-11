@@ -3,18 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Restaurant Directory | Search Local Food Near You</title>
-<meta name="description" content="Search a growing national restaurant directory. Award-verified entries, restaurant-claimed listings, and open map data. Free for any restaurant to claim a listing.">
+<title>Restaurant Directory: Search Colorado and Oʻahu</title>
+<meta name="description" content="Search 183 source-cited restaurants in Colorado and Oʻahu by name, town, cuisine or award. Every record names its source and last-checked date.">
 <link rel="canonical" href="https://localfoodnearme.com/restaurant-directory/">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#0E1B2A">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Local Food Near Me">
-<meta property="og:title" content="Restaurant Directory | Search Local Food Near You">
-<meta property="og:description" content="Search a growing national restaurant directory. Award-verified entries, restaurant-claimed listings, and open map data. Free for any restaurant to claim a listing.">
+<meta property="og:title" content="Restaurant Directory: Search Colorado and Oʻahu">
+<meta property="og:description" content="Search 183 source-cited restaurants in Colorado and Oʻahu by name, town, cuisine or award. Every record names its source and last-checked date.">
 <meta property="og:url" content="https://localfoodnearme.com/restaurant-directory/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230E1B2A'/><circle cx='16' cy='13' r='7' fill='none' stroke='%23C8F04A' stroke-width='2.5'/><path d='M16 9 v4 l3 2' stroke='%23C8F04A' stroke-width='2' fill='none' stroke-linecap='round'/><rect x='9' y='24' width='14' height='2.5' fill='%23E8913A'/></svg>">
+<meta name="google-adsense-account" content="ca-pub-3561679124556057">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3561679124556057" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;600;700&family=Literata:opsz,wght@7..72,400;7..72,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -284,6 +286,37 @@ footer li{margin-bottom:9px;line-height:1.4}
 @media(max-width:430px){.wrap{padding:0 17px}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
 @media print{.hdr,.util,.mobnav,.ad,.slotbox,footer{display:none}}
+
+/* directory filters, chips, result details, craving tiles (2026-10) */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;max-width:760px}
+.chip{display:inline-block;font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;padding:7px 11px;border:1px solid rgba(255,255,255,.28);border-radius:999px;color:#fff;text-decoration:none;background:transparent;cursor:pointer}
+.chip:hover,.chip:focus-visible{background:var(--lime);color:var(--night);border-color:var(--lime)}
+.band a.chip{color:#fff}.band a.chip:hover{color:var(--night)}
+.filters{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:16px;align-items:center}
+.filters label{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;color:rgba(255,255,255,.75);display:flex;gap:8px;align-items:center}
+.filters select{font:inherit;font-family:var(--body);font-size:.9rem;letter-spacing:0;padding:7px 10px;border-radius:4px;border:1px solid rgba(255,255,255,.3);background:var(--deep);color:#fff}
+.rrow .aw{display:block;font-size:.84rem;margin-top:4px;color:var(--lime)}
+.rrow .rl{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px;font-family:var(--mono);font-size:.62rem;letter-spacing:.04em}
+.rrow .rl a{color:rgba(255,255,255,.85);text-decoration:underline;text-underline-offset:2px}
+.rrow .rl a:hover{color:var(--lime)}
+.rrow .tier small{display:block;margin-top:6px;color:rgba(255,255,255,.55);font-size:.56rem}
+.t-guide{background:transparent;border:1px solid var(--lime);color:var(--lime)}
+.band .t-guide{background:transparent;border:1px solid var(--lime);color:var(--lime)}
+table.data .t-guide{color:var(--lime-ink);border-color:var(--lime-ink)}
+.morebtn{margin-top:18px}
+.emptystate a{color:var(--lime)}
+.emptystate ul{margin:.6em 0 0 1.1em}
+.crave-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-top:28px}
+@media(min-width:700px){.crave-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}}
+.crave{display:block;background:var(--white);border:1px solid var(--line);text-decoration:none;color:var(--night);transition:transform .15s ease,box-shadow .15s ease}
+.crave:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(14,27,42,.12)}
+.crave picture,.crave img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.crave span{display:block;padding:12px 14px 14px}
+.crave strong{font-family:var(--disp);font-size:1.05rem;display:block}
+.crave em{font-style:normal;font-family:var(--mono);font-size:.62rem;letter-spacing:.05em;color:var(--slate)}
+.photo-note{font-size:.8rem;color:var(--slate);margin-top:14px}
+.srcgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:22px;margin-top:22px}
+@media(max-width:768px){.rrow .tier small{display:inline;margin-left:8px}}
 </style>
 </head>
 <body>
@@ -331,20 +364,38 @@ footer li{margin-bottom:9px;line-height:1.4}
 <div class="aistrip">
   <div class="wrap">
     <span class="tag">Short answer</span>
-    <p>Search by city, state or restaurant name in the bar below. The directory runs on four tiers: award-verified entries from the MICHELIN Guide and James Beard Foundation, listings claimed and confirmed by restaurants themselves, paid featured listings which are always labelled, and imported records from the Overture Maps Foundation. Claiming a listing is free and there is no listing fee.</p>
+    <p>Search by restaurant name, town, neighbourhood, cuisine or award. The directory currently holds 183 restaurants: 75 in Colorado, each recognised by the MICHELIN Guide or the James Beard Foundation, and 108 open restaurants on Oʻahu, Hawaii, each checked against published sources for our Honolulu guide. Every result names its sources and the date they were last checked. Other states are not loaded yet, and we leave them empty rather than guess. Claiming a listing is free.</p>
   </div>
 </div>
 <section class="band" style="padding-bottom:44px">
   <div class="wrap">
     <span class="eyebrow on-dark">The directory</span>
     <h1>Search for food near you.</h1>
-    <p class="lede" style="max-width:56ch">City, state, or the name of a restaurant. The directory loads only what you search for, so it stays fast on a phone.</p>
-    <div class="searchbar" role="search">
-      <input type="search" id="q" placeholder="Try Denver, or Aspen, or a restaurant name"
+    <p class="lede" style="max-width:60ch">A restaurant name, a town, a neighbourhood, a cuisine or an award. Right now the searchable records cover Colorado and Oʻahu, and every result links to the source it came from.</p>
+    <form class="searchbar" role="search" id="qform" action="/restaurant-directory/" method="get">
+      <input type="search" id="q" name="q" placeholder="Try Boulder, Waikiki, ramen or Bib Gourmand"
              aria-label="Search the restaurant directory" autocomplete="off">
-      <button class="btn btn-lime" id="qbtn" type="button">Search</button>
+      <button class="btn btn-lime" id="qbtn" type="submit">Search</button>
+    </form>
+    <div class="filters">
+      <label for="fs">AREA <select id="fs"><option value="all">Colorado + Oʻahu</option><option value="CO">Colorado (75)</option><option value="HI">Oʻahu, Hawaii (108)</option></select></label>
+      <label for="ft">TIER <select id="ft"><option value="all">All tiers</option><option value="a">Awarded (82)</option><option value="g">Guide-verified (101)</option></select></label>
     </div>
-    <p class="searchmeta" id="qmeta">Loaded: <span id="qcount">0</span> restaurants ready to search.</p>
+    <div class="chips" aria-label="Popular searches">
+      <a class="chip" href="?q=Denver" data-q="Denver">Denver</a>
+      <a class="chip" href="?q=Boulder" data-q="Boulder">Boulder</a>
+      <a class="chip" href="?q=Aspen" data-q="Aspen">Aspen</a>
+      <a class="chip" href="?q=Waikiki" data-q="Waikiki">Waikīkī</a>
+      <a class="chip" href="?q=Chinatown" data-q="Chinatown">Chinatown, Honolulu</a>
+      <a class="chip" href="?q=North+Shore" data-q="North Shore">North Shore</a>
+      <a class="chip" href="?q=MICHELIN+Star" data-q="MICHELIN Star">MICHELIN stars</a>
+      <a class="chip" href="?q=Bib+Gourmand" data-q="Bib Gourmand">Bib Gourmand</a>
+      <a class="chip" href="?q=James+Beard" data-q="James Beard">James Beard</a>
+      <a class="chip" href="?q=Hale+Aina" data-q="Hale Aina">Hale ʻAina winners</a>
+      <a class="chip" href="?q=ramen" data-q="ramen">Ramen</a>
+      <a class="chip" href="?q=poke" data-q="poke">Poke</a>
+    </div>
+    <p class="searchmeta" id="qmeta" aria-live="polite">183 restaurants searchable: Colorado 75, Oʻahu 108. Records last checked October 2026.</p>
     <div class="results" id="results" hidden></div>
     <div class="emptystate" id="empty" hidden></div>
   </div>
@@ -353,16 +404,17 @@ footer li{margin-bottom:9px;line-height:1.4}
 <section id="tiers">
   <div class="wrap">
     <span class="eyebrow">How the directory is built</span>
-    <h2>Four tiers, and you can always see which is which.</h2>
+    <h2>Five tiers, and you can always see which is which.</h2>
     <p class="lede narrow">Most directories hide the difference between an entry someone earned and an entry someone bought. We label it on every row.</p>
     <table class="data" style="margin-top:24px">
       <caption>Directory tiers</caption>
       <thead><tr><th>Tier</th><th>What it means</th><th>Verified by</th></tr></thead>
       <tbody>
         <tr><td><span class="tierbadge t-awarded">AWARDED</span></td><td>Holds a MICHELIN distinction or James Beard recognition. Free, never sold, and we add these ourselves.</td><td style="font-family:var(--mono);font-size:.7rem">Verified against the published selection</td></tr>
+        <tr><td><span class="tierbadge t-guide">GUIDE-VERIFIED</span></td><td>Covered in one of our written city guides after being checked against at least two published sources, such as the restaurant&rsquo;s own site, a newspaper or a tourism board. Free, never sold.</td><td style="font-family:var(--mono);font-size:.7rem">Sources listed on every row</td></tr>
         <tr><td><span class="tierbadge t-claimed">CLAIMED</span></td><td>A restaurant has confirmed its own details. Free to claim, no payment required, no listing fee.</td><td style="font-family:var(--mono);font-size:.7rem">Confirmed by the operator</td></tr>
         <tr><td><span class="tierbadge t-featured">FEATURED</span></td><td>A written profile, photography and a booking link. Included with our marketing work or bought directly. Always labelled.</td><td style="font-family:var(--mono);font-size:.7rem">Paid or included with client work</td></tr>
-        <tr><td><span class="tierbadge t-listed">LISTED</span></td><td>Imported from open map data. Name, address and category only. Searchable, but no page of its own.</td><td style="font-family:var(--mono);font-size:.7rem">Overture Maps Foundation</td></tr>
+        <tr><td><span class="tierbadge t-listed">LISTED</span></td><td>Planned: imported from open map data, with name, address and category only. Not loaded yet, so no search result currently carries this tier.</td><td style="font-family:var(--mono);font-size:.7rem">Overture Maps Foundation (planned)</td></tr>
       </tbody>
     </table>
     <div class="answer" style="margin-top:30px">
@@ -372,21 +424,8 @@ footer li{margin-bottom:9px;line-height:1.4}
   </div>
 </section>
 <div class="wrap"><div class="slotbox">
-  <span class="kv">Featured listing &nbsp;/&nbsp; Directory page &nbsp;/&nbsp; available</span>
-  <div class="demo-card">
-    <div class="demo-badge">FEATURED</div>
-    <div class="demo-thumb" aria-hidden="true">
-      <svg viewBox="0 0 110 84"><circle cx="55" cy="34" r="20" fill="none" stroke="currentColor" stroke-width="3"/>
-        <path d="M55 22 v12 l8 5" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <rect x="34" y="66" width="42" height="4" rx="2" fill="currentColor"/></svg>
-    </div>
-    <div class="demo-body">
-      <strong>Your restaurant name here</strong>
-      <em>Your city &middot; your cuisine &middot; your hours</em>
-      <p>A written profile, photography, your booking link and a permanent page of its own &mdash; not just a row in a search result. Labelled Featured wherever it appears.</p>
-    </div>
-  </div>
-  <p>The featured slot sits above search results on the page people arrive at when they are looking for somewhere to eat.</p>
+  <span class="kv">For restaurant owners &nbsp;/&nbsp; Featured listings</span>
+  <p>A featured listing adds a written profile, photography and a booking link to a restaurant&rsquo;s entry, and it is labelled Featured everywhere it appears. Search position and the awarded tier are never for sale.</p>
   <a class="btn" href="#listme">Ask what it costs</a>
 </div></div>
 <section class="band-soft" id="coverage">
@@ -433,10 +472,7 @@ footer li{margin-bottom:9px;line-height:1.4}
     <div class="cols3" style="margin-top:30px">
       <div class="card"><span class="kv">Colorado &nbsp;&middot;&nbsp; Statewide award register</span><h3><a href="https://bestrestaurantcolorado.com/">bestrestaurantcolorado.com</a></h3><p>Every Colorado restaurant holding a MICHELIN distinction or James Beard recognition, sorted by elevation.</p></div>
       <div class="card"><span class="kv">Denver &nbsp;&middot;&nbsp; Metro dining guide</span><h3><a href="https://bestrestaurantdenver.com/">bestrestaurantdenver.com</a></h3><p>Neighbourhood by neighbourhood through the city, plus brunch and what to actually order.</p></div>
-      <div class="card"><span class="kv">Honolulu &nbsp;&middot;&nbsp; City dining guide</span><h3><a href="https://restauranthonolulu.com/">restauranthonolulu.com</a></h3><p>Nine pages covering the Honolulu restaurant scene across neighbourhoods and cuisines.</p></div>
-      <div class="card"><span class="kv">Oahu &nbsp;&middot;&nbsp; Island dining guide</span><h3><a href="https://bestrestaurantsinoahu.com/">bestrestaurantsinoahu.com</a></h3><p>Where to eat across Oahu beyond Waikiki.</p></div>
-      <div class="card"><span class="kv">Hawaii &nbsp;&middot;&nbsp; Category guide</span><h3><a href="https://bestpizzainhawaii.com/">bestpizzainhawaii.com</a></h3><p>A single-category guide covering pizza across the Hawaiian islands.</p></div>
-      <div class="card"><span class="kv">Denver &nbsp;&middot;&nbsp; Category guide</span><h3><a href="https://besttacotruckdenver.com/">besttacotruckdenver.com</a></h3><p>Denver&#x27;s taco truck scene, treated as its own category.</p></div>
+      <div class="card"><span class="kv">Honolulu &nbsp;&middot;&nbsp; City dining guide</span><h3><a href="https://restauranthonolulu.com/">restauranthonolulu.com</a></h3><p>Source-checked pages for more than a hundred open Honolulu and Oʻahu restaurants, with a closed list kept on the record.</p></div>
       <div class="card"><span class="kv">Belize &nbsp;&middot;&nbsp; National dining guide</span><h3><a href="https://bestrestaurantsbelize.com/">bestrestaurantsbelize.com</a></h3><p>A 22-restaurant dataset covering Belize, from San Pedro to the mainland.</p></div>
       <div class="card"><span class="kv">Caye Caulker &amp; San Pedro &nbsp;&middot;&nbsp; Island dining guide</span><h3><a href="https://belizerestaurantsguide.com/">belizerestaurantsguide.com</a></h3><p>Editorial coverage of the Belizean cayes with verified contact details.</p></div>
       <div class="card"><span class="kv">Cabarete &nbsp;&middot;&nbsp; Town dining guide</span><h3><a href="https://cabareterestaurants.com/">cabareterestaurants.com</a></h3><p>Bilingual English and Spanish coverage of Cabarete, Dominican Republic.</p></div>
@@ -453,7 +489,7 @@ footer li{margin-bottom:9px;line-height:1.4}
     <div class="cols2">
       <div>
         <h3>Why it loads in pieces</h3>
-        <p>There are roughly seven hundred thousand restaurants in the United States. Sending that to a phone as a single file would be absurd, so the directory is split into shards by area and the search loads only the shard you ask for. Searching Denver downloads Denver.</p>
+        <p>There are roughly seven hundred thousand restaurants in the United States. Sending that to a phone as a single file would be absurd, so the directory is split into shards by area and the search loads only the shard you ask for. Searching Denver downloads the Colorado file, about thirty kilobytes compressed.</p>
         <p>The practical effect is that the directory can grow to national scale without the page getting slower, because the size of the whole dataset never affects the size of what any one visitor downloads.</p>
         <h3 style="margin-top:28px">Why imported listings have no page</h3>
         <p>Generating a separate web page for every imported record is technically easy and a genuinely bad idea. It produces hundreds of thousands of near-identical pages containing a name, an address and nothing a person could use.</p>
@@ -466,7 +502,7 @@ footer li{margin-bottom:9px;line-height:1.4}
         <p><strong>Scrape Google or Yelp.</strong> Both prohibit using their data to build a competing directory, and doing it anyway would put the whole site at risk. The open datasets exist precisely so nobody has to.</p>
         <p><strong>Sell position.</strong> Covered above, and worth repeating because it is the thing that quietly ruins most directories.</p>
         <h3 style="margin-top:28px">What is coming</h3>
-        <p>The imported tier is being expanded from the Overture Maps Foundation release, city by city. The awarded tier grows whenever a new selection is published &mdash; the MICHELIN Guide Colorado 2026 statewide edition is expected shortly and will add entries in towns that were never previously eligible.</p>
+        <p>The imported tier has not been loaded yet. When it is, it will come from the Overture Maps Foundation release, one state at a time, and each record will say so. The awarded tier grows whenever a new selection is published &mdash; the MICHELIN Guide Colorado 2026 statewide edition is expected shortly and will add entries in towns that were never previously eligible.</p>
       </div>
     </div>
 
@@ -477,6 +513,18 @@ footer li{margin-bottom:9px;line-height:1.4}
   </div>
 </section>
 
+<section id="sources">
+  <div class="wrap">
+    <span class="eyebrow">Data and sources</span>
+    <h2>Where every record comes from.</h2>
+    <p class="lede narrow">Each result in the directory carries its own source links. This is the summary, plus the raw files for anyone, or any assistant, that wants to check our work.</p>
+    <div class="srcgrid">
+      <div class="card"><span class="kv" style="color:var(--lime-ink)">Colorado &nbsp;/&nbsp; 75 restaurants</span><h3>MICHELIN Guide and James Beard Foundation</h3><p>Every Colorado record holds a distinction in the MICHELIN Guide Colorado 2026 selection, announced 14 September 2026, or James Beard Foundation recognition from 2022 to 2026. Compiled from our <a href="https://bestrestaurantcolorado.com/">Colorado award register</a> and <a href="https://bestrestaurantdenver.com/">Denver guide</a>, which link each restaurant to its MICHELIN or James Beard listing.</p><p><a href="/data/co.json">Colorado data file (JSON)</a></p></div>
+      <div class="card"><span class="kv" style="color:var(--lime-ink)">Oʻahu, Hawaii &nbsp;/&nbsp; 108 restaurants</span><h3>Our Honolulu guide&rsquo;s verified dataset</h3><p>Open restaurants only, each checked against at least two published sources (official sites, the Honolulu Star-Advertiser, Honolulu Magazine and others) and dated. Closed restaurants are left out. Full write-ups live on <a href="https://restauranthonolulu.com/">Restaurant Honolulu</a>.</p><p><a href="/data/hi.json">Oʻahu data file (JSON)</a></p></div>
+      <div class="card"><span class="kv" style="color:var(--lime-ink)">What we leave out</span><h3>No ratings, no guesses</h3><p>We do not copy star ratings or review counts from other sites, and we do not publish hours or phone numbers we have not confirmed. Use each restaurant&rsquo;s own site or current Google listing for hours. If a record is wrong, <a href="#listme">tell us</a> and we will fix it first.</p><p><a href="/data/index.json">Directory index (JSON)</a></p></div>
+    </div>
+  </div>
+</section>
 <section class="band-soft" id="faq">
   <div class="wrap">
     <div class="cols2">
@@ -487,27 +535,23 @@ footer li{margin-bottom:9px;line-height:1.4}
         <p>See also: <a href="/how-to-find-good-food-near-you/">how to find good food near you</a> and <a href="/for-restaurant-owners/">what this means if you own a restaurant</a>.</p>
       </div>
       <div>
-        <details><summary>How do I find restaurants near me in this directory?</summary><div class="ans"><p>Type a city, state or restaurant name into the search bar. The directory loads only the records for the area you search rather than the whole dataset, which keeps it fast on a phone. Results show the restaurant, its city and state, its category, and which tier the entry belongs to.</p></div></details>
+        <details><summary>How do I find restaurants near me in this directory?</summary><div class="ans"><p>Type a city, state or restaurant name into the search bar. The directory loads only the records for the area you search rather than the whole dataset, which keeps it fast on a phone. Results show the restaurant, its town and state, its category, any award, which tier the entry belongs to, and links to the sources behind it. You can also narrow results by area and tier.</p></div></details>
         <details><summary>Is it free for a restaurant to be listed?</summary><div class="ans"><p>Yes. Claiming a listing costs nothing, has no trial and needs no card. If your restaurant is already in the directory you can confirm the details and they become correct; if it is not, tell us and we will add it. Featured listings, which include a written profile and a page of their own, are paid or included with our marketing work and are labelled as featured.</p></div></details>
         <details><summary>Can a restaurant pay for a better position in the results?</summary><div class="ans"><p>No. Search results are not sold and paid listings do not outrank anything. What payment buys is a featured listing: a profile, photography, a booking link and a page of its own, marked Featured wherever it appears. The awarded tier cannot be bought at all, because those entries come from the MICHELIN Guide and the James Beard Foundation.</p></div></details>
-        <details><summary>Where does the directory data come from?</summary><div class="ans"><p>Award-verified entries come from published MICHELIN Guide and James Beard Foundation selections. Claimed and featured entries are confirmed by the restaurants themselves. Imported entries come from the Overture Maps Foundation, an open mapping dataset backed by Meta, Microsoft, Amazon and TomTom, which is licensed for commercial use with attribution and includes data from Foursquare&#x27;s Open Source Places under Apache 2.0.</p></div></details>
+        <details><summary>Where does the directory data come from?</summary><div class="ans"><p>Awarded entries come from the published MICHELIN Guide Colorado 2026 selection and James Beard Foundation awards, as recorded in our Colorado and Denver guides. Guide-verified entries come from our Honolulu guide, where every restaurant is checked against at least two published sources. Claimed and featured entries are confirmed by the restaurants themselves. Imported records from the Overture Maps Foundation, an open dataset licensed for commercial use with attribution, are planned but not loaded yet.</p></div></details>
         <details><summary>Why do imported listings have so little detail?</summary><div class="ans"><p>Because open map data carries the basics well and everything else poorly. Name, address, coordinates and category are reliable. Hours, menus, photographs and current phone numbers frequently are not. Rather than publish details we cannot stand behind, we show what is verifiable and invite the restaurant to claim the listing and fill in the rest for free.</p></div></details>
         <details><summary>Does every restaurant in the directory have its own page?</summary><div class="ans"><p>No, deliberately. Award-verified, claimed and featured restaurants get pages because there is something real to put on them. Imported records are searchable but do not get individual pages, because generating hundreds of thousands of thin pages from open data is bad for the reader and would rightly be treated as low-quality content by search engines.</p></div></details>
         <details><summary>How is this different from Google Maps or Yelp?</summary><div class="ans"><p>It is much smaller, and that is the point rather than an apology. Google and Yelp aim for every business. We are building a directory where the award-verified tier is genuinely selective, the claimed tier is confirmed by operators, and the whole thing sits alongside written guides for specific places. If you want exhaustive coverage of every takeaway in America, use Google. If you want to know which restaurants have been recognised by someone, this is more useful.</p></div></details>
-        <details><summary>How often is the directory updated?</summary><div class="ans"><p>The awarded tier is updated whenever MICHELIN or the James Beard Foundation publishes a selection, which is several times a year. Claimed listings are updated whenever the restaurant tells us something changed. Imported records are refreshed when the Overture Maps Foundation publishes a new release, which is roughly monthly.</p></div></details>
+        <details><summary>How often is the directory updated?</summary><div class="ans"><p>The awarded tier is updated whenever MICHELIN or the James Beard Foundation publishes a selection, which is several times a year. Guide-verified records follow our Honolulu guide, which re-checks its restaurants and moves closures to a closed list. Claimed listings are updated whenever the restaurant tells us something changed. Each result shows the date its source record was last checked.</p></div></details>
         <details><summary>A listing is wrong. How do I fix it?</summary><div class="ans"><p>Use the form on this page and select &#x27;Correct my existing listing&#x27;. We would rather have a small directory that is right than a large one that is wrong, so corrections take priority over new listings and there is no charge for either.</p></div></details>
-        <details><summary>What areas does the directory cover?</summary><div class="ans"><p>The United States, expanding. Award-verified coverage follows the MICHELIN Guide&#x27;s US regions and the James Beard Foundation&#x27;s national and regional categories. Imported coverage follows the Overture Maps Foundation&#x27;s US data. Alongside it we publish written guides for specific places, listed further down this page, including several outside the United States.</p></div></details>
+        <details><summary>What areas does the directory cover?</summary><div class="ans"><p>Right now, Colorado (75 restaurants) and Oʻahu, Hawaii (108 restaurants). A search for anywhere else returns a plain note saying the area is not loaded yet, because we would rather show nothing than show listings we cannot source. Award coverage will follow the MICHELIN Guide&#x27;s US regions and the James Beard Foundation&#x27;s categories, and we publish written guides for other places, including several outside the United States.</p></div></details>
       </div>
     </div>
   </div>
 </section>
 <div class="wrap"><div class="slotbox">
-  <span class="kv">Open advertising space &nbsp;/&nbsp; Directory page</span>
-  <div class="open-frame">
-    <span class="of-mark">THIS SPACE</span>
-    <span class="of-sub">is available to one restaurant</span>
-  </div>
-  <p>A labelled display unit on the page people land on when they are actively looking for somewhere to eat. Sold by placement, not by impression.</p>
+  <span class="kv">For restaurant owners &nbsp;/&nbsp; Display placements</span>
+  <p>Restaurants can also take a labelled display placement on a guide page. It is always marked as advertising and kept separate from directory results.</p>
   <a class="btn btn-ghost" href="#listme">Ask what it costs</a>
 </div></div>
 <section id="listme">
@@ -584,14 +628,12 @@ footer li{margin-bottom:9px;line-height:1.4}
         </ul>
       </div>
       <div>
-        <h4>Our guides</h4>
+        <h4>About this site</h4>
         <ul>
-          <li><a href="https://bestrestaurantcolorado.com/">Colorado</a></li>
-          <li><a href="https://bestrestaurantdenver.com/">Denver</a></li>
-          <li><a href="https://restauranthonolulu.com/">Honolulu</a></li>
-          <li><a href="https://bestrestaurantsbelize.com/">Belize</a></li>
-          <li><a href="https://cabareterestaurants.com/">Cabarete</a></li>
-          <li><a href="https://linkrestaurants.com/">NFC menus</a></li>
+          <li><a href="/about/">About &amp; editorial standards</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy/">Privacy &amp; cookies</a></li>
+          <li><a href="/restaurant-directory/#sources">Directory data &amp; sources</a></li>
         </ul>
       </div>
       <div>
@@ -613,21 +655,22 @@ footer li{margin-bottom:9px;line-height:1.4}
         </ul>
       </div>
     </div>
-    <p class="attrib">Consumer research figures on this site are from BrightLocal's Consumer Search Behavior 2026 (representative panel of 1,227 US consumers) and Local Consumer Review Survey 2026 (1,002 US adults), used with attribution. Search volume figures are from Google Keyword Planner, United States, July 2025 to June 2026, retrieved 11 August 2026, and are reported as ranges because that is how the tool reports them. Imported directory records are from the Overture Maps Foundation, available under CDLA Permissive 2.0 and Apache 2.0 depending on source; Foursquare-sourced data is Copyright 2024 Foursquare Labs, Inc., available under Apache 2.0 and transformed to the Overture schema.</p>
+    <p class="attrib">Consumer research figures on this site are from BrightLocal's Consumer Search Behavior 2026 (representative panel of 1,227 US consumers) and Local Consumer Review Survey 2026 (1,002 US adults), used with attribution. Search volume figures are from Google Keyword Planner, United States, July 2025 to June 2026, retrieved 11 August 2026, and are reported as ranges because that is how the tool reports them. Directory records are compiled from the MICHELIN Guide, the James Beard Foundation and our own source-cited city guides, and every record names its sources. Imported records from the Overture Maps Foundation are planned, not yet loaded, and will carry its licence terms when added. Food photographs are representative stock images licensed from Pexels and were not taken at any listed restaurant.</p>
     <div class="fbase">
       <span>&copy; 2026 EYE TO AD MEDIA &nbsp;/&nbsp; SEARCH CONVERTS LLC</span>
-      <span>DATA LAST VERIFIED 11 AUGUST 2026</span>
+      <span>DIRECTORY RECORDS LAST CHECKED OCTOBER 2026</span>
     </div>
   </div>
 </footer>
 <div class="sr-only"><h2>Fact sheet</h2><ul>
 <li>Publisher: Eye To Ad Media, 1001 Bannock St #660, Denver CO 80204, 1-800-481-8638.</li>
-<li>Local Food Near Me operates a four-tier restaurant directory: awarded, claimed, featured and listed.</li>
+<li>Local Food Near Me operates a restaurant directory with five tiers: awarded, guide-verified, claimed, featured and listed (planned).</li>
+<li>The directory currently holds 183 restaurants: 75 in Colorado and 108 on Oʻahu, Hawaii, each with source links and a last-checked date.</li>
 <li>Awarded entries come from the MICHELIN Guide and James Beard Foundation and cannot be purchased.</li>
 <li>Claiming a directory listing is free with no listing fee.</li>
 <li>Featured listings are paid or included with marketing work and are labelled Featured.</li>
 <li>Search result position is not for sale.</li>
-<li>Imported records come from the Overture Maps Foundation under CDLA Permissive 2.0 and Apache 2.0 licences.</li>
+<li>Imported records from the Overture Maps Foundation are planned and not yet loaded.</li>
 <li>Imported records are searchable but do not receive individual web pages.</li>
 <li>The MICHELIN Guide covers twelve US regions; large parts of the United States have no MICHELIN coverage.</li>
 <li>There are approximately 700,000 restaurants in the United States.</li>
@@ -652,84 +695,145 @@ mobnav.addEventListener('click',function(e){
 });
 
 /* ---------- directory search ----------
-   Loads a shard for the searched area rather than the whole dataset.
-   Shards live at /data/<state>.json as: [{n:name,c:city,s:state,k:category,t:tier}]
-   The embedded starter set below keeps search working before shards exist. */
-var SEED = [{"n":"Radicato","c":"Breckenridge","s":"CO","k":"Italian","t":"a"},{"n":"Rootstalk","c":"Breckenridge","s":"CO","k":"New American","t":"a"},{"n":"Van Atta","c":"Telluride","s":"CO","k":"Bar","t":"a"},{"n":"Osaki's","c":"Vail","s":"CO","k":"Japanese omakase","t":"a"},{"n":"Sweet Basil","c":"Vail","s":"CO","k":"American","t":"a"},{"n":"Splendido at the Chateau","c":"Beaver Creek","s":"CO","k":"American","t":"a"},{"n":"Bosq","c":"Aspen","s":"CO","k":"Tasting menu","t":"a"},{"n":"Element 47","c":"Aspen","s":"CO","k":"American","t":"a"},{"n":"Mawa's Kitchen","c":"Aspen","s":"CO","k":"African / French","t":"a"},{"n":"Prospect","c":"Aspen","s":"CO","k":"American","t":"a"},{"n":"Mirabelle","c":"Avon","s":"CO","k":"French","t":"a"},{"n":"Poulette Bakeshop","c":"Parker","s":"CO","k":"Bakery","t":"a"},{"n":"Annette","c":"Aurora","s":"CO","k":"New American","t":"a"},{"n":"Marigold","c":"Lyons","s":"CO","k":"New American","t":"a"},{"n":"Gladys","c":"Edgewater","s":"CO","k":"New American","t":"a"},{"n":"Basta","c":"Boulder","s":"CO","k":"Italian","t":"a"},{"n":"Blackbelly","c":"Boulder","s":"CO","k":"American","t":"a"},{"n":"Boulder Dushanbe Tea House","c":"Boulder","s":"CO","k":"International","t":"a"},{"n":"Bramble & Hare","c":"Boulder","s":"CO","k":"Farmhouse","t":"a"},{"n":"Cozobi Fonda Fina","c":"Boulder","s":"CO","k":"Mexican","t":"a"},{"n":"Frasca Food and Wine","c":"Boulder","s":"CO","k":"Italian","t":"a"},{"n":"Oak at Fourteenth","c":"Boulder","s":"CO","k":"American","t":"a"},{"n":"Santo","c":"Boulder","s":"CO","k":"New Mexican","t":"a"},{"n":"Stella's Cucina","c":"Boulder","s":"CO","k":"Italian","t":"a"},{"n":"Zoe Ma Ma","c":"Boulder","s":"CO","k":"Chinese","t":"a"},{"n":"A5 Steakhouse","c":"Denver","s":"CO","k":"Steakhouse","t":"a"},{"n":"Alma Fonda Fina","c":"Denver","s":"CO","k":"Mexican","t":"a"},{"n":"Alteño","c":"Denver","s":"CO","k":"Mexican","t":"a"},{"n":"Ash'Kara","c":"Denver","s":"CO","k":"Middle Eastern","t":"a"},{"n":"Barolo Grill","c":"Denver","s":"CO","k":"Italian","t":"a"},{"n":"Beckon","c":"Denver","s":"CO","k":"Tasting menu","t":"a"},{"n":"Brasserie Brixton","c":"Denver","s":"CO","k":"French","t":"a"},{"n":"Brutø","c":"Denver","s":"CO","k":"Hearth tasting menu","t":"a"},{"n":"Dio Mio","c":"Denver","s":"CO","k":"Pasta","t":"a"},{"n":"Glo Noodle House","c":"Denver","s":"CO","k":"Noodles","t":"a"},{"n":"Guard and Grace","c":"Denver","s":"CO","k":"Steakhouse","t":"a"},{"n":"Hey Kiddo","c":"Denver","s":"CO","k":"American","t":"a"},{"n":"Hop Alley","c":"Denver","s":"CO","k":"Chinese","t":"a"},{"n":"Kawa Ni","c":"Denver","s":"CO","k":"Japanese","t":"a"},{"n":"Kizaki","c":"Denver","s":"CO","k":"Japanese","t":"a"},{"n":"La Diabla Pozole y Mezcal","c":"Denver","s":"CO","k":"Mexican","t":"a"},{"n":"Lady Jane","c":"Denver","s":"CO","k":"Bar","t":"a"},{"n":"MAKfam","c":"Denver","s":"CO","k":"Chinese American","t":"a"},{"n":"Marco's Coal Fired","c":"Denver","s":"CO","k":"Pizza","t":"a"},{"n":"Margot","c":"Denver","s":"CO","k":"Tasting menu","t":"a"},{"n":"Mercantile","c":"Denver","s":"CO","k":"American","t":"a"},{"n":"Mezcaleria Alma","c":"Denver","s":"CO","k":"Mexican","t":"a"},{"n":"Mister Oso","c":"Denver","s":"CO","k":"Latin American","t":"a"},{"n":"Molino Chido","c":"Denver","s":"CO","k":"Mexican","t":"a"},{"n":"Molotov Kitschen + Cocktails","c":"Denver","s":"CO","k":"Eastern European","t":"a"},{"n":"Odell's Bagel","c":"Denver","s":"CO","k":"Bagels","t":"a"},{"n":"Restaurant Olivia","c":"Denver","s":"CO","k":"Italian","t":"a"},{"n":"Safta","c":"Denver","s":"CO","k":"Israeli","t":"a"},{"n":"Smok","c":"Denver","s":"CO","k":"Barbecue","t":"a"},{"n":"Tavernetta","c":"Denver","s":"CO","k":"Italian","t":"a"},{"n":"Temaki Den","c":"Denver","s":"CO","k":"Japanese","t":"a"},{"n":"The Ginger Pig","c":"Denver","s":"CO","k":"Pan-Asian","t":"a"},{"n":"The Wolf's Tailor","c":"Denver","s":"CO","k":"Tasting menu","t":"a"},{"n":"Ukiyo","c":"Denver","s":"CO","k":"Japanese omakase","t":"a"},{"n":"Uncle","c":"Denver","s":"CO","k":"Ramen","t":"a"},{"n":"Wildflower","c":"Denver","s":"CO","k":"American","t":"a"},{"n":"Yacht Club","c":"Denver","s":"CO","k":"Bar","t":"a"},{"n":"Yuan Wonton","c":"Denver","s":"CO","k":"Chinese","t":"a"},{"n":"Bin 707 Foodbar","c":"Grand Junction","s":"CO","k":"Colorado regional","t":"a"}];
-var CACHE = {}, LOADED = SEED.slice();
-var qEl=document.getElementById('q'), btn=document.getElementById('qbtn');
-var res=document.getElementById('results'), emp=document.getElementById('empty'),
-    cnt=document.getElementById('qcount');
-if(cnt) cnt.textContent = LOADED.length.toLocaleString();
+   /data/index.json lists the state files that exist; only those are fetched,
+   so a search never requests a file that is not there. Each state file is
+   {state, count, restaurants:[{n,c,s,k,hood,addr,t,award,web,page,src[],via,checked}]}.
+   Every record traces to the sources in its src[] array. */
+(function(){
+var qEl=document.getElementById('q'), form=document.getElementById('qform');
+var res=document.getElementById('results'), emp=document.getElementById('empty'), meta=document.getElementById('qmeta');
+var fs=document.getElementById('fs'), ft=document.getElementById('ft');
+if(!qEl||!res) return;
+var IDX=null, ROWS=[], LOADED={}, LIMIT=60, lastHits=[], lastLabel='';
+var TIERNAME={a:'AWARDED',g:'GUIDE-VERIFIED',f:'FEATURED',c:'CLAIMED',l:'LISTED'};
+var TIERCLS={a:'t-awarded',g:'t-guide',f:'t-featured',c:'t-claimed',l:'t-listed'};
+var CRAVINGS={
+  burgers:{label:'Burgers & American',terms:['burger','american']},
+  tacos:{label:'Tacos & Mexican',terms:['mexican','taco']},
+  sushi:{label:'Sushi & Japanese',terms:['sushi','japanese','omakase','izakaya']},
+  pizza:{label:'Pizza',terms:['pizza']},
+  chinese:{label:'Chinese & Sichuan',terms:['chinese','dim sum','sichuan']},
+  kebab:{label:'Kebabs & Mediterranean',terms:['mediterranean','turkish','israeli','middle eastern']},
+  italian:{label:'Italian & pasta',terms:['italian','pasta']},
+  steak:{label:'Steakhouses',terms:['steak']}
+};
+var STATES={al:'Alabama',ak:'Alaska',az:'Arizona',ar:'Arkansas',ca:'California',ct:'Connecticut',de:'Delaware',fl:'Florida',ga:'Georgia',id:'Idaho',il:'Illinois',ia:'Iowa',ks:'Kansas',ky:'Kentucky',la:'Louisiana',me:'Maine',md:'Maryland',ma:'Massachusetts',mi:'Michigan',mn:'Minnesota',ms:'Mississippi',mo:'Missouri',mt:'Montana',ne:'Nebraska',nv:'Nevada',nh:'New Hampshire',nj:'New Jersey',nm:'New Mexico',ny:'New York',nc:'North Carolina',nd:'North Dakota',oh:'Ohio',ok:'Oklahoma',or:'Oregon',pa:'Pennsylvania',ri:'Rhode Island',sc:'South Carolina',sd:'South Dakota',tn:'Tennessee',tx:'Texas',ut:'Utah',vt:'Vermont',va:'Virginia',wa:'Washington',wv:'West Virginia',wi:'Wisconsin',wy:'Wyoming',dc:'Washington DC'};
+var ALIAS={colorado:'co',hawaii:'hi',oahu:'hi',honolulu:'hi'};
 
-var TIERNAME={a:'AWARDED',f:'FEATURED',c:'CLAIMED',l:'LISTED'};
-var TIERCLS={a:'t-awarded',f:'t-featured',c:'t-claimed',l:'t-listed'};
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];});}
+function norm(s){return String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[ʻ'’]/g,'').toLowerCase();}
+function host(u){try{return new URL(u).hostname.replace(/^www\./,'');}catch(e){return 'source';}}
+function safeUrl(u){return /^https?:\/\//.test(u||'')?u:null;}
 
-function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(m){
-  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];});}
-
-function stateOf(term){
-  var t=term.toLowerCase().trim();
-  var map={'colorado':'co','denver':'co','boulder':'co','aspen':'co','vail':'co',
-           'breckenridge':'co','telluride':'co','co':'co'};
-  return map[t]||null;
+function getIndex(){
+  if(IDX) return Promise.resolve(IDX);
+  return fetch('/data/index.json').then(function(r){if(!r.ok) throw 0; return r.json();}).then(function(j){IDX=j; return j;});
 }
-
-function loadShard(code){
-  if(!code || CACHE[code]) return Promise.resolve();
-  return fetch('/data/'+code+'.json')
-    .then(function(r){ if(!r.ok) throw new Error('no shard'); return r.json(); })
-    .then(function(rows){ CACHE[code]=1; LOADED=LOADED.concat(rows);
-      if(cnt) cnt.textContent=LOADED.length.toLocaleString(); })
-    .catch(function(){ CACHE[code]=1; });
+function load(codes){
+  return getIndex().then(function(idx){
+    var todo=idx.shards.filter(function(sh){return codes.indexOf(sh.code)>-1 && !LOADED[sh.code];});
+    return Promise.all(todo.map(function(sh){
+      return fetch(sh.file).then(function(r){if(!r.ok) throw 0; return r.json();}).then(function(j){
+        LOADED[sh.code]=1;
+        j.restaurants.forEach(function(r){r._h=norm([r.n,r.c,r.s,r.k,r.hood,r.award,r.addr].join(' '));});
+        ROWS=ROWS.concat(j.restaurants);
+      });
+    }));
+  });
 }
-
-function render(rows,term){
-  if(!rows.length){
+function allCodes(){return IDX?IDX.shards.map(function(s){return s.code;}):['co','hi'];}
+function uncoveredState(t){
+  var n=norm(t).trim(); if(ALIAS[n]) return null;
+  if(STATES[n]) return STATES[n];
+  for(var k in STATES){ if(norm(STATES[k])===n) return STATES[k]; }
+  return null;
+}
+function filtered(rows){
+  var a=fs?fs.value:'all', t=ft?ft.value:'all';
+  return rows.filter(function(r){return (a==='all'||r.s===a)&&(t==='all'||r.t===t);});
+}
+function rowHTML(r){
+  var links=[];
+  var page=safeUrl(r.page), web=safeUrl(r.web);
+  if(page) links.push('<a href="'+esc(page)+'">Full write-up</a>');
+  if(web) links.push('<a href="'+esc(web)+'" rel="noopener">Official site</a>');
+  (r.src||[]).slice(0,3).forEach(function(u){var s=safeUrl(u); if(s && s!==page && s!==web) links.push('<a href="'+esc(s)+'" rel="nofollow noopener">Source: '+esc(host(s))+'</a>');});
+  var sub=[r.k,r.hood].filter(Boolean).join(' · ');
+  return '<div class="rrow"><div><strong>'+esc(r.n)+'</strong>'+(sub?'<em>'+esc(sub)+'</em>':'')+
+    (r.award?'<span class="aw">'+esc(r.award)+'</span>':'')+
+    (links.length?'<span class="rl">'+links.join('')+'</span>':'')+'</div>'+
+    '<div class="loc">'+esc(r.c||'')+(r.s?', '+esc(r.s):'')+'</div>'+
+    '<div class="tier"><span class="tierbadge '+(TIERCLS[r.t]||'t-listed')+'">'+(TIERNAME[r.t]||'LISTED')+'</span>'+
+    (r.checked?'<small>Checked '+esc(r.checked)+'</small>':'')+'</div></div>';
+}
+function coverageNote(){
+  var bits=(IDX?IDX.shards:[]).map(function(s){return esc(s.name)+' ('+s.count+')';}).join(' and ');
+  return 'The records we can currently source cover '+(bits||'Colorado and Oʻahu')+'.';
+}
+function render(hits,label,extra){
+  lastHits=hits; lastLabel=label;
+  if(!hits.length){
     res.hidden=true; emp.hidden=false;
-    emp.innerHTML='<p>Nothing matching <strong>'+esc(term)+'</strong> yet. '+
-      'The directory is expanding city by city. If you run a restaurant there, '+
-      '<a href="#listme">add it free</a>.</p>';
+    emp.innerHTML='<p>No matches for <strong>'+esc(label)+'</strong>'+(fs.value!=='all'||ft.value!=='all'?' with the current filters':'')+'. '+coverageNote()+'</p>'+
+      (extra?'<p>'+extra+'</p>':'')+
+      '<ul><li>Try a town, a cuisine or an award, such as <a href="?q=Boulder">Boulder</a>, <a href="?q=ramen">ramen</a> or <a href="?q=Bib+Gourmand">Bib Gourmand</a>.</li>'+
+      '<li>Elsewhere, our guide to <a href="/how-to-find-good-food-near-you/">finding good food near you</a> explains how to search any town well.</li>'+
+      '<li>Run a restaurant? <a href="#listme">Ask to be added</a>; it is free.</li></ul>';
+    if(meta) meta.textContent='0 results for “'+label+'”.';
     return;
   }
   emp.hidden=true; res.hidden=false;
-  var out=rows.slice(0,80).map(function(r){
-    return '<div class="rrow"><div><strong>'+esc(r.n)+'</strong>'+
-      (r.k?'<em>'+esc(r.k)+'</em>':'')+'</div>'+
-      '<div class="loc">'+esc(r.c||'')+(r.s?', '+esc(r.s):'')+'</div>'+
-      '<div class="tier"><span class="tierbadge '+(TIERCLS[r.t]||'t-listed')+'">'+
-      (TIERNAME[r.t]||'LISTED')+'</span></div></div>';
-  }).join('');
-  var more = rows.length>80 ? '<p class="searchmeta">Showing 80 of '+
-      rows.length.toLocaleString()+' matches. Narrow the search to see the rest.</p>' : '';
-  res.innerHTML=out+more;
+  var out=hits.slice(0,LIMIT).map(rowHTML).join('');
+  if(hits.length>LIMIT) out+='<button type="button" class="btn btn-ghost morebtn" id="more" style="color:#fff;border-color:rgba(255,255,255,.3)">Show all '+hits.length+'</button>';
+  res.innerHTML=out;
+  var more=document.getElementById('more');
+  if(more) more.addEventListener('click',function(){LIMIT=100000; render(lastHits,lastLabel);});
+  if(meta) meta.textContent=hits.length+' result'+(hits.length===1?'':'s')+' for “'+label+'”. Awarded entries first, then A to Z.';
 }
-
-function run(){
-  var term=(qEl.value||'').trim();
-  if(term.length<2){ res.hidden=true; emp.hidden=false;
-    emp.innerHTML='<p>Type at least two characters.</p>'; return; }
-  loadShard(stateOf(term)).then(function(){
-    var t=term.toLowerCase();
-    var hits=LOADED.filter(function(r){
-      return (r.n&&r.n.toLowerCase().indexOf(t)>-1)||
-             (r.c&&r.c.toLowerCase().indexOf(t)>-1)||
-             (r.s&&r.s.toLowerCase().indexOf(t)>-1)||
-             (r.k&&r.k.toLowerCase().indexOf(t)>-1);
-    });
-    var order={a:0,f:1,c:2,l:3};
-    hits.sort(function(x,y){ return (order[x.t]||3)-(order[y.t]||3)||
-      String(x.n).localeCompare(String(y.n)); });
-    render(hits,term);
-  });
+function sortHits(h){
+  var order={a:0,f:1,g:2,c:3,l:4};
+  return h.sort(function(x,y){return (order[x.t]-order[y.t])||String(x.n).localeCompare(String(y.n));});
 }
-
-if(btn) btn.addEventListener('click',run);
-if(qEl){
-  qEl.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();run();} });
-  var pre=new URLSearchParams(location.search).get('q');
-  if(pre){ qEl.value=pre; run(); }
+function setUrl(key,val){
+  try{var u=new URL(location.href); u.searchParams.delete('q'); u.searchParams.delete('craving'); if(val) u.searchParams.set(key,val); history.replaceState({},'',u);}catch(e){}
 }
+function run(term){
+  LIMIT=60;
+  term=(term==null?qEl.value:term).trim();
+  if(term.length<2){res.hidden=true; emp.hidden=false; emp.innerHTML='<p>Type at least two characters, or pick one of the searches above.</p>'; return;}
+  setUrl('q',term);
+  load(allCodes()).then(function(){
+    var unc=uncoveredState(term);
+    if(unc && norm(term).length>2){ render([],term,'We have not loaded '+esc(unc)+' yet. We only publish restaurants we can trace to an award or published sources, so the area is empty rather than guessed.'); return; }
+    var words=norm(term).split(/\s+/).filter(Boolean);
+    var hits=filtered(ROWS).filter(function(r){return words.every(function(w){return r._h.indexOf(w)>-1;});});
+    render(sortHits(hits),term,(!hits.length&&unc)?'We have not loaded '+esc(unc)+' yet. We only publish restaurants we can trace to an award or published sources, so the area is empty rather than guessed.':'');
+  }).catch(function(){ render([],term,'The directory files did not load. Check your connection and try again.'); });
+}
+function runCraving(key){
+  var c=CRAVINGS[key]; if(!c) return run(key);
+  LIMIT=60; qEl.value=''; setUrl('craving',key);
+  load(allCodes()).then(function(){
+    var hits=filtered(ROWS).filter(function(r){var k=norm(r.k+' '+r.n); return c.terms.some(function(t){return k.indexOf(t)>-1;});});
+    render(sortHits(hits),c.label);
+  }).catch(function(){ render([],c.label,'The directory files did not load. Check your connection and try again.'); });
+}
+var lastMode=null;
+function rerun(){ if(lastMode&&lastMode.c) runCraving(lastMode.c); else if(qEl.value.trim()) run(); }
+if(form) form.addEventListener('submit',function(e){e.preventDefault(); lastMode={q:1}; run();});
+[fs,ft].forEach(function(el){ if(el) el.addEventListener('change',rerun); });
+document.querySelectorAll('.chip[data-q]').forEach(function(a){
+  a.addEventListener('click',function(e){e.preventDefault(); qEl.value=a.getAttribute('data-q'); lastMode={q:1}; run();});
+});
+emp.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a[href^="?q="]'); if(!a) return;
+  e.preventDefault(); qEl.value=decodeURIComponent(a.getAttribute('href').slice(3).replace(/\+/g,' ')); lastMode={q:1}; run();
+});
+var P=new URLSearchParams(location.search), pq=P.get('q'), pc=P.get('craving');
+if(pc){ lastMode={c:pc}; runCraving(pc); }
+else if(pq){ qEl.value=pq; lastMode={q:1}; run(pq); }
+else { getIndex().catch(function(){}); }
+})();
 
 </script>
 <script>
@@ -780,6 +884,6 @@ if(qEl){
   });
 })();
 </script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://localfoodnearme.com/#publisher","name":"Eye To Ad Media","url":"https://eyetoad.com/","telephone":"+1-800-481-8638","email":"info@eyetoad.com","address":{"@type":"PostalAddress","streetAddress":"1001 Bannock St #660","addressLocality":"Denver","addressRegion":"CO","postalCode":"80204","addressCountry":"US"},"parentOrganization":{"@type":"Organization","name":"Search Converts LLC"},"foundingDate":"2012"},{"@type":"WebSite","@id":"https://localfoodnearme.com/#website","url":"https://localfoodnearme.com/","name":"Local Food Near Me","description":"A national restaurant directory and a plain explanation of how food discovery actually works.","publisher":{"@id":"https://localfoodnearme.com/#publisher"},"inLanguage":"en-US","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://localfoodnearme.com/restaurant-directory/?q={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://localfoodnearme.com/restaurant-directory/#webpage","url":"https://localfoodnearme.com/restaurant-directory/","name":"Restaurant Directory: Search Colorado and Oʻahu","description":"Search 183 source-cited restaurants in Colorado and Oʻahu by name, town, cuisine or award. Every record names its source and last-checked date.","isPartOf":{"@id":"https://localfoodnearme.com/#website"},"datePublished":"2026-08-11","dateModified":"2026-10-11","inLanguage":"en-US","breadcrumb":{"@id":"https://localfoodnearme.com/restaurant-directory/#crumb"},"about":[{"@type":"Thing","name":"Restaurant","sameAs":"https://en.wikipedia.org/wiki/Restaurant"},{"@type":"Thing","name":"Local search","sameAs":"https://en.wikipedia.org/wiki/Local_search_(Internet)"},{"@type":"Thing","name":"Google Business Profile","sameAs":"https://en.wikipedia.org/wiki/Google_Business_Profile"}],"mentions":[{"@type":"Organization","name":"BrightLocal","url":"https://www.brightlocal.com/"},{"@type":"Organization","name":"Overture Maps Foundation","url":"https://overturemaps.org/"},{"@type":"Organization","name":"MICHELIN Guide","url":"https://guide.michelin.com/"},{"@type":"Organization","name":"James Beard Foundation","url":"https://www.jamesbeard.org/"}]},{"@type":"BreadcrumbList","@id":"https://localfoodnearme.com/restaurant-directory/#crumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Local Food Near Me","item":"https://localfoodnearme.com/"},{"@type":"ListItem","position":2,"name":"Restaurant Directory","item":"https://localfoodnearme.com/restaurant-directory/"}]},{"@type":"FAQPage","@id":"https://localfoodnearme.com/restaurant-directory/#faq","mainEntity":[{"@type":"Question","name":"How do I find restaurants near me in this directory?","acceptedAnswer":{"@type":"Answer","text":"Type a city, state or restaurant name into the search bar. The directory loads only the records for the area you search rather than the whole dataset, which keeps it fast on a phone. Results show the restaurant, its town and state, its category, any award, which tier the entry belongs to, and links to the sources behind it. You can also narrow results by area and tier."}},{"@type":"Question","name":"Is it free for a restaurant to be listed?","acceptedAnswer":{"@type":"Answer","text":"Yes. Claiming a listing costs nothing, has no trial and needs no card. If your restaurant is already in the directory you can confirm the details and they become correct; if it is not, tell us and we will add it. Featured listings, which include a written profile and a page of their own, are paid or included with our marketing work and are labelled as featured."}},{"@type":"Question","name":"Can a restaurant pay for a better position in the results?","acceptedAnswer":{"@type":"Answer","text":"No. Search results are not sold and paid listings do not outrank anything. What payment buys is a featured listing: a profile, photography, a booking link and a page of its own, marked Featured wherever it appears. The awarded tier cannot be bought at all, because those entries come from the MICHELIN Guide and the James Beard Foundation."}},{"@type":"Question","name":"Where does the directory data come from?","acceptedAnswer":{"@type":"Answer","text":"Awarded entries come from the published MICHELIN Guide Colorado 2026 selection and James Beard Foundation awards, as recorded in our Colorado and Denver guides. Guide-verified entries come from our Honolulu guide, where every restaurant is checked against at least two published sources. Claimed and featured entries are confirmed by the restaurants themselves. Imported records from the Overture Maps Foundation, an open dataset licensed for commercial use with attribution, are planned but not loaded yet."}},{"@type":"Question","name":"Why do imported listings have so little detail?","acceptedAnswer":{"@type":"Answer","text":"Because open map data carries the basics well and everything else poorly. Name, address, coordinates and category are reliable. Hours, menus, photographs and current phone numbers frequently are not. Rather than publish details we cannot stand behind, we show what is verifiable and invite the restaurant to claim the listing and fill in the rest for free."}},{"@type":"Question","name":"Does every restaurant in the directory have its own page?","acceptedAnswer":{"@type":"Answer","text":"No, deliberately. Award-verified, claimed and featured restaurants get pages because there is something real to put on them. Imported records are searchable but do not get individual pages, because generating hundreds of thousands of thin pages from open data is bad for the reader and would rightly be treated as low-quality content by search engines."}},{"@type":"Question","name":"How is this different from Google Maps or Yelp?","acceptedAnswer":{"@type":"Answer","text":"It is much smaller, and that is the point rather than an apology. Google and Yelp aim for every business. We are building a directory where the award-verified tier is genuinely selective, the claimed tier is confirmed by operators, and the whole thing sits alongside written guides for specific places. If you want exhaustive coverage of every takeaway in America, use Google. If you want to know which restaurants have been recognised by someone, this is more useful."}},{"@type":"Question","name":"How often is the directory updated?","acceptedAnswer":{"@type":"Answer","text":"The awarded tier is updated whenever MICHELIN or the James Beard Foundation publishes a selection, which is several times a year. Guide-verified records follow our Honolulu guide, which re-checks its restaurants and moves closures to a closed list. Claimed listings are updated whenever the restaurant tells us something changed. Each result shows the date its source record was last checked."}},{"@type":"Question","name":"A listing is wrong. How do I fix it?","acceptedAnswer":{"@type":"Answer","text":"Use the form on this page and select 'Correct my existing listing'. We would rather have a small directory that is right than a large one that is wrong, so corrections take priority over new listings and there is no charge for either."}},{"@type":"Question","name":"What areas does the directory cover?","acceptedAnswer":{"@type":"Answer","text":"Right now, Colorado (75 restaurants) and Oʻahu, Hawaii (108 restaurants). A search for anywhere else returns a plain note saying the area is not loaded yet, because we would rather show nothing than show listings we cannot source. Award coverage will follow the MICHELIN Guide's US regions and the James Beard Foundation's categories, and we publish written guides for other places, including several outside the United States."}}]}]}</script>
 </body>
 </html>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://localfoodnearme.com/#publisher","name":"Eye To Ad Media","url":"https://eyetoad.com/","telephone":"+1-800-481-8638","email":"info@eyetoad.com","address":{"@type":"PostalAddress","streetAddress":"1001 Bannock St #660","addressLocality":"Denver","addressRegion":"CO","postalCode":"80204","addressCountry":"US"},"parentOrganization":{"@type":"Organization","name":"Search Converts LLC"},"foundingDate":"2012"},{"@type":"WebSite","@id":"https://localfoodnearme.com/#website","url":"https://localfoodnearme.com/","name":"Local Food Near Me","description":"A national restaurant directory and a plain explanation of how food discovery actually works.","publisher":{"@id":"https://localfoodnearme.com/#publisher"},"inLanguage":"en-US","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://localfoodnearme.com/restaurant-directory/?q={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://localfoodnearme.com/restaurant-directory/#webpage","url":"https://localfoodnearme.com/restaurant-directory/","name":"Restaurant Directory | Search Local Food Near You","description":"Search a growing national restaurant directory. Award-verified entries, restaurant-claimed listings, and open map data. Free for any restaurant to claim a listing.","isPartOf":{"@id":"https://localfoodnearme.com/#website"},"datePublished":"2026-08-11","dateModified":"2026-08-11","inLanguage":"en-US","speakable":{"@type":"SpeakableSpecification","cssSelector":[".aistrip p",".answer"]},"breadcrumb":{"@id":"https://localfoodnearme.com/restaurant-directory/#crumb"},"about":[{"@type":"Thing","name":"Restaurant","sameAs":"https://en.wikipedia.org/wiki/Restaurant"},{"@type":"Thing","name":"Local search","sameAs":"https://en.wikipedia.org/wiki/Local_search_(Internet)"},{"@type":"Thing","name":"Google Business Profile","sameAs":"https://en.wikipedia.org/wiki/Google_Business_Profile"}],"mentions":[{"@type":"Organization","name":"BrightLocal","url":"https://www.brightlocal.com/"},{"@type":"Organization","name":"Overture Maps Foundation","url":"https://overturemaps.org/"},{"@type":"Organization","name":"MICHELIN Guide","url":"https://guide.michelin.com/"},{"@type":"Organization","name":"James Beard Foundation","url":"https://www.jamesbeard.org/"}]},{"@type":"BreadcrumbList","@id":"https://localfoodnearme.com/restaurant-directory/#crumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Local Food Near Me","item":"https://localfoodnearme.com/"},{"@type":"ListItem","position":2,"name":"Restaurant Directory","item":"https://localfoodnearme.com/restaurant-directory/"}]},{"@type":"FAQPage","@id":"https://localfoodnearme.com/restaurant-directory/#faq","mainEntity":[{"@type":"Question","name":"How do I find restaurants near me in this directory?","acceptedAnswer":{"@type":"Answer","text":"Type a city, state or restaurant name into the search bar. The directory loads only the records for the area you search rather than the whole dataset, which keeps it fast on a phone. Results show the restaurant, its city and state, its category, and which tier the entry belongs to."}},{"@type":"Question","name":"Is it free for a restaurant to be listed?","acceptedAnswer":{"@type":"Answer","text":"Yes. Claiming a listing costs nothing, has no trial and needs no card. If your restaurant is already in the directory you can confirm the details and they become correct; if it is not, tell us and we will add it. Featured listings, which include a written profile and a page of their own, are paid or included with our marketing work and are labelled as featured."}},{"@type":"Question","name":"Can a restaurant pay for a better position in the results?","acceptedAnswer":{"@type":"Answer","text":"No. Search results are not sold and paid listings do not outrank anything. What payment buys is a featured listing: a profile, photography, a booking link and a page of its own, marked Featured wherever it appears. The awarded tier cannot be bought at all, because those entries come from the MICHELIN Guide and the James Beard Foundation."}},{"@type":"Question","name":"Where does the directory data come from?","acceptedAnswer":{"@type":"Answer","text":"Award-verified entries come from published MICHELIN Guide and James Beard Foundation selections. Claimed and featured entries are confirmed by the restaurants themselves. Imported entries come from the Overture Maps Foundation, an open mapping dataset backed by Meta, Microsoft, Amazon and TomTom, which is licensed for commercial use with attribution and includes data from Foursquare's Open Source Places under Apache 2.0."}},{"@type":"Question","name":"Why do imported listings have so little detail?","acceptedAnswer":{"@type":"Answer","text":"Because open map data carries the basics well and everything else poorly. Name, address, coordinates and category are reliable. Hours, menus, photographs and current phone numbers frequently are not. Rather than publish details we cannot stand behind, we show what is verifiable and invite the restaurant to claim the listing and fill in the rest for free."}},{"@type":"Question","name":"Does every restaurant in the directory have its own page?","acceptedAnswer":{"@type":"Answer","text":"No, deliberately. Award-verified, claimed and featured restaurants get pages because there is something real to put on them. Imported records are searchable but do not get individual pages, because generating hundreds of thousands of thin pages from open data is bad for the reader and would rightly be treated as low-quality content by search engines."}},{"@type":"Question","name":"How is this different from Google Maps or Yelp?","acceptedAnswer":{"@type":"Answer","text":"It is much smaller, and that is the point rather than an apology. Google and Yelp aim for every business. We are building a directory where the award-verified tier is genuinely selective, the claimed tier is confirmed by operators, and the whole thing sits alongside written guides for specific places. If you want exhaustive coverage of every takeaway in America, use Google. If you want to know which restaurants have been recognised by someone, this is more useful."}},{"@type":"Question","name":"How often is the directory updated?","acceptedAnswer":{"@type":"Answer","text":"The awarded tier is updated whenever MICHELIN or the James Beard Foundation publishes a selection, which is several times a year. Claimed listings are updated whenever the restaurant tells us something changed. Imported records are refreshed when the Overture Maps Foundation publishes a new release, which is roughly monthly."}},{"@type":"Question","name":"A listing is wrong. How do I fix it?","acceptedAnswer":{"@type":"Answer","text":"Use the form on this page and select 'Correct my existing listing'. We would rather have a small directory that is right than a large one that is wrong, so corrections take priority over new listings and there is no charge for either."}},{"@type":"Question","name":"What areas does the directory cover?","acceptedAnswer":{"@type":"Answer","text":"The United States, expanding. Award-verified coverage follows the MICHELIN Guide's US regions and the James Beard Foundation's national and regional categories. Imported coverage follows the Overture Maps Foundation's US data. Alongside it we publish written guides for specific places, listed further down this page, including several outside the United States."}}]}]}</script>
