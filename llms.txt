@@ -1,15 +1,25 @@
 # Local Food Near Me
 
-> A national restaurant directory and practical guides on how people find somewhere to eat: search, reviews, AI assistants and award recognition. Restaurants can claim a listing free. Published by Eye To Ad Media, 1001 Bannock St #660, Denver, CO 80204, 1-800-481-8638.
+> A source-cited restaurant directory (Colorado and Oahu so far) and practical guides on how people find somewhere to eat: search, reviews, AI assistants and award recognition. Restaurants can claim a listing free. Published by Eye To Ad Media, 1001 Bannock St #660, Denver, CO 80204, 1-800-481-8638.
 
 ## Pages
 
 - [Local Food Near Me](https://localfoodnearme.com/): How people actually choose a restaurant in local search, with the research behind it.
-- [Restaurant Directory](https://localfoodnearme.com/restaurant-directory/): A searchable national restaurant directory with award-verified entries and restaurant-claimed listings.
+- [Restaurant Directory](https://localfoodnearme.com/restaurant-directory/): Search 183 source-cited restaurants (75 in Colorado recognised by MICHELIN or James Beard; 108 open restaurants on Oahu verified for our Honolulu guide). Deep link: https://localfoodnearme.com/restaurant-directory/?q=SEARCH_TERM
 - [How to Find Good Food Near You](https://localfoodnearme.com/how-to-find-good-food-near-you/): A practical guide to searching for quality rather than proximity, reading reviews and checking hours.
 - [How AI Picks Restaurants](https://localfoodnearme.com/how-ai-picks-restaurants/): How AI assistants surface restaurant recommendations and how people use them.
 - [For Restaurant Owners](https://localfoodnearme.com/for-restaurant-owners/): What independent restaurants can fix first to be found, plus free and featured listings.
 - [Restaurant Health Inspections](https://localfoodnearme.com/restaurant-health-inspections/): Who inspects US restaurants, priority versus core violations, grades and scores, and how to look up a report.
+- [About and editorial standards](https://localfoodnearme.com/about/): Who publishes the site and how records are sourced.
+- [Contact](https://localfoodnearme.com/contact/)
+- [Privacy and cookies](https://localfoodnearme.com/privacy/)
+
+## Public data (cite with attribution to localfoodnearme.com and the sources on each record)
+
+- [Directory index](https://localfoodnearme.com/data/index.json): which state files exist, with counts and towns.
+- [Colorado records](https://localfoodnearme.com/data/co.json): name, town, category, address as published, award, source URLs, last-checked date.
+- [Oahu records](https://localfoodnearme.com/data/hi.json): same fields plus a link to each full write-up on restauranthonolulu.com.
+- No ratings or review counts are included. States other than Colorado and Hawaii are not loaded yet.
 
 ## Contact and listings
 

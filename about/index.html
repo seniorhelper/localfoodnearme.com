@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Local Food Near Me: Who We Are and Our Standards</title>
+<meta name="description" content="Who publishes Local Food Near Me, how the restaurant directory is compiled and sourced, and the editorial rules on paid listings, ads and corrections.">
+<link rel="canonical" href="https://localfoodnearme.com/about/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#0E1B2A">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Local Food Near Me">
+<meta property="og:title" content="About Local Food Near Me: Who We Are and Our Standards">
+<meta property="og:description" content="Who publishes Local Food Near Me, how the restaurant directory is compiled and sourced, and the editorial rules on paid listings, ads and corrections.">
+<meta property="og:url" content="https://localfoodnearme.com/about/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230E1B2A'/><circle cx='16' cy='13' r='7' fill='none' stroke='%23C8F04A' stroke-width='2.5'/><path d='M16 9 v4 l3 2' stroke='%23C8F04A' stroke-width='2' fill='none' stroke-linecap='round'/><rect x='9' y='24' width='14' height='2.5' fill='%23E8913A'/></svg>">
+<meta name="google-adsense-account" content="ca-pub-3561679124556057">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3561679124556057" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;600;700&family=Literata:opsz,wght@7..72,400;7..72,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0E1B2A; --deep:#152538; --chalk:#F6F7F5; --white:#fff;
+  --lime:#C8F04A; --lime-ink:#5B7A00; --amber:#E8913A; --amber-ink:#9A5410;
+  --slate:#5A6B7C; --line:rgba(14,27,42,.14); --line-soft:rgba(14,27,42,.07);
+  --disp:'Familjen Grotesk',system-ui,sans-serif;
+  --body:'Literata',Georgia,serif;
+  --mono:'Space Mono',monospace;
+  --wrap:1160px; --hdr:0px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--chalk);color:var(--night);
+  font-family:var(--body);font-size:18px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:#1D4E89;text-underline-offset:3px}
+a:hover{color:var(--amber-ink)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+h1,h2,h3,h4{font-family:var(--disp);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin:0 0 .5em}
+h1{font-size:clamp(2.4rem,5.8vw,4.1rem);letter-spacing:-.035em}
+h2{font-size:clamp(1.8rem,3.4vw,2.6rem);margin-top:0}
+h3{font-size:clamp(1.2rem,2vw,1.45rem)}
+h4{font-size:1.05rem}
+p{margin:0 0 1.1em}
+.lede{font-size:clamp(1.1rem,1.9vw,1.3rem);line-height:1.55;font-weight:400}
+.eyebrow{font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.19em;
+  text-transform:uppercase;color:var(--amber-ink);display:block;margin-bottom:.9em}
+.eyebrow.on-dark{color:var(--lime)}
+
+/* chrome */
+.util{background:var(--night);color:var(--chalk);font-family:var(--mono);font-size:.61rem;letter-spacing:.08em}
+.util .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;min-height:34px;flex-wrap:wrap}
+.util a{color:var(--lime);text-decoration:none}
+.util a:hover{text-decoration:underline}
+.hdr{position:sticky;top:0;z-index:60;background:var(--white);border-bottom:1px solid var(--line)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:72px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--night);flex-shrink:0}
+.brand svg{display:block;width:36px;height:36px;flex-shrink:0}
+.brand-tx{font-family:var(--disp);font-weight:700;font-size:1.1rem;letter-spacing:-.035em;line-height:1.05}
+.brand-tx span{display:block;font-family:var(--mono);font-size:.5rem;font-weight:400;letter-spacing:.16em;
+  color:var(--slate);text-transform:uppercase;margin-top:3px}
+.nav{display:flex;gap:22px;align-items:center}
+.nav a{font-family:var(--disp);font-weight:600;font-size:.93rem;text-decoration:none;color:var(--night)}
+.nav a:hover,.nav a[aria-current]{color:var(--amber-ink)}
+.hdr-right{display:flex;align-items:center;gap:12px}
+.btn{display:inline-block;font-family:var(--disp);font-weight:700;font-size:.92rem;background:var(--night);
+  color:var(--white);padding:11px 20px;border-radius:3px;text-decoration:none;border:none;cursor:pointer}
+.btn:hover{background:var(--amber-ink);color:var(--white)}
+.btn-lime{background:var(--lime);color:var(--night)}
+.btn-lime:hover{background:var(--night);color:var(--lime)}
+.btn-ghost{background:transparent;color:var(--night);border:1px solid var(--line)}
+.btn-ghost:hover{background:var(--night);color:var(--white)}
+.burger{display:none;background:none;border:1px solid var(--line);width:44px;height:40px;cursor:pointer;
+  align-items:center;justify-content:center;flex-direction:column;gap:4px;border-radius:3px}
+.burger span{display:block;width:19px;height:2px;background:var(--night)}
+.mobnav{display:none;position:fixed;left:0;right:0;top:var(--hdr);bottom:0;z-index:55;background:var(--white);
+  overflow-y:auto;padding:24px 24px 60px}
+.mobnav.open{display:block}
+.mobnav a{display:block;font-family:var(--disp);font-weight:600;font-size:1.18rem;padding:14px 0;
+  border-bottom:1px solid var(--line-soft);text-decoration:none;color:var(--night)}
+
+.aistrip{background:var(--night);color:var(--chalk);padding:20px 0}
+.aistrip .wrap{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap}
+.aistrip .tag{font-family:var(--mono);font-size:.57rem;letter-spacing:.17em;color:var(--lime);
+  text-transform:uppercase;padding-top:5px;flex-shrink:0}
+.aistrip p{margin:0;font-size:1rem;line-height:1.55;flex:1;min-width:260px}
+
+section{padding:60px 0}
+.band{background:var(--night);color:var(--chalk)}
+.band h2,.band h3,.band h4{color:var(--white)}
+.band a{color:var(--lime)}
+.band a.btn{color:var(--white)}
+.band a.btn-lime{color:var(--night)}
+.band a.btn-lime:hover{background:var(--white);color:var(--night)}
+.band a.btn:hover{background:var(--lime);color:var(--night)}
+.band-soft{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cols2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:42px}
+.cols3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px}
+.narrow{max-width:68ch}
+
+.answer{border-left:4px solid var(--amber);background:var(--white);padding:20px 24px;margin:0 0 28px;font-size:1.03rem}
+.band .answer{background:rgba(255,255,255,.06);border-left-color:var(--lime)}
+.answer p:last-child{margin-bottom:0}
+.answer .q{font-family:var(--disp);font-weight:700;font-size:1.1rem;display:block;margin-bottom:.45em;letter-spacing:-.02em}
+
+/* the clock -- signature element */
+.clock{display:block;max-width:420px;margin:0 auto}
+.clock .track{fill:none;stroke:rgba(255,255,255,.16);stroke-width:14}
+.clock .fill{fill:none;stroke:var(--lime);stroke-width:14;stroke-linecap:round;
+  transform:rotate(-90deg);transform-origin:center}
+.clock .big{font-family:var(--disp);font-weight:700;font-size:64px;fill:#fff;text-anchor:middle}
+.clock .sub{font-family:var(--mono);font-size:12px;letter-spacing:2px;fill:var(--lime);text-anchor:middle}
+
+/* shortlist slots */
+.slots{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:26px 0}
+.slot3{width:104px;height:74px;border:2px solid var(--lime);border-radius:4px;display:flex;
+  align-items:center;justify-content:center;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;
+  color:var(--lime);text-align:center;padding:6px}
+.slot3.empty{border-style:dashed;border-color:rgba(255,255,255,.28);color:rgba(255,255,255,.45)}
+
+/* stat blocks */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:22px;margin:28px 0}
+.stat b{display:block;font-family:var(--disp);font-weight:700;font-size:clamp(2rem,4.4vw,2.9rem);
+  letter-spacing:-.04em;line-height:1;color:var(--amber-ink)}
+.band .stat b{color:var(--lime)}
+.stat span{display:block;font-size:.9rem;margin-top:8px;line-height:1.35}
+
+table.data{width:100%;border-collapse:collapse;font-size:.94rem;margin:0 0 12px}
+table.data caption{text-align:left;font-family:var(--mono);font-size:.59rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--amber-ink);padding-bottom:11px}
+table.data th{font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;
+  text-align:left;border-bottom:2px solid var(--night);padding:9px 12px 9px 0;font-weight:400;color:var(--slate)}
+table.data td{padding:11px 12px 11px 0;border-bottom:1px solid var(--line-soft);vertical-align:top}
+table.data td.fig{font-family:var(--mono);font-size:.85rem;font-weight:700;white-space:nowrap}
+.band table.data caption{color:var(--lime)}
+.band table.data th{color:var(--lime);border-bottom-color:var(--lime)}
+.band table.data td{border-bottom-color:rgba(255,255,255,.14)}
+
+.card{background:var(--white);border:1px solid var(--line);padding:26px}
+.band .card{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.16)}
+.card .kv{font-family:var(--mono);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--amber-ink);display:block;margin-bottom:.7em}
+.band .card .kv{color:var(--lime)}
+.card p:last-child{margin-bottom:0}
+
+/* source pill */
+.src{font-family:var(--mono);font-size:.58rem;letter-spacing:.06em;color:var(--slate);display:block;margin-top:10px}
+.band .src{color:rgba(255,255,255,.6)}
+
+/* ads */
+.ad{border:1px solid var(--line);background:var(--white);padding:26px 28px;margin:44px 0;
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:26px;align-items:center;position:relative;overflow:hidden}
+.ad-dark{background:var(--night);border-color:var(--night);color:var(--chalk)}
+.ad-dark h3{color:var(--white)}
+.ad .kv{font-family:var(--mono);font-size:.55rem;letter-spacing:.19em;text-transform:uppercase;
+  color:var(--amber-ink);display:block;margin-bottom:.6em}
+.ad-dark .kv{color:var(--lime)}
+.ad h3{margin-bottom:.35em}
+.ad p{margin-bottom:0;font-size:.97rem}
+.ad-dark .btn{background:var(--lime);color:var(--night)}
+.ad-dark .btn:hover{background:var(--white)}
+.ad-scan{position:absolute;left:0;top:0;height:3px;width:100%;
+  background:linear-gradient(90deg,transparent,var(--lime),transparent);animation:scan 5.5s linear infinite}
+@keyframes scan{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.ad-kicker{font-family:var(--mono);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--slate);margin-top:14px}
+.ad-dark .ad-kicker{color:var(--lime)}
+
+/* open inventory + featured demo */
+.slotbox{border:2px dashed var(--amber);background:rgba(232,145,58,.06);padding:30px 28px;margin:44px 0;text-align:center}
+.slotbox .kv{font-family:var(--mono);font-size:.55rem;letter-spacing:.19em;text-transform:uppercase;
+  color:var(--amber-ink);display:block;margin-bottom:.8em}
+.slotbox p{max-width:62ch;margin:0 auto 1.2em}
+.open-frame{border:2px dashed var(--amber);background:repeating-linear-gradient(45deg,rgba(232,145,58,.06) 0 12px,transparent 12px 24px);
+  padding:34px 20px;margin:0 auto 20px;max-width:620px}
+.of-mark{display:block;font-family:var(--disp);font-weight:700;font-size:clamp(1.5rem,4vw,2.2rem);
+  letter-spacing:-.03em;color:var(--amber-ink)}
+.of-sub{display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--slate);margin-top:8px}
+.demo-card{display:grid;grid-template-columns:110px minmax(0,1fr);gap:18px;text-align:left;background:var(--white);
+  border:1px solid var(--line);padding:20px;margin:0 auto 22px;max-width:620px;position:relative}
+.demo-badge{position:absolute;top:-11px;left:20px;background:var(--amber);color:var(--night);
+  font-family:var(--mono);font-size:.52rem;letter-spacing:.2em;padding:5px 9px;border-radius:3px;font-weight:700}
+.demo-thumb{color:var(--amber);background:var(--chalk);border:1px dashed var(--line);
+  display:flex;align-items:center;justify-content:center;padding:8px}
+.demo-body strong{font-family:var(--disp);font-weight:700;font-size:1.15rem;display:block;color:#9BA5AF}
+.demo-body em{font-style:normal;font-family:var(--mono);font-size:.6rem;letter-spacing:.09em;color:#9BA5AF;
+  display:block;margin:5px 0 10px;text-transform:uppercase}
+.demo-body p{font-size:.92rem;margin:0;color:var(--slate)}
+
+/* FAQ */
+details{border-bottom:1px solid var(--line);padding:0}
+details summary{cursor:pointer;padding:19px 40px 19px 0;position:relative;list-style:none;
+  font-family:var(--disp);font-weight:600;font-size:1.05rem}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";position:absolute;right:8px;top:50%;transform:translateY(-50%);
+  font-family:var(--mono);font-size:1.2rem;color:var(--amber-ink)}
+details[open] summary::after{content:"\2212"}
+details .ans{padding:0 40px 20px 0}
+details .ans p:last-child{margin-bottom:0}
+
+/* form */
+.form-wrap{background:var(--white);border:1px solid var(--line);padding:32px}
+.field{margin-bottom:17px}
+.field label{display:block;font-family:var(--mono);font-size:.57rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--slate);margin-bottom:7px}
+.field input,.field select,.field textarea{width:100%;padding:12px 13px;border:1px solid var(--line);
+  background:var(--chalk);font-family:var(--body);font-size:1rem;color:var(--night);border-radius:3px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--amber);outline:none;background:var(--white)}
+.field textarea{min-height:110px;resize:vertical}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+.formnote{font-size:.85rem;color:var(--slate);margin-top:14px}
+#fstatus{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;margin-top:15px;display:none;padding:12px 14px;border-radius:3px}
+#fstatus.ok{display:block;background:rgba(91,122,0,.13);color:var(--lime-ink)}
+#fstatus.warn{display:block;background:rgba(232,145,58,.15);color:var(--amber-ink)}
+#fstatus.bad{display:block;background:rgba(232,145,58,.22);color:var(--amber-ink)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+
+/* directory search */
+.searchbar{background:var(--white);border:2px solid var(--night);border-radius:4px;display:flex;
+  align-items:center;gap:10px;padding:6px 6px 6px 16px;max-width:640px}
+.searchbar input{flex:1;border:none;outline:none;background:transparent;font-family:var(--body);
+  font-size:1.05rem;color:var(--night);padding:10px 0;min-width:0}
+.searchbar .btn{flex-shrink:0;white-space:nowrap}
+.searchmeta{font-family:var(--mono);font-size:.63rem;letter-spacing:.09em;color:var(--slate);margin-top:12px}
+.results{margin-top:26px;border-top:2px solid var(--night)}
+.rrow{display:grid;grid-template-columns:minmax(0,1fr) 130px 110px;gap:16px;align-items:baseline;
+  padding:15px 0;border-bottom:1px solid var(--line-soft)}
+.rrow strong{font-family:var(--disp);font-weight:700;font-size:1.08rem;display:block}
+.rrow em{font-style:normal;font-size:.88rem;color:var(--slate);display:block;margin-top:3px}
+.rrow .loc{font-family:var(--mono);font-size:.65rem;letter-spacing:.04em}
+.rrow .tier{font-family:var(--mono);font-size:.56rem;letter-spacing:.07em;text-align:right}
+.tierbadge{display:inline-block;padding:4px 7px;border-radius:3px;font-weight:700;white-space:nowrap}
+.t-awarded{background:var(--night);color:var(--lime)}
+.t-featured{background:var(--amber);color:var(--night)}
+.t-claimed{background:var(--white);border:1px solid var(--line);color:var(--night)}
+.t-listed{background:var(--chalk);border:1px solid var(--line);color:var(--slate)}
+.emptystate{padding:34px 0;font-size:1rem;color:var(--slate)}
+/* results rendered inside the dark hero band */
+.band .results{border-top-color:var(--lime)}
+.band .rrow{border-bottom-color:rgba(255,255,255,.15)}
+.band .rrow:hover{background:rgba(255,255,255,.04)}
+.band .rrow strong{color:#fff}
+.band .rrow em{color:rgba(255,255,255,.62)}
+.band .rrow .loc{color:rgba(255,255,255,.82)}
+.band .emptystate{color:rgba(255,255,255,.78)}
+.band .searchmeta{color:rgba(255,255,255,.72)}
+.band .t-awarded{background:var(--lime);color:var(--night)}
+.band .t-featured{background:var(--amber);color:var(--night)}
+.band .t-claimed{background:transparent;border-color:rgba(255,255,255,.34);color:#fff}
+.band .t-listed{background:transparent;border-color:rgba(255,255,255,.22);color:rgba(255,255,255,.72)}
+
+footer{background:var(--night);color:var(--chalk);padding:58px 0 32px;font-size:.9rem}
+footer h4{font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:400;color:var(--lime);margin-bottom:1.1em}
+footer a{color:var(--chalk);text-decoration:none}
+footer a:hover{color:var(--lime);text-decoration:underline}
+footer ul{list-style:none;margin:0;padding:0}
+footer li{margin-bottom:9px;line-height:1.4}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:36px;margin-bottom:42px}
+.fbase{border-top:1px solid rgba(255,255,255,.16);padding-top:24px;display:flex;justify-content:space-between;
+  gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:.58rem;letter-spacing:.08em}
+.attrib{font-family:var(--mono);font-size:.56rem;letter-spacing:.05em;color:rgba(255,255,255,.55);
+  margin-top:18px;line-height:1.6;max-width:80ch}
+
+@media(max-width:900px){.rrow{grid-template-columns:minmax(0,1fr) 100px}.rrow .tier{grid-column:2;text-align:left;margin-top:5px}}
+@media(max-width:768px){
+  body{font-size:17px}
+  .nav{display:none}
+  .hdr-right{display:none}
+  .burger{display:flex}
+  section{padding:44px 0}
+  .ad{grid-template-columns:1fr;gap:18px}
+  .f2{grid-template-columns:1fr}
+  .demo-card{grid-template-columns:1fr}
+  .rrow{grid-template-columns:1fr}
+  .rrow .loc,.rrow .tier{grid-column:1;margin-top:4px}
+  .searchbar{flex-wrap:wrap}
+  .searchbar .btn{width:100%}
+}
+@media(max-width:430px){.wrap{padding:0 17px}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+@media print{.hdr,.util,.mobnav,.ad,.slotbox,footer{display:none}}
+
+/* directory filters, chips, result details, craving tiles (2026-10) */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;max-width:760px}
+.chip{display:inline-block;font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;padding:7px 11px;border:1px solid rgba(255,255,255,.28);border-radius:999px;color:#fff;text-decoration:none;background:transparent;cursor:pointer}
+.chip:hover,.chip:focus-visible{background:var(--lime);color:var(--night);border-color:var(--lime)}
+.band a.chip{color:#fff}.band a.chip:hover{color:var(--night)}
+.filters{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:16px;align-items:center}
+.filters label{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;color:rgba(255,255,255,.75);display:flex;gap:8px;align-items:center}
+.filters select{font:inherit;font-family:var(--body);font-size:.9rem;letter-spacing:0;padding:7px 10px;border-radius:4px;border:1px solid rgba(255,255,255,.3);background:var(--deep);color:#fff}
+.rrow .aw{display:block;font-size:.84rem;margin-top:4px;color:var(--lime)}
+.rrow .rl{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px;font-family:var(--mono);font-size:.62rem;letter-spacing:.04em}
+.rrow .rl a{color:rgba(255,255,255,.85);text-decoration:underline;text-underline-offset:2px}
+.rrow .rl a:hover{color:var(--lime)}
+.rrow .tier small{display:block;margin-top:6px;color:rgba(255,255,255,.55);font-size:.56rem}
+.t-guide{background:transparent;border:1px solid var(--lime);color:var(--lime)}
+.band .t-guide{background:transparent;border:1px solid var(--lime);color:var(--lime)}
+table.data .t-guide{color:var(--lime-ink);border-color:var(--lime-ink)}
+.morebtn{margin-top:18px}
+.emptystate a{color:var(--lime)}
+.emptystate ul{margin:.6em 0 0 1.1em}
+.crave-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-top:28px}
+@media(min-width:700px){.crave-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}}
+.crave{display:block;background:var(--white);border:1px solid var(--line);text-decoration:none;color:var(--night);transition:transform .15s ease,box-shadow .15s ease}
+.crave:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(14,27,42,.12)}
+.crave picture,.crave img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.crave span{display:block;padding:12px 14px 14px}
+.crave strong{font-family:var(--disp);font-size:1.05rem;display:block}
+.crave em{font-style:normal;font-family:var(--mono);font-size:.62rem;letter-spacing:.05em;color:var(--slate)}
+.photo-note{font-size:.8rem;color:var(--slate);margin-top:14px}
+.srcgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:22px;margin-top:22px}
+@media(max-width:768px){.rrow .tier small{display:inline;margin-left:8px}}
+</style>
+</head>
+<body>
+<div class="util">
+  <div class="wrap">
+    <span>A NATIONAL FOOD DIRECTORY &nbsp;/&nbsp; PUBLISHED BY EYE TO AD MEDIA</span>
+    <span>RESTAURANT OWNERS: <a href="/contact/#listme">GET LISTED FREE</a></span>
+  </div>
+</div>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Local Food Near Me home">
+      <svg viewBox="0 0 48 48" role="img" aria-label="Local Food Near Me">
+        <rect width="48" height="48" rx="4" fill="#0E1B2A"/>
+        <circle cx="24" cy="20" r="11" fill="none" stroke="#C8F04A" stroke-width="3.4"/>
+        <path d="M24 13 v7 l5 3" stroke="#C8F04A" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <rect x="13" y="37" width="22" height="3.6" rx="1" fill="#E8913A"/>
+      </svg>
+      <span class="brand-tx">Local Food Near Me<span>National restaurant directory</span></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/restaurant-directory/">Directory</a>
+      <a href="/how-to-find-good-food-near-you/">Find food</a>
+      <a href="/how-ai-picks-restaurants/">AI picks</a>
+      <a href="/for-restaurant-owners/">For owners</a>
+    </nav>
+    <div class="hdr-right"><a class="btn" href="/contact/#listme">List a restaurant</a></div>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobnav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobnav" id="mobnav">
+  <a href="/">Home</a>
+  <a href="/restaurant-directory/">The restaurant directory</a>
+  <a href="/how-to-find-good-food-near-you/">How to find good food near you</a>
+  <a href="/how-ai-picks-restaurants/">How AI picks restaurants</a>
+  <a href="/for-restaurant-owners/">For restaurant owners</a>
+  <a href="/contact/#listme">List a restaurant</a>
+</div>
+
+<section class="hero" style="padding:52px 0 20px">
+  <div class="wrap">
+    <span class="eyebrow">About this site</span>
+    <h1>Who runs Local Food Near Me, and how.</h1>
+    <p class="lede narrow">A small restaurant directory with a rule: every entry traces to an award, a published source or the restaurant itself. Here is who is behind it and the standards it is held to.</p>
+  </div>
+</section>
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="cols2">
+      <div>
+        <h2>Who publishes it</h2>
+        <p>Local Food Near Me is published by Eye To Ad Media, a Denver search marketing agency operating since 2012 under Search Converts LLC, at 1001 Bannock St #660, Denver, CO 80204. The same team writes city restaurant guides, including the <a href="https://bestrestaurantcolorado.com/">Colorado award register</a>, the <a href="https://bestrestaurantdenver.com/">Denver guide</a> and <a href="https://restauranthonolulu.com/">Restaurant Honolulu</a>, which is where most of this directory&rsquo;s records come from.</p>
+        <p>The site has two jobs. It explains, with named research, how people actually decide where to eat. And it runs a searchable directory that currently holds 183 restaurants in Colorado and Oʻahu, Hawaii.</p>
+        <h2 style="margin-top:34px">How the directory is compiled</h2>
+        <p>Colorado records come from the MICHELIN Guide Colorado 2026 selection and James Beard Foundation recognition. Oʻahu records come from the Restaurant Honolulu dataset, where every open restaurant is checked against at least two published sources and dated, and closed places are moved off the open list. Each search result links to its sources and shows the date it was last checked.</p>
+        <p>We do not copy ratings or review counts from other websites, and we do not publish opening hours or phone numbers we have not confirmed. States we have not compiled are left empty, and the search says so, rather than filled with guesses.</p>
+      </div>
+      <div>
+        <h2>Editorial standards</h2>
+        <p><strong>Nothing invented.</strong> No made-up listings, reviews, prices or awards. If we cannot source it, it does not go on the page.</p>
+        <p><strong>Paid is labelled.</strong> Featured listings are paid or included with our marketing work, and are marked Featured wherever they appear. Advertising, including ads served by Google, is labelled and kept apart from directory results. Nobody can buy search position or a place in the awarded tier.</p>
+        <p><strong>Corrections first.</strong> If a record is wrong, a correction goes ahead of any new listing, and there is no charge for either. Use the <a href="/contact/">contact page</a>.</p>
+        <p><strong>Research is cited.</strong> Consumer figures come from BrightLocal&rsquo;s 2026 surveys and search volumes from Google Keyword Planner, named beside each figure.</p>
+        <p><strong>Photos are representative.</strong> Food photographs on this site are licensed stock images from Pexels. They show the kind of dish, not a dish from any listed restaurant.</p>
+        <div class="answer" style="margin-top:26px">
+          <span class="q">Can a restaurant pay to be listed higher?</span>
+          <p>No. Results are ordered by tier and then alphabetically, and the awarded tier simply records what the MICHELIN Guide and the James Beard Foundation have published. Payment buys a labelled featured listing, never position.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>This site</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/restaurant-directory/">The restaurant directory</a></li>
+          <li><a href="/how-to-find-good-food-near-you/">How to find good food near you</a></li>
+          <li><a href="/how-ai-picks-restaurants/">How AI picks restaurants</a></li>
+          <li><a href="/for-restaurant-owners/">For restaurant owners</a></li>
+          <li><a href="/restaurant-health-inspections/">Reading a health inspection</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About this site</h4>
+        <ul>
+          <li><a href="/about/">About &amp; editorial standards</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy/">Privacy &amp; cookies</a></li>
+          <li><a href="/restaurant-directory/#sources">Directory data &amp; sources</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>For restaurants</h4>
+        <ul>
+          <li><a href="/contact/#listme">Claim a free listing</a></li>
+          <li><a href="/contact/#listme">Featured listings</a></li>
+          <li><a href="https://eyetoad.com/">Search &amp; AI visibility</a></li>
+          <li><a href="https://mysaleshelp.com/">Server sales training</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Published by</h4>
+        <ul>
+          <li><a href="https://eyetoad.com/">Eye To Ad Media</a></li>
+          <li>1001 Bannock St #660<br>Denver, CO 80204</li>
+          <li><a href="tel:+18004818638">1-800-481-8638</a></li>
+          <li><a class="eml" href="/contact/#listme" data-a="aW5mbw==" data-b="ZXlldG9hZC5jb20=">Email us</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="attrib">Consumer research figures on this site are from BrightLocal's Consumer Search Behavior 2026 (representative panel of 1,227 US consumers) and Local Consumer Review Survey 2026 (1,002 US adults), used with attribution. Search volume figures are from Google Keyword Planner, United States, July 2025 to June 2026, retrieved 11 August 2026, and are reported as ranges because that is how the tool reports them. Directory records are compiled from the MICHELIN Guide, the James Beard Foundation and our own source-cited city guides, and every record names its sources. Imported records from the Overture Maps Foundation are planned, not yet loaded, and will carry its licence terms when added. Food photographs are representative stock images licensed from Pexels and were not taken at any listed restaurant.</p>
+    <div class="fbase">
+      <span>&copy; 2026 EYE TO AD MEDIA &nbsp;/&nbsp; SEARCH CONVERTS LLC</span>
+      <span>DATA LAST VERIFIED 11 AUGUST 2026</span>
+    </div>
+  </div>
+</footer>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://localfoodnearme.com/#publisher","name":"Eye To Ad Media","url":"https://eyetoad.com/","telephone":"+1-800-481-8638","address":{"@type":"PostalAddress","streetAddress":"1001 Bannock St #660","addressLocality":"Denver","addressRegion":"CO","postalCode":"80204","addressCountry":"US"},"parentOrganization":{"@type":"Organization","name":"Search Converts LLC"}},{"@type":"AboutPage","@id":"https://localfoodnearme.com/about/#webpage","url":"https://localfoodnearme.com/about/","name":"About Local Food Near Me: Who We Are and Our Standards","description":"Who publishes Local Food Near Me, how the restaurant directory is compiled and sourced, and the editorial rules on paid listings, ads and corrections.","isPartOf":{"@type":"WebSite","@id":"https://localfoodnearme.com/#website","url":"https://localfoodnearme.com/","name":"Local Food Near Me"},"publisher":{"@id":"https://localfoodnearme.com/#publisher"},"dateModified":"2026-10-11","inLanguage":"en-US"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Local Food Near Me","item":"https://localfoodnearme.com/"},{"@type":"ListItem","position":2,"name":"About","item":"https://localfoodnearme.com/about/"}]}]}</script><script>
+function measureHeader(){var h=document.getElementById('hdr');
+  if(h){document.documentElement.style.setProperty('--hdr',h.getBoundingClientRect().height+'px');}}
+window.addEventListener('load',measureHeader);
+window.addEventListener('resize',measureHeader);
+measureHeader();
+
+var burger=document.getElementById('burger'),mobnav=document.getElementById('mobnav');
+burger.addEventListener('click',function(){
+  var open=mobnav.classList.toggle('open');
+  burger.setAttribute('aria-expanded',open?'true':'false');
+  burger.setAttribute('aria-label',open?'Close menu':'Open menu');
+  document.body.style.overflow=open?'hidden':'';
+  measureHeader();
+});
+mobnav.addEventListener('click',function(e){
+  if(e.target.tagName==='A'){mobnav.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');document.body.style.overflow='';}
+});
+
+</script>
+<script>
+/* Lead form: FormSubmit AJAX, address assembled at runtime */
+(function(){
+  document.querySelectorAll('a.eml[data-a]').forEach(function(a){
+    var e = atob(a.getAttribute('data-a')) + String.fromCharCode(64) + atob(a.getAttribute('data-b'));
+    a.href = 'mailto:' + e; a.textContent = e;
+  });
+  var form = document.getElementById('adform');
+  if(!form) return;
+  var loadedAt = Date.now();
+  var btn = form.querySelector('[type="submit"]');
+  var label = btn ? btn.textContent : '';
+  function show(ok, text){
+    var m = document.getElementById('fstatus'); if(!m) return;
+    m.className = ok ? 'ok' : 'bad'; m.textContent = text;
+  }
+  function addr(){ return atob(form.getAttribute('data-a')) + String.fromCharCode(64) + atob(form.getAttribute('data-b')); }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var hp = form.querySelectorAll('input[name="_honey"]');
+    for(var i = 0; i < hp.length; i++){ if(hp[i].value.trim() !== '') return; }
+    if(Date.now() - loadedAt < 3500){ show(false, 'Give the form a moment, then send again.'); return; }
+    var req = form.querySelectorAll('[required]');
+    for(var j = 0; j < req.length; j++){
+      var el = req[j], v = (el.value || '').trim();
+      if(!v || (el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))){
+        show(false, 'Please fill in every required field.'); el.focus(); return;
+      }
+    }
+    var ph = form.querySelector('[name="phone"]');
+    if(ph && ph.value.replace(/\D/g, '').length < 10){ show(false, 'A phone number with at least 10 digits, please.'); ph.focus(); return; }
+    var SPAM = /\b(seo services|guest post|backlink|crypto|casino|loan offer|viagra|escort|bitcoin investment)\b/i;
+    var mm = form.querySelector('[name="message"]');
+    if(mm && SPAM.test(mm.value)){ show(false, 'This message was blocked by the spam filter.'); return; }
+    if(btn){ btn.disabled = true; btn.textContent = 'Sending\u2026'; }
+    var data = new FormData(form);
+    fetch('https://formsubmit.co/ajax/' + addr(), {method:'POST', headers:{Accept:'application/json'}, body:data})
+      .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+      .then(function(j){
+        if(j && (j.success === false || j.success === 'false')) throw 0;
+        show(true, "Sent. We'll get back to you shortly.");
+        form.reset();
+      })
+      .catch(function(){ show(false, 'That did not go through. Please call 1-800-481-8638.'); })
+      .then(function(){ if(btn){ btn.disabled = false; btn.textContent = label; } });
+  });
+})();
+</script>
+</body>
+</html>

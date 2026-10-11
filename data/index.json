@@ -1,0 +1,52 @@
+{
+ "generated": "2026-10-10",
+ "shards": [
+  {
+   "code": "co",
+   "state": "CO",
+   "name": "Colorado",
+   "file": "/data/co.json",
+   "count": 75,
+   "cities": [
+    "Denver",
+    "Boulder",
+    "Aspen",
+    "Aurora",
+    "Breckenridge",
+    "Colorado Springs",
+    "Telluride",
+    "Vail",
+    "Avon",
+    "Beaver Creek",
+    "Edgewater",
+    "Grand Junction",
+    "Lyons",
+    "Parker"
+   ],
+   "guides": [
+    "https://bestrestaurantcolorado.com/",
+    "https://bestrestaurantdenver.com/"
+   ]
+  },
+  {
+   "code": "hi",
+   "state": "HI",
+   "name": "Oʻahu, Hawaii",
+   "file": "/data/hi.json",
+   "count": 108,
+   "cities": [
+    "Honolulu",
+    "Haleiwa",
+    "Kailua",
+    "Aiea",
+    "Kahuku",
+    "Kaneohe",
+    "Kapolei",
+    "Waipahu"
+   ],
+   "guides": [
+    "https://restauranthonolulu.com/"
+   ]
+  }
+ ]
+}
